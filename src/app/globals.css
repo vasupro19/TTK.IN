@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfcfb;
+  --foreground: #0d1b1e;
+
+  /* Brand: deep teal (trust, nature, water) */
+  --color-brand-50: #eefbf6;
+  --color-brand-100: #d5f5e9;
+  --color-brand-200: #aeead6;
+  --color-brand-300: #78d9bd;
+  --color-brand-400: #43bfa0;
+  --color-brand-500: #23a184;
+  --color-brand-600: #16816a;
+  --color-brand-700: #146656;
+  --color-brand-800: #135146;
+  --color-brand-900: #0e3a33;
+  --color-brand-950: #08211d;
+
+  /* Accent: warm sunset coral (CTAs, highlights) */
+  --color-sunset-50: #fff4ed;
+  --color-sunset-100: #ffe6d5;
+  --color-sunset-200: #ffc9a8;
+  --color-sunset-300: #ffa470;
+  --color-sunset-400: #ff7a3d;
+  --color-sunset-500: #fa5a1e;
+  --color-sunset-600: #eb4110;
+  --color-sunset-700: #c22f0e;
+  --color-sunset-800: #9a2814;
+  --color-sunset-900: #7c2414;
+
+  /* Ink: deep navy for dark sections/footer */
+  --color-ink-900: #071019;
+  --color-ink-800: #0b1723;
+  --color-ink-700: #10202f;
+  --color-ink-600: #17303f;
+
+  --color-sand-50: #fdfcfb;
+  --color-sand-100: #f7f3ee;
+  --color-sand-200: #efe7db;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+  --color-brand-950: var(--color-brand-950);
+
+  --color-sunset-50: var(--color-sunset-50);
+  --color-sunset-100: var(--color-sunset-100);
+  --color-sunset-200: var(--color-sunset-200);
+  --color-sunset-300: var(--color-sunset-300);
+  --color-sunset-400: var(--color-sunset-400);
+  --color-sunset-500: var(--color-sunset-500);
+  --color-sunset-600: var(--color-sunset-600);
+  --color-sunset-700: var(--color-sunset-700);
+  --color-sunset-800: var(--color-sunset-800);
+  --color-sunset-900: var(--color-sunset-900);
+
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-600: var(--color-ink-600);
+
+  --color-sand-50: var(--color-sand-50);
+  --color-sand-100: var(--color-sand-100);
+  --color-sand-200: var(--color-sand-200);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(8px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: white;
+}
+
+/* Thin, brand-colored scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-200);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-400);
+}
+
+/* Reveal-on-scroll: opacity/transform toggled by the Reveal client component.
+   Defaults to visible; JS opts a mounted client into the hidden pre-animation
+   state, so content stays visible with JS disabled or motion reduced. */
+.js-reveal-enabled [data-reveal] {
+  opacity: 0;
+}
+[data-reveal].is-visible {
+  animation: var(--animate-fade-up);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
 }
