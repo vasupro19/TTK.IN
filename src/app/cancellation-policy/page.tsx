@@ -19,7 +19,7 @@ export default function CancellationPolicyPage() {
   return (
     <Container className="max-w-3xl py-14">
       <h1 className="font-display text-3xl font-extrabold text-ink-900">Cancellation Policy</h1>
-      <p className="mt-2 text-sm text-ink-600/60">Last updated: January 2026</p>
+      <p className="mt-2 text-sm text-ink-600/60">Last updated: September 2026</p>
 
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-ink-700">
         <p>
