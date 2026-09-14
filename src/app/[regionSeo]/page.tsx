@@ -25,9 +25,16 @@ function regionFromParam(regionSeo: string) {
   return regions.find((r) => r.seoPath === `/${regionSeo}`);
 }
 
+/**
+ * Himachal has a dedicated, much deeper landing page at
+ * /himachal-tour-packages, so it is excluded here to avoid two routes
+ * claiming the same path.
+ */
+const DEDICATED_LANDING_PAGES = new Set(["himachal"]);
+
 export function generateStaticParams() {
   return regions
-    .filter((r) => r.seoPath)
+    .filter((r) => r.seoPath && !DEDICATED_LANDING_PAGES.has(r.slug))
     .map((r) => ({ regionSeo: r.seoPath!.replace(/^\//, "") }));
 }
 

@@ -11,7 +11,7 @@ import { createLead, type LeadInput } from "@/lib/api/leads";
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
-  let body: Partial<LeadInput> & { travellers?: string | number };
+  let body: Partial<LeadInput> & { travellers?: string | number; nights?: string | number };
   try {
     body = await request.json();
   } catch {
@@ -25,6 +25,7 @@ export async function POST(request: Request) {
     destination: String(body.destination ?? ""),
     travelDate: body.travelDate ? String(body.travelDate) : undefined,
     travellers: Number(body.travellers ?? 2),
+    nights: body.nights ? Number(body.nights) : undefined,
     budget: body.budget ? String(body.budget) : undefined,
     message: body.message ? String(body.message) : undefined,
     packageSlug: body.packageSlug ? String(body.packageSlug) : undefined,

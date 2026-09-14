@@ -23,6 +23,7 @@ export interface LeadInput {
   destination: string;
   travelDate?: string;
   travellers?: number;
+  nights?: number;
   budget?: string;
   message?: string;
   packageSlug?: string;
@@ -58,6 +59,7 @@ export async function createLead(input: LeadInput): Promise<ServiceResult<Lead>>
     destination: input.destination.trim(),
     travelDate: input.travelDate || undefined,
     travellers: input.travellers ?? 2,
+    nights: input.nights && input.nights > 0 ? input.nights : undefined,
     budget: input.budget || undefined,
     message: input.message?.trim() || undefined,
     packageSlug: input.packageSlug,

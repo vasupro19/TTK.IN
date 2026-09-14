@@ -116,6 +116,7 @@ export async function sendLeadNotification(lead: Lead): Promise<MailResult> {
     ["Destination", lead.destination],
     ["Travel date", formatIndianDate(lead.travelDate)],
     ["Travellers", String(lead.travellers)],
+    ["Nights", lead.nights ? String(lead.nights) : "Not specified"],
     ["Budget", lead.budget ?? "Not specified"],
     ["Package", lead.packageSlug ?? "General enquiry"],
     ["Source", lead.source],

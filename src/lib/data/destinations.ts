@@ -102,6 +102,77 @@ export const destinations: Destination[] = [
     popularFor: ["Monasteries", "Road trips", "Chandratal", "Photography"],
   },
 
+  {
+    slug: "kinnaur",
+    name: "Kinnaur",
+    regionSlug: "himachal",
+    country: "India",
+    type: "domestic",
+    tagline: "Apple orchards under Kinner Kailash",
+    description:
+      "The Sutlej carves through Kinnaur on the old Hindustan–Tibet road. Sangla and Chitkul sit in the Baspa valley, Kalpa faces the Kinner Kailash massif across the gorge, and every village is wrapped in apple orchards and slate-roofed wooden houses.",
+    image: photo("kinnaur-hero"),
+    gallery: [photo("kinnaur-1"), photo("kinnaur-2"), photo("kinnaur-3")],
+    startingPrice: 18999,
+    popularFor: ["Chitkul", "Kalpa", "Apple orchards", "Road trips"],
+  },
+  {
+    slug: "kasauli",
+    name: "Kasauli",
+    regionSlug: "himachal",
+    country: "India",
+    type: "domestic",
+    tagline: "A cantonment town of pines and quiet",
+    description:
+      "Kasauli is the shortest hill escape from Chandigarh — cobbled Upper and Lower Mall, colonial-era churches, Sunset Point over the plains, and almost nothing to do, which is precisely the point.",
+    image: photo("kasauli-hero"),
+    gallery: [photo("kasauli-1"), photo("kasauli-2"), photo("kasauli-3")],
+    startingPrice: 8999,
+    popularFor: ["Weekend getaway", "Sunset Point", "Colonial charm", "Short drives"],
+  },
+  {
+    slug: "tirthan-valley",
+    name: "Tirthan Valley",
+    regionSlug: "himachal",
+    country: "India",
+    type: "domestic",
+    tagline: "Trout streams at the edge of a national park",
+    description:
+      "Tirthan runs along a clear trout river at the boundary of the Great Himalayan National Park. Riverside guesthouses, short forest walks and genuinely dark night skies — the valley people choose when Manali feels too busy.",
+    image: photo("tirthan-hero"),
+    gallery: [photo("tirthan-1"), photo("tirthan-2"), photo("tirthan-3")],
+    startingPrice: 11999,
+    popularFor: ["Trout fishing", "GHNP treks", "Riverside stays", "Slow travel"],
+  },
+  {
+    slug: "chail",
+    name: "Chail",
+    regionSlug: "himachal",
+    country: "India",
+    type: "domestic",
+    tagline: "The world's highest cricket ground, in a deodar forest",
+    description:
+      "Built as a summer retreat by the Maharaja of Patiala, Chail sits quietly between Shimla and Kufri — a palace hotel, a cricket ground at 2,444 metres, and thick deodar forest with a wildlife sanctuary alongside.",
+    image: photo("chail-hero"),
+    gallery: [photo("chail-1"), photo("chail-2"), photo("chail-3")],
+    startingPrice: 9499,
+    popularFor: ["Chail Palace", "Cricket ground", "Deodar forest", "Quiet stays"],
+  },
+  {
+    slug: "bir-billing",
+    name: "Bir Billing",
+    regionSlug: "himachal",
+    country: "India",
+    type: "domestic",
+    tagline: "India's paragliding capital",
+    description:
+      "Pilots launch from Billing at 2,400 metres and land on the meadow at Bir, often after half an hour in the air. Between flights it is a slow village of Tibetan monasteries, cafes and tea gardens below the Dhauladhar.",
+    image: photo("bir-billing-hero"),
+    gallery: [photo("bir-billing-1"), photo("bir-billing-2"), photo("bir-billing-3")],
+    startingPrice: 10999,
+    popularFor: ["Paragliding", "Monasteries", "Cafes", "Tea gardens"],
+  },
+
   // ------------------------------------------------------------------ Ladakh
   {
     slug: "leh",

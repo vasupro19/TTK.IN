@@ -221,6 +221,8 @@ export interface Lead {
   destination: string;
   travelDate?: string;
   travellers: number;
+  /** Requested trip length in nights. */
+  nights?: number;
   budget?: string;
   message?: string;
   packageSlug?: string;
