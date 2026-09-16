@@ -1,0 +1,12 @@
+# Site photography. WebP is already compressed, so delta-compressing it against
+# other images gains almost nothing and costs a great deal of memory when
+# packing — enough to get a push killed on a 16 GB machine.
+*.webp binary -delta
+*.jpg  binary -delta
+*.jpeg binary -delta
+*.png  binary -delta
+*.ico  binary -delta
+
+# Generated; large, and diffing it is never useful.
+scripts/image-manifest.json -diff
+src/lib/images/manifest.ts  -diff linguist-generated
