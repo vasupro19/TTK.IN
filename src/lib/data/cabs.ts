@@ -1,4 +1,3 @@
-import { photo } from "@/lib/images";
 import type { CabOption } from "@/lib/types";
 
 export const cabOptions: CabOption[] = [
@@ -7,7 +6,7 @@ export const cabOptions: CabOption[] = [
     name: "Hatchback (AC)",
     capacity: "Up to 3 passengers",
     pricePerKm: 11,
-    image: photo("cab-hatchback"),
+    imageSeed: "cab-hatchback",
     features: ["AC", "Music system", "Ideal for solo/couple trips"],
   },
   {
@@ -15,7 +14,7 @@ export const cabOptions: CabOption[] = [
     name: "Sedan (AC)",
     capacity: "Up to 4 passengers",
     pricePerKm: 13,
-    image: photo("cab-sedan"),
+    imageSeed: "cab-sedan",
     features: ["AC", "Extra legroom", "Best for city + airport transfers"],
   },
   {
@@ -23,7 +22,7 @@ export const cabOptions: CabOption[] = [
     name: "SUV (AC)",
     capacity: "Up to 6 passengers",
     pricePerKm: 17,
-    image: photo("cab-suv"),
+    imageSeed: "cab-suv",
     features: ["AC", "Extra luggage space", "Great for hill routes"],
   },
   {
@@ -31,7 +30,7 @@ export const cabOptions: CabOption[] = [
     name: "Tempo Traveller",
     capacity: "Up to 12 passengers",
     pricePerKm: 24,
-    image: photo("cab-tempo"),
+    imageSeed: "cab-tempo",
     features: ["AC", "Pushback seats", "Best for group tours"],
   },
 ];

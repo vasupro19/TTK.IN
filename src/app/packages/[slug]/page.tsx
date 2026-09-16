@@ -19,6 +19,7 @@ import { StickyBookingBar } from "@/components/packages/StickyBookingBar";
 import { formatINR } from "@/lib/utils";
 import { categoryLabels, durationLabel } from "@/lib/labels";
 import { breadcrumbJsonLd, productOfferJsonLd, faqJsonLd } from "@/lib/seo";
+import { photo } from "@/lib/images";
 
 export function generateStaticParams() {
   return packages.map((pkg) => ({ slug: pkg.slug }));
@@ -40,7 +41,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: `/packages/${pkg.slug}` },
-    openGraph: { title, description, images: [{ url: pkg.image }] },
+    openGraph: { title, description, images: [{ url: photo(pkg.imageSeed) }] },
     keywords: [pkg.title, ...pkg.routeCities, ...pkg.categories, pkg.type],
   };
 }
@@ -59,7 +60,7 @@ export default async function PackageDetailPage({
   const related = getRelatedPackages(pkg, 3);
   const stays = pkg.destinationSlugs.flatMap((d) => listHotels(d)).slice(0, 3);
 
-  const gallery = Array.from(new Set([pkg.image, ...pkg.gallery]));
+  const gallery = Array.from(new Set([pkg.imageSeed, ...pkg.gallerySeeds]));
 
   const jsonLd = [
     breadcrumbJsonLd([
@@ -142,7 +143,7 @@ export default async function PackageDetailPage({
         {/* Gallery + booking */}
         <div className="mt-7 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_360px]">
           <div>
-            <PackageGallery images={gallery} title={pkg.title} />
+            <PackageGallery seeds={gallery} title={pkg.title} />
 
             <section className="mt-10">
               <h2 className="font-display text-2xl font-bold text-ink-900">The trip in short</h2>

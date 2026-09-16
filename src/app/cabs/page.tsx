@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { BadgeCheck, IndianRupee, Route, Users, ShieldCheck, Clock } from "lucide-react";
 import { cabOptions, cabRoutes } from "@/lib/data/cabs";
@@ -7,6 +6,7 @@ import { CabQuoteForm, CabPartnerForm } from "@/components/forms/CabForms";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export const metadata: Metadata = {
   title: "Cabs — Compare Verified Driver Quotes",
@@ -102,7 +102,11 @@ export default function CabsPage() {
             {cabOptions.map((cab) => (
               <div key={cab.type} className="overflow-hidden rounded-2xl border border-sand-200 bg-white">
                 <div className="relative aspect-[4/3] w-full">
-                  <Image src={cab.image} alt={cab.name} fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
+                  <SmartImage
+                    seed={cab.imageSeed}
+                    sizes="(min-width:1024px) 25vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-4">
                   <h3 className="text-sm font-bold text-ink-900">{cab.name}</h3>

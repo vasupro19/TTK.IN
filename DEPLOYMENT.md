@@ -92,9 +92,13 @@ site within the TTL.
 
 - [ ] `https://thetravelkart.in` loads with a valid padlock
 - [ ] `https://www.thetravelkart.in` redirects correctly
-- [ ] `/himachal-tour-packages` renders fully
-- [ ] Submit the enquiry form — the email arrives at thetravelkart@gmail.com
-- [ ] Package filters work: `/packages?region=himachal`
+- [ ] `/himachal-pradesh-tour-packages` renders fully
+- [ ] `/himachal-tour-packages` redirects to it (301)
+- [ ] The enquiry dialog opens on its own a few seconds after the page loads
+- [ ] Submit the enquiry form — it lands on `/thank-you` **and** the email
+      arrives at thetravelkart@gmail.com
+- [ ] Package filters on the landing page narrow the ten itineraries
+- [ ] Marketplace filters work: `/packages?region=himachal`
 - [ ] WhatsApp buttons open with the prefilled message
 - [ ] Favicon and social card render — check at <https://www.opengraph.xyz>
 - [ ] Submit the sitemap at <https://search.google.com/search-console>:
@@ -104,6 +108,24 @@ site within the TTL.
 
 Every `git push` to `main` deploys automatically. Pull requests get their own
 preview URL. Roll back instantly from **Deployments** in the dashboard.
+
+## Images
+
+All site photography is committed under `public/img` (~110 MB, 488 files) and
+served as ordinary static assets. It is deliberately **not** generated at build
+time: the source images come from Wikimedia, and fetching several hundred of
+them during a deploy is slow and gets rate-limited.
+
+To change an image, edit the query or pin in `scripts/spec/` and run
+`npm run images`, then commit the result. See `scripts/README.md`.
+
+Two things to watch on Vercel:
+
+- **Image Optimization quota.** `next/image` generates a variant per breakpoint
+  on first request. With this many source images the free Hobby allowance can
+  be used up quickly; Pro raises it substantially.
+- **First deploy is slow.** Uploading ~110 MB of assets takes a few minutes.
+  Later deploys only upload what changed.
 
 ## Cost
 

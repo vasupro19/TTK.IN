@@ -26,6 +26,7 @@ export function Logo({
   /** Rendered height in px; width follows the artwork's aspect ratio. */
   height?: number;
   href?: string | null;
+  /** Header logo is above the fold: load it eagerly rather than lazily. */
   priority?: boolean;
   className?: string;
 }) {
@@ -37,7 +38,8 @@ export function Logo({
       alt="TheTravelKart — the world, your way"
       width={width}
       height={height}
-      priority={priority}
+      loading={priority ? "eager" : undefined}
+      fetchPriority={priority ? "high" : undefined}
       sizes={`${width}px`}
       className="h-auto w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       style={{ height, width }}

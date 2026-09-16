@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import * as Icons from "lucide-react";
 import type { TravelCategory } from "@/lib/types";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 /** Resolves the category's Lucide icon name to a component, with a safe fallback. */
 function CategoryIcon({ name, className }: { name: string; className?: string }) {
@@ -26,10 +26,8 @@ export function CategoryCard({
       href={`/packages?category=${category.slug}`}
       className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:aspect-[5/6]"
     >
-      <Image
-        src={category.image}
-        alt=""
-        fill
+      <SmartImage
+        seed={category.imageSeed}
         priority={priority}
         sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 60vw"
         className="object-cover transition-transform duration-500 group-hover:scale-105"

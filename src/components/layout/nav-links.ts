@@ -25,7 +25,7 @@ export const navLinks: NavLink[] = [
     label: "Destinations",
     href: "/destinations",
     children: [
-      { label: "Himachal", href: "/himachal-tour-packages", hint: "Shimla, Manali, Spiti" },
+      { label: "Himachal", href: "/himachal-pradesh-tour-packages", hint: "Shimla, Manali, Spiti" },
       { label: "Kashmir", href: "/kashmir-tour-packages", hint: "Srinagar, Gulmarg, Pahalgam" },
       { label: "Ladakh", href: "/ladakh-tour-packages", hint: "Leh, Nubra, Pangong" },
       { label: "Uttarakhand", href: "/uttarakhand-tour-packages", hint: "Rishikesh, Nainital, Auli" },

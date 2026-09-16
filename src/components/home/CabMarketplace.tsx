@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, IndianRupee, Users, Route } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { photo } from "@/lib/images";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 const travellerPoints = [
   { icon: IndianRupee, text: "Compare quotes from verified operators before you commit" },
@@ -33,7 +32,7 @@ export function CabMarketplace() {
           {/* Travellers */}
           <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition-colors hover:border-white/20 sm:p-9">
             <div className="absolute -right-10 -top-10 h-40 w-40 opacity-15">
-              <Image src={photo("cab-traveller")} alt="" fill sizes="160px" className="rounded-full object-cover" />
+              <SmartImage seed="cab-traveller" alt="" sizes="160px" className="rounded-full object-cover" />
             </div>
             <p className="text-xs font-semibold uppercase tracking-wider text-brand-300">
               For travellers
@@ -67,7 +66,7 @@ export function CabMarketplace() {
           {/* Partners */}
           <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition-colors hover:border-white/20 sm:p-9">
             <div className="absolute -right-10 -top-10 h-40 w-40 opacity-15">
-              <Image src={photo("cab-partner")} alt="" fill sizes="160px" className="rounded-full object-cover" />
+              <SmartImage seed="cab-partner" alt="" sizes="160px" className="rounded-full object-cover" />
             </div>
             <p className="text-xs font-semibold uppercase tracking-wider text-sunset-300">
               For cab partners

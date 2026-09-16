@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { himachaliFood } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function FoodSection() {
   const [hero, ...rest] = himachaliFood;
@@ -20,10 +20,8 @@ export function FoodSection() {
           {/* Lead dish gets the large tile. */}
           <article className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl lg:row-span-2 lg:min-h-full">
             {/* REPLACE: food photography */}
-            <Image
-              src={hero.image}
-              alt={`${hero.name}, a traditional Himachali dish`}
-              fill
+            <SmartImage
+              seed={hero.imageSeed}
               loading="lazy"
               sizes="(min-width:1024px) 33vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -43,10 +41,8 @@ export function FoodSection() {
               >
                 <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl">
                   {/* REPLACE: food photography */}
-                  <Image
-                    src={dish.image}
-                    alt={`${dish.name}, a Himachali dish`}
-                    fill
+                  <SmartImage
+                    seed={dish.imageSeed}
                     loading="lazy"
                     sizes="80px"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"

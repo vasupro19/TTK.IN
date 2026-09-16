@@ -5,7 +5,7 @@ import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { siteConfig, telLink } from "@/lib/seo";
 
 const destinationLinks = [
-  { label: "Himachal", href: "/himachal-tour-packages" },
+  { label: "Himachal", href: "/himachal-pradesh-tour-packages" },
   { label: "Kashmir", href: "/kashmir-tour-packages" },
   { label: "Ladakh", href: "/ladakh-tour-packages" },
   { label: "Spiti", href: "/destinations/spiti-valley" },
@@ -37,6 +37,9 @@ const policyLinks = [
   { label: "Terms", href: "/terms" },
   { label: "Cancellation Policy", href: "/cancellation-policy" },
   { label: "Refund Policy", href: "/refund-policy" },
+  // Most site photography is CC-licensed; the credits page is a licence
+  // obligation, so it has to be reachable from every page.
+  { label: "Photo Credits", href: "/image-credits" },
 ];
 
 function FooterColumn({

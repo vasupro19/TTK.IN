@@ -57,6 +57,17 @@ function haystack(pkg: Package): string {
     .toLowerCase();
 }
 
+/**
+ * A destination filter usually names a destination ("manali"), but links and
+ * shared URLs routinely carry a region instead ("himachal"). Accept either,
+ * rather than returning an empty result page for a slug the site itself uses.
+ */
+function matchesDestination(pkg: Package, slug: string): boolean {
+  if (pkg.destinationSlugs.includes(slug)) return true;
+  const isRegion = regions.some((r) => r.slug === slug);
+  return isRegion && pkg.regionSlug === slug;
+}
+
 function sortPackages(list: Package[], sort: PackageSort = "popular"): Package[] {
   const sorted = [...list];
   switch (sort) {
@@ -81,7 +92,7 @@ export function searchPackages(query: PackageQuery = {}): Package[] {
   const filtered = packages.filter((pkg) => {
     if (term && !haystack(pkg).includes(term)) return false;
     if (query.regionSlug && pkg.regionSlug !== query.regionSlug) return false;
-    if (query.destinationSlug && !pkg.destinationSlugs.includes(query.destinationSlug)) return false;
+    if (query.destinationSlug && !matchesDestination(pkg, query.destinationSlug)) return false;
     if (query.type && pkg.type !== query.type) return false;
     if (query.categories?.length && !query.categories.some((c) => pkg.categories.includes(c)))
       return false;

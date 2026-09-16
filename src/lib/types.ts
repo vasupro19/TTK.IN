@@ -64,8 +64,10 @@ export interface Package {
   sightseeing: boolean;
   rating: number;
   reviewCount: number;
-  image: string;
-  gallery: string[];
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
+  /** Image seeds for the gallery, resolved through src/lib/images. */
+  gallerySeeds: string[];
   summary: string;
   highlights: string[];
   inclusions: string[];
@@ -84,11 +86,12 @@ export interface Region {
   type: PackageType;
   tagline: string;
   description: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   startingPrice: number;
   popularFor: string[];
   featured?: boolean;
-  /** SEO landing path, e.g. "/himachal-tour-packages". */
+  /** SEO landing path, e.g. "/himachal-pradesh-tour-packages". */
   seoPath?: string;
 }
 
@@ -101,8 +104,10 @@ export interface Destination {
   type: PackageType;
   tagline: string;
   description: string;
-  image: string;
-  gallery: string[];
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
+  /** Image seeds for the gallery, resolved through src/lib/images. */
+  gallerySeeds: string[];
   startingPrice: number;
   popularFor: string[];
 }
@@ -111,7 +116,8 @@ export interface TravelCategory {
   slug: PackageCategory;
   name: string;
   description: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   /** Lucide icon name, resolved by the card component. */
   icon: string;
 }
@@ -125,7 +131,8 @@ export interface Deal {
   price: number;
   strikeThroughPrice: number;
   durationLabel: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   validTill: string;
   blurb: string;
 }
@@ -144,7 +151,8 @@ export interface Hotel {
   destinationSlug: string;
   starRating: HotelCategory;
   pricePerNight: number;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   gallery?: string[];
   amenities: string[];
   rooms: HotelRoom[];
@@ -160,7 +168,8 @@ export interface CabOption {
   name: string;
   capacity: string;
   pricePerKm: number;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   features: string[];
 }
 
@@ -171,7 +180,8 @@ export interface Activity {
   category: string;
   price: number;
   durationHours: number;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   description: string;
   rating: number;
 }
@@ -181,7 +191,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content: string[];
-  coverImage: string;
+  coverImageSeed: string;
   author: string;
   publishedAt: string;
   readMinutes: number;

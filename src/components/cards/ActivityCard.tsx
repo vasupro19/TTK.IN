@@ -1,17 +1,15 @@
-import Image from "next/image";
 import type { Activity } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 import { StarRating } from "@/components/ui/StarRating";
 import { Badge } from "@/components/ui/Badge";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function ActivityCard({ activity, priority = false }: { activity: Activity; priority?: boolean }) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-lg">
       <div className="relative aspect-[4/3] w-full overflow-hidden">
-        <Image
-          src={activity.image}
-          alt={activity.name}
-          fill
+        <SmartImage
+          seed={activity.imageSeed}
           priority={priority}
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

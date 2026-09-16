@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SmartImage } from "@/components/ui/SmartImage";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
@@ -10,10 +10,8 @@ export function BlogPostCard({ post, priority = false }: { post: BlogPost; prior
       className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <Image
-          src={post.coverImage}
-          alt={post.title}
-          fill
+        <SmartImage
+          seed={post.coverImageSeed}
           priority={priority}
           sizes="(min-width: 1024px) 33vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

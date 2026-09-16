@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { listDestinations } from "@/lib/api/catalogue";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function HimachalDestinations() {
   const destinations = listDestinations("himachal");
@@ -31,10 +31,8 @@ export function HimachalDestinations() {
                 className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* REPLACE: destination photography */}
-                <Image
-                  src={destination.image}
-                  alt={`${destination.name}, Himachal Pradesh`}
-                  fill
+                <SmartImage
+                  seed={destination.imageSeed}
                   loading={i < 4 ? undefined : "lazy"}
                   priority={i < 2}
                   sizes="(min-width:1280px) 25vw, (min-width:1024px) 33vw, (min-width:640px) 50vw, 68vw"

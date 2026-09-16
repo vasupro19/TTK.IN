@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Check, CalendarDays, Clock, Users } from "lucide-react";
 import { destinationGuides } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 function Meta({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
@@ -37,10 +37,8 @@ export function PlacesToVisit() {
             >
               <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[260px]">
                 {/* REPLACE: destination photography */}
-                <Image
-                  src={place.image}
-                  alt={`${place.name}, Himachal Pradesh`}
-                  fill
+                <SmartImage
+                  seed={place.imageSeed}
                   loading={i < 2 ? undefined : "lazy"}
                   sizes="(min-width:1024px) 320px, 100vw"
                   className="object-cover"

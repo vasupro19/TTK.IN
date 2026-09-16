@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, MessageCircle } from "lucide-react";
-import { HimachalEnquiryForm } from "./HimachalEnquiryForm";
 import { Container } from "@/components/ui/Container";
-import { photo } from "@/lib/images";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { whatsappLink } from "@/lib/seo";
+import { EnquiryButton } from "@/components/lead/EnquiryModal";
 
 const WA_MESSAGE =
   "Hi TheTravelKart, I want to enquire about a Himachal Pradesh tour package.";
@@ -13,11 +12,9 @@ export function HimachalHero() {
   return (
     <section className="relative isolate overflow-hidden bg-ink-900">
       {/* REPLACE: swap for TheTravelKart's own Himachal photography. */}
-      <Image
-        src={photo("hp-hero-himalaya", 2000, 1200)}
-        alt="Snow-capped Himalayan peaks above a winding mountain road in Himachal Pradesh"
-        fill
-        priority
+      <SmartImage
+        seed="hp-hero-himalaya"
+        preload
         sizes="100vw"
         className="object-cover object-center opacity-75"
       />
@@ -44,12 +41,9 @@ export function HimachalHero() {
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="#enquiry"
-              className="rounded-full bg-sunset-500 px-7 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-sunset-500/25 transition-all hover:bg-sunset-600 active:scale-[0.99]"
-            >
+            <EnquiryButton className="rounded-full bg-sunset-500 px-7 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-sunset-500/25 transition-all hover:bg-sunset-600 active:scale-[0.99]">
               Get Free Quote
-            </Link>
+            </EnquiryButton>
             <Link
               href="#packages"
               className="rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -68,16 +62,6 @@ export function HimachalHero() {
           </div>
         </div>
 
-        {/* Enquiry panel — overlaps the hero base on desktop, stacks on mobile. */}
-        <div className="mt-9 rounded-3xl border border-white/15 bg-white/95 p-5 shadow-2xl shadow-ink-900/30 backdrop-blur-md sm:p-6 lg:mt-12">
-          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="font-display text-lg font-bold text-ink-900">
-              Tell us your dates — we&apos;ll plan the rest
-            </h2>
-            <p className="text-xs text-ink-600/65">Free, and no obligation to book.</p>
-          </div>
-          <HimachalEnquiryForm variant="panel" />
-        </div>
       </Container>
     </section>
   );

@@ -1,17 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import type { Deal } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function DealCard({ deal, priority = false }: { deal: Deal; priority?: boolean }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-sand-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative aspect-[16/10] overflow-hidden">
-        <Image
-          src={deal.image}
-          alt={deal.title}
-          fill
+        <SmartImage
+          seed={deal.imageSeed}
           priority={priority}
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 85vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

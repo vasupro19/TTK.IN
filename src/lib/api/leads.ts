@@ -20,6 +20,11 @@ export interface LeadInput {
   name: string;
   phone: string;
   email?: string;
+  /**
+   * Where they want to go. The quick enquiry form does not ask — it is opened
+   * from a page that already implies the answer — so callers pass the page's
+   * own context instead.
+   */
   destination: string;
   travelDate?: string;
   travellers?: number;

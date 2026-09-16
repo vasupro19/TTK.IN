@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { photo } from "@/lib/images";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -32,10 +31,8 @@ export default function AboutPage() {
   return (
     <div className="pb-16">
       <section className="relative flex h-[300px] items-end overflow-hidden sm:h-[380px]">
-        <Image
-          src={photo("about-hero", 1920, 900)}
-          alt="TheTravelKart team planning a trip"
-          fill
+        <SmartImage
+          seed="about-hero"
           priority
           sizes="100vw"
           className="object-cover"

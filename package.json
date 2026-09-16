@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images": "python3 scripts/build-image-spec.py && python3 scripts/fetch-images.py && python3 scripts/generate-image-module.py && node scripts/localise-images.mjs",
+    "images:spec": "python3 scripts/build-image-spec.py",
+    "images:resolve": "python3 scripts/fetch-images.py && python3 scripts/generate-image-module.py",
+    "images:download": "node scripts/localise-images.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^1.45.0",

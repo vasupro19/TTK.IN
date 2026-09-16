@@ -4,7 +4,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Priya & Arjun Malhotra",
     location: "Delhi",
-    packageSlug: "manali-honeymoon-bliss-5d",
+    packageSlug: "manali-4d",
     rating: 5,
     quote:
       "The valley-view room and the surprise candlelight dinner made our first trip as a married couple genuinely memorable. Our coordinator was reachable on WhatsApp the entire trip.",

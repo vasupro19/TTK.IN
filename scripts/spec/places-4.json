@@ -1,0 +1,110 @@
+{
+  "darjeeling": { "name": "Darjeeling", "area": "West Bengal", "country": "India", "landmarks": [
+    { "q": "Darjeeling Himalayan Railway toy train", "alt": "The Darjeeling Himalayan Railway steam toy train on its hillside track in West Bengal" },
+    { "q": "Kangchenjunga from Tiger Hill Darjeeling", "alt": "Kangchenjunga catching first light seen from Tiger Hill above Darjeeling" },
+    { "q": "Darjeeling tea garden West Bengal", "alt": "Tea pickers working the terraced gardens around Darjeeling, West Bengal" },
+    { "q": "Batasia Loop Darjeeling", "alt": "The spiral track and memorial at Batasia Loop near Darjeeling, West Bengal" }
+  ]},
+  "gangtok": { "name": "Gangtok", "area": "Sikkim", "country": "India", "landmarks": [
+    { "q": "Tsomgo Lake Sikkim", "alt": "Tsomgo lake held between bare high ridges east of Gangtok, Sikkim" },
+    { "q": "Rumtek Monastery Sikkim", "alt": "The painted courtyard of Rumtek Monastery near Gangtok, Sikkim" },
+    { "q": "Gangtok Sikkim town view", "alt": "Buildings stacked on the steep ridge of Gangtok, Sikkim" },
+    { "q": "Nathu La pass Sikkim", "alt": "The road climbing to Nathu La pass on the Sikkim border" }
+  ]},
+  "shillong": { "name": "Shillong", "area": "Meghalaya", "country": "India", "landmarks": [
+    { "q": "Umiam Lake Meghalaya", "alt": "The island-scattered water of Umiam lake near Shillong, Meghalaya" },
+    { "q": "living root bridge Cherrapunji Meghalaya", "alt": "A living root bridge grown across a stream in the forests of Meghalaya" },
+    { "q": "Nohkalikai Falls Cherrapunji Meghalaya", "alt": "Nohkalikai Falls dropping into a forested gorge near Cherrapunji, Meghalaya" },
+    { "q": "Elephant Falls Shillong Meghalaya", "alt": "Elephant Falls stepping down mossy rock near Shillong, Meghalaya" }
+  ]},
+  "coorg": { "name": "Coorg", "area": "Karnataka", "country": "India", "landmarks": [
+    { "q": "Coorg coffee plantation Karnataka", "alt": "Coffee bushes under shade trees on a plantation in Coorg, Karnataka" },
+    { "q": "Abbey Falls Coorg Karnataka", "alt": "Abbey Falls dropping through forest near Madikeri in Coorg, Karnataka" },
+    { "q": "Raja Seat Madikeri Coorg", "alt": "The view over misted ranges from Raja's Seat at Madikeri, Coorg" },
+    { "q": "Western Ghats Karnataka hills mist", "alt": "Mist filling the valleys of the Western Ghats in Karnataka" }
+  ]},
+  "ooty": { "name": "Ooty", "area": "Tamil Nadu", "country": "India", "landmarks": [
+    { "q": "Nilgiri Mountain Railway Ooty", "alt": "The Nilgiri Mountain Railway train climbing through the hills to Ooty, Tamil Nadu" },
+    { "q": "Ooty Botanical Garden Tamil Nadu", "alt": "Lawns and old trees in the Government Botanical Garden at Ooty, Tamil Nadu" },
+    { "q": "Ooty Lake Tamil Nadu", "alt": "Rowing boats on Ooty lake in the Nilgiri hills, Tamil Nadu" },
+    { "q": "Doddabetta peak Nilgiri Tamil Nadu", "alt": "The Nilgiri ranges seen from Doddabetta peak above Ooty, Tamil Nadu" }
+  ]},
+  "mysore": { "name": "Mysore", "area": "Karnataka", "country": "India", "landmarks": [
+    { "q": "Mysore Palace Karnataka", "alt": "The domes and arches of Mysore Palace in Karnataka" },
+    { "q": "Mysore Palace illuminated night", "alt": "Mysore Palace outlined in lights after dark, Karnataka" },
+    { "q": "Chamundi Hill temple Mysore", "alt": "The gopuram of the Chamundeshwari temple on Chamundi Hill above Mysore" },
+    { "q": "Brindavan Gardens Mysore Karnataka", "alt": "Terraced fountains and flowerbeds at Brindavan Gardens near Mysore, Karnataka" }
+  ]},
+  "bangkok": { "name": "Bangkok", "area": "Bangkok", "country": "Thailand", "landmarks": [
+    { "q": "Wat Arun Bangkok Thailand", "alt": "The porcelain-studded spire of Wat Arun on the Chao Phraya river, Bangkok" },
+    { "q": "Grand Palace Bangkok Thailand", "alt": "Gilded roofs and spires inside the Grand Palace in Bangkok, Thailand" },
+    { "q": "Chao Phraya river Bangkok", "alt": "Long-tail boats on the Chao Phraya river through Bangkok, Thailand" },
+    { "q": "Bangkok skyline Thailand night", "alt": "The lit high-rise skyline of Bangkok at night, Thailand" }
+  ]},
+  "pattaya": { "name": "Pattaya", "area": "Chonburi", "country": "Thailand", "landmarks": [
+    { "q": "Pattaya Beach Thailand", "alt": "The curving bay and high-rises of Pattaya beach, Thailand" },
+    { "q": "Sanctuary of Truth Pattaya", "alt": "The carved teak spires of the Sanctuary of Truth at Pattaya, Thailand" },
+    { "q": "Coral Island Koh Larn Pattaya", "alt": "Clear shallow water off Koh Larn near Pattaya, Thailand" },
+    { "q": "Pattaya viewpoint Thailand bay", "alt": "The sweep of Pattaya bay seen from the hill viewpoint, Thailand" }
+  ]},
+  "phuket": { "name": "Phuket", "area": "Phuket", "country": "Thailand", "landmarks": [
+    { "q": "Phi Phi Islands Thailand limestone", "alt": "Limestone cliffs rising from green water at the Phi Phi Islands, Thailand" },
+    { "q": "Patong Beach Phuket Thailand", "alt": "The long sand of Patong beach on Phuket, Thailand" },
+    { "q": "Big Buddha Phuket Thailand", "alt": "The white marble Big Buddha on the hills of Phuket, Thailand" },
+    { "q": "Phuket Thailand island viewpoint sea", "alt": "Forested headlands and turquoise sea from a Phuket viewpoint, Thailand" }
+  ]},
+  "krabi": { "name": "Krabi", "area": "Krabi", "country": "Thailand", "landmarks": [
+    { "q": "Railay Beach Krabi Thailand", "alt": "Limestone karst walls above the sand at Railay beach, Krabi, Thailand" },
+    { "q": "Ao Nang Krabi Thailand", "alt": "Long-tail boats drawn up on the beach at Ao Nang, Krabi, Thailand" },
+    { "q": "Krabi limestone karst sea Thailand", "alt": "Karst islands standing in calm sea off Krabi, Thailand" },
+    { "q": "Four Islands Krabi Thailand", "alt": "Shallow turquoise water between the islands off Krabi, Thailand" }
+  ]},
+  "ubud": { "name": "Ubud", "area": "Bali", "country": "Indonesia", "landmarks": [
+    { "q": "Tegallalang Rice Terrace Ubud Bali", "alt": "The stepped green rice terraces at Tegallalang near Ubud, Bali" },
+    { "q": "Ubud Monkey Forest Bali temple", "alt": "Mossy temple carvings in the Sacred Monkey Forest at Ubud, Bali" },
+    { "q": "Tirta Empul temple Bali", "alt": "The spring-fed bathing pools of Tirta Empul temple in Bali" },
+    { "q": "Campuhan Ridge Walk Ubud Bali", "alt": "The grassy Campuhan ridge path above the valleys at Ubud, Bali" }
+  ]},
+  "seminyak": { "name": "Seminyak", "area": "Bali", "country": "Indonesia", "landmarks": [
+    { "q": "Seminyak Beach Bali sunset", "alt": "Sunset over the surf at Seminyak beach, Bali" },
+    { "q": "Tanah Lot temple Bali", "alt": "Tanah Lot temple standing on its sea rock at high tide, Bali" },
+    { "q": "Bali private pool villa", "alt": "A private pool villa surrounded by tropical planting in Bali" },
+    { "q": "Uluwatu temple cliff Bali", "alt": "Uluwatu temple on the cliff edge above the Indian Ocean, Bali" }
+  ]},
+  "male-atoll": { "name": "Male Atoll", "area": "Maldives", "country": "Maldives", "landmarks": [
+    { "q": "Maldives overwater bungalow lagoon", "alt": "Overwater villas on stilts above a turquoise Maldivian lagoon" },
+    { "q": "Male Maldives city aerial", "alt": "The dense island city of Malé surrounded by reef water, Maldives" },
+    { "q": "Maldives atoll aerial reef", "alt": "A ring of reef and sandbars forming an atoll in the Maldives" },
+    { "q": "Maldives beach palm white sand", "alt": "White sand and leaning palms on a Maldivian island beach" }
+  ]},
+  "baa-atoll": { "name": "Baa Atoll", "area": "Maldives", "country": "Maldives", "landmarks": [
+    { "q": "Baa Atoll Maldives reef", "alt": "Coral reef shallows in Baa Atoll, Maldives" },
+    { "q": "Hanifaru Bay manta ray Maldives", "alt": "Manta rays feeding in the shallow water of Hanifaru Bay, Baa Atoll, Maldives" },
+    { "q": "Maldives resort island aerial", "alt": "A small resort island ringed by sandbank and reef in the Maldives" },
+    { "q": "Maldives snorkelling coral fish", "alt": "Reef fish over hard coral in Maldivian water" }
+  ]},
+  "dubai": { "name": "Dubai", "area": "Dubai", "country": "United Arab Emirates", "landmarks": [
+    { "q": "Burj Khalifa Dubai skyline", "alt": "The Burj Khalifa rising above the Downtown Dubai skyline" },
+    { "q": "Dubai Marina skyline United Arab Emirates", "alt": "High-rise towers around the water of Dubai Marina, United Arab Emirates" },
+    { "q": "desert safari dune Dubai", "alt": "Vehicles on the red dunes of the desert outside Dubai" },
+    { "q": "Palm Jumeirah Dubai aerial", "alt": "The frond-shaped island of Palm Jumeirah in Dubai, United Arab Emirates" }
+  ]},
+  "abu-dhabi": { "name": "Abu Dhabi", "area": "Abu Dhabi", "country": "United Arab Emirates", "landmarks": [
+    { "q": "Sheikh Zayed Grand Mosque Abu Dhabi", "alt": "The white domes and minarets of the Sheikh Zayed Grand Mosque, Abu Dhabi" },
+    { "q": "Louvre Abu Dhabi museum dome", "alt": "The perforated dome of the Louvre Abu Dhabi over its waterside galleries" },
+    { "q": "Abu Dhabi Corniche skyline", "alt": "The Corniche waterfront and towers of Abu Dhabi, United Arab Emirates" },
+    { "q": "Ferrari World Yas Island Abu Dhabi", "alt": "The red roof of Ferrari World on Yas Island, Abu Dhabi" }
+  ]},
+  "singapore-city": { "name": "Singapore", "area": "Singapore", "country": "Singapore", "landmarks": [
+    { "q": "Marina Bay Sands Singapore skyline", "alt": "Marina Bay Sands and the Singapore skyline across the bay" },
+    { "q": "Gardens by the Bay Supertree Singapore", "alt": "The Supertree structures at Gardens by the Bay, Singapore" },
+    { "q": "Merlion Singapore Marina Bay", "alt": "The Merlion statue spouting water at Marina Bay, Singapore" },
+    { "q": "Singapore Chinatown street", "alt": "Shophouses and lanterns in the Chinatown district of Singapore" }
+  ]},
+  "sentosa": { "name": "Sentosa", "area": "Singapore", "country": "Singapore", "landmarks": [
+    { "q": "Sentosa Island Singapore beach", "alt": "Palms and sand along the shore of Sentosa Island, Singapore" },
+    { "q": "Universal Studios Singapore Sentosa", "alt": "The globe and entrance arcade of Universal Studios Singapore on Sentosa" },
+    { "q": "Sentosa cable car Singapore", "alt": "Cable cars crossing the harbour to Sentosa Island, Singapore" },
+    { "q": "Singapore Sentosa boardwalk sea", "alt": "The boardwalk and waterfront at Sentosa Island, Singapore" }
+  ]}
+}

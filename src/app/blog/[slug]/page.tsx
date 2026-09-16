@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { SmartImage } from "@/components/ui/SmartImage";
+import { photo } from "@/lib/images";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPostBySlug, getRelatedPosts } from "@/lib/data/blog";
@@ -29,7 +30,7 @@ export async function generateMetadata({
       type: "article",
       title: post.title,
       description: post.excerpt,
-      images: [{ url: post.coverImage }],
+      images: [{ url: photo(post.coverImageSeed) }],
       publishedTime: post.publishedAt,
       authors: [post.author],
     },
@@ -89,10 +90,8 @@ export default async function BlogPostPage({
         </div>
 
         <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-2xl">
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
+          <SmartImage
+            seed={post.coverImageSeed}
             priority
             sizes="(min-width: 1024px) 768px, 100vw"
             className="object-cover"

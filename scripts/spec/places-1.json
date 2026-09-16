@@ -1,0 +1,363 @@
+{
+  "manali": {
+    "name": "Manali",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Solang Valley Manali Himachal Pradesh",
+        "alt": "The green bowl of Solang Valley below snow-streaked ridges near Manali, Himachal Pradesh"
+      },
+      {
+        "q": "Hadimba Devi Temple Manali",
+        "alt": "The wooden pagoda roof of Hadimba Devi Temple among deodar cedars in Manali, Himachal Pradesh"
+      },
+      {
+        "q": "Beas River Manali Himachal Pradesh",
+        "alt": "The Beas river running over boulders through the Kullu valley at Manali, Himachal Pradesh"
+      },
+      {
+        "q": "Old Manali village Himachal Pradesh",
+        "alt": "Slate-roofed houses and orchards of Old Manali on the hillside above the Kullu valley"
+      }
+    ]
+  },
+  "shimla": {
+    "name": "Shimla",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "The Ridge Shimla Himachal Pradesh",
+        "alt": "The open promenade of The Ridge in Shimla with colonial buildings along its edge"
+      },
+      {
+        "q": "Christ Church Shimla",
+        "alt": "The yellow neo-Gothic facade of Christ Church on the Ridge in Shimla, Himachal Pradesh"
+      },
+      {
+        "q": "Kalka Shimla Railway toy train",
+        "alt": "The narrow-gauge Kalka–Shimla toy train curving through a forested hillside in Himachal Pradesh"
+      },
+      {
+        "q": "Kufri Shimla Himachal Pradesh snow",
+        "alt": "Snow-covered slopes and pine forest at Kufri above Shimla, Himachal Pradesh"
+      }
+    ]
+  },
+  "dharamshala": {
+    "name": "Dharamshala",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Dhauladhar range Dharamshala Himachal Pradesh",
+        "alt": "The Dhauladhar range rising steeply behind the ridges of Dharamshala, Himachal Pradesh"
+      },
+      {
+        "q": "McLeod Ganj Dharamshala",
+        "alt": "Hillside streets and Tibetan prayer flags at McLeod Ganj above Dharamshala"
+      },
+      {
+        "q": "Tsuglagkhang Complex Dalai Lama Temple McLeod Ganj",
+        "alt": "The Tsuglagkhang temple complex, the Dalai Lama's main temple, at McLeod Ganj in Himachal Pradesh"
+      },
+      {
+        "q": "Bhagsunag waterfall Dharamshala",
+        "alt": "Bhagsu waterfall dropping over dark rock near Dharamshala, Himachal Pradesh"
+      }
+    ]
+  },
+  "dalhousie": {
+    "name": "Dalhousie",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Khajjiar Himachal Pradesh meadow",
+        "alt": "The circular grass meadow of Khajjiar ringed by deodar forest near Dalhousie, Himachal Pradesh"
+      },
+      {
+        "q": "Dalhousie Himachal Pradesh hill station",
+        "alt": "Colonial-era buildings on the pine-covered slopes of Dalhousie, Himachal Pradesh"
+      },
+      {
+        "q": "St John Church Dalhousie",
+        "alt": "The stone facade of St John's Church among conifers in Dalhousie, Himachal Pradesh"
+      },
+      {
+        "q": "Chamba valley Himachal Pradesh",
+        "alt": "The Ravi river valley near Chamba below the ridges of Dalhousie, Himachal Pradesh"
+      }
+    ]
+  },
+  "kasol": {
+    "name": "Kasol",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Parvati Valley Kasol Himachal Pradesh",
+        "alt": "Pine-covered slopes falling to the Parvati river at Kasol, Himachal Pradesh"
+      },
+      {
+        "q": "Kheerganga trek Parvati Valley",
+        "alt": "The high meadow at Kheerganga above the Parvati valley in Himachal Pradesh"
+      },
+      {
+        "q": "Malana village Himachal Pradesh",
+        "alt": "The traditional stone-and-timber houses of Malana village in the Parvati valley"
+      },
+      {
+        "q": "Parvati river Himachal Pradesh",
+        "alt": "The Parvati river running fast over pale boulders in Himachal Pradesh"
+      }
+    ]
+  },
+  "jibhi": {
+    "name": "Jibhi",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Jibhi Banjar Valley Himachal Pradesh",
+        "alt": "Wooden houses and forested slopes in the Jibhi area of the Banjar valley, Himachal Pradesh"
+      },
+      {
+        "q": "Jalori Pass Himachal Pradesh",
+        "alt": "The road over Jalori Pass with oak forest on the ridges, Himachal Pradesh"
+      },
+      {
+        "q": "Serolsar Lake Himachal Pradesh",
+        "alt": "The still water of Serolsar Lake ringed by old forest above Jalori Pass"
+      },
+      {
+        "q": "Great Himalayan National Park Himachal Pradesh",
+        "alt": "Forested ridges of the Great Himalayan National Park in the Kullu district, Himachal Pradesh"
+      }
+    ]
+  },
+  "spiti-valley": {
+    "name": "Spiti Valley",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Key Monastery Spiti Valley Himachal Pradesh",
+        "alt": "Key Monastery stacked on its hilltop above the barren Spiti valley, Himachal Pradesh"
+      },
+      {
+        "q": "Chandra Taal lake Spiti Himachal Pradesh",
+        "alt": "Chandratal lake held in a bowl of high-altitude mountains in Spiti, Himachal Pradesh"
+      },
+      {
+        "q": "Kaza Spiti Valley Himachal Pradesh",
+        "alt": "The town of Kaza spread along the Spiti river under bare mountain slopes"
+      },
+      {
+        "q": "Dhankar Monastery Spiti Valley",
+        "alt": "Dhankar Monastery perched on eroded cliffs above the confluence of the Spiti and Pin rivers"
+      },
+      {
+        "q": "Tabo Monastery Spiti Valley",
+        "alt": "The mud-brick halls of Tabo Monastery on the floor of the Spiti valley"
+      },
+      {
+        "q": "Kunzum Pass Himachal Pradesh",
+        "alt": "Prayer flags and stupas at Kunzum Pass on the road into Spiti, Himachal Pradesh"
+      },
+      {
+        "q": "Pin Valley Spiti Himachal Pradesh",
+        "alt": "The wide gravel bed of the Pin valley below snow-dusted ridges in Spiti"
+      },
+      {
+        "q": "Spiti river valley Himachal Pradesh",
+        "alt": "The braided Spiti river crossing a broad high-altitude valley in Himachal Pradesh"
+      }
+    ]
+  },
+  "kinnaur": {
+    "name": "Kinnaur",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Kinnaur Kailash Kalpa Himachal Pradesh",
+        "alt": "The snow wall of Kinnaur Kailash seen across the valley from Kalpa, Himachal Pradesh"
+      },
+      {
+        "q": "Chitkul Sangla Valley Himachal Pradesh",
+        "alt": "Timber houses at Chitkul, the last village in the Sangla valley, Himachal Pradesh"
+      },
+      {
+        "q": "Sangla Valley Kinnaur Himachal Pradesh",
+        "alt": "Apple orchards and terraced fields along the Baspa river in the Sangla valley, Kinnaur"
+      },
+      {
+        "q": "Kalpa village Kinnaur Himachal Pradesh",
+        "alt": "The village of Kalpa on a shelf above the Sutlej valley in Kinnaur, Himachal Pradesh"
+      }
+    ]
+  },
+  "kasauli": {
+    "name": "Kasauli",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Kasauli Himachal Pradesh hill station",
+        "alt": "Pine and chestnut forest on the ridges around Kasauli, Himachal Pradesh"
+      },
+      {
+        "q": "Kasauli Monkey Point Himachal Pradesh",
+        "alt": "The view over the Shivalik foothills from the high ground at Kasauli"
+      },
+      {
+        "q": "Christ Church Kasauli",
+        "alt": "The stone Christ Church among the trees at Kasauli, Himachal Pradesh"
+      },
+      {
+        "q": "Shivalik hills Himachal Pradesh",
+        "alt": "Layered Shivalik ridges receding into haze below Kasauli, Himachal Pradesh"
+      }
+    ]
+  },
+  "tirthan-valley": {
+    "name": "Tirthan Valley",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Tirthan Valley Himachal Pradesh river",
+        "alt": "The Tirthan river running clear between forested slopes in Himachal Pradesh"
+      },
+      {
+        "q": "Great Himalayan National Park Tirthan",
+        "alt": "Deep forest and ridgelines inside the Great Himalayan National Park above the Tirthan valley"
+      },
+      {
+        "q": "Banjar Valley Himachal Pradesh",
+        "alt": "Terraced fields and timber houses in the Banjar valley, Himachal Pradesh"
+      },
+      {
+        "q": "trout river Himachal Pradesh Kullu",
+        "alt": "A boulder-strewn trout stream in the Kullu district of Himachal Pradesh"
+      }
+    ]
+  },
+  "chail": {
+    "name": "Chail",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Chail Palace Himachal Pradesh",
+        "alt": "The colonial-era Chail Palace set among deodar forest in Himachal Pradesh"
+      },
+      {
+        "q": "Chail cricket ground Himachal Pradesh",
+        "alt": "The high cricket ground at Chail, levelled from a hilltop in Himachal Pradesh"
+      },
+      {
+        "q": "Chail Himachal Pradesh forest",
+        "alt": "Dense deodar forest on the slopes around Chail, Himachal Pradesh"
+      },
+      {
+        "q": "Chail Wildlife Sanctuary Himachal",
+        "alt": "Forested ridges of the Chail wildlife sanctuary in Himachal Pradesh"
+      }
+    ]
+  },
+  "bir-billing": {
+    "name": "Bir Billing",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Bir Billing paragliding Himachal Pradesh",
+        "alt": "Paragliders above the landing meadow at Bir in the Kangra valley, Himachal Pradesh"
+      },
+      {
+        "q": "Bir Tibetan colony monastery Himachal",
+        "alt": "A Tibetan monastery with gilded roof at the Bir colony in Himachal Pradesh"
+      },
+      {
+        "q": "Kangra valley Himachal Pradesh",
+        "alt": "Tea gardens and fields of the Kangra valley below the Dhauladhar range"
+      },
+      {
+        "q": "Billing take off site Himachal Pradesh",
+        "alt": "The grassy take-off ridge at Billing above the Kangra valley, Himachal Pradesh"
+      }
+    ]
+  },
+  "amritsar": {
+    "name": "Amritsar",
+    "area": "Punjab",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Golden Temple Amritsar Punjab",
+        "alt": "The gilded Harmandir Sahib standing in its sacred pool at Amritsar, Punjab"
+      },
+      {
+        "q": "Jallianwala Bagh Amritsar",
+        "alt": "The memorial gardens of Jallianwala Bagh in Amritsar, Punjab"
+      },
+      {
+        "q": "Wagah border ceremony Amritsar",
+        "alt": "The evening retreat ceremony at the Wagah border near Amritsar, Punjab"
+      },
+      {
+        "q": "Golden Temple Amritsar night",
+        "alt": "The Golden Temple lit and reflected in the Amrit Sarovar after dark, Amritsar"
+      }
+    ]
+  },
+  "chandigarh": {
+    "name": "Chandigarh",
+    "area": "Chandigarh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Rock Garden Chandigarh",
+        "alt": "Mosaic sculptures in Nek Chand's Rock Garden at Chandigarh"
+      },
+      {
+        "q": "Sukhna Lake Chandigarh",
+        "alt": "The promenade along Sukhna Lake with the Shivalik hills behind, Chandigarh"
+      },
+      {
+        "q": "Capitol Complex Chandigarh Le Corbusier",
+        "alt": "Le Corbusier's concrete Capitol Complex in Chandigarh"
+      },
+      {
+        "q": "Rose Garden Chandigarh",
+        "alt": "The terraced Zakir Hussain Rose Garden in Chandigarh"
+      }
+    ]
+  },
+  "kheerganga": {
+    "name": "Kheerganga",
+    "area": "Himachal Pradesh",
+    "country": "India",
+    "landmarks": [
+      {
+        "q": "Kheerganga trek Himachal Pradesh",
+        "alt": "The meadow at the top of the Kheerganga trek in the Parvati valley, Himachal Pradesh"
+      },
+      {
+        "q": "Kheerganga hot spring Parvati",
+        "alt": "The hot spring pool at Kheerganga above the Parvati valley, Himachal Pradesh"
+      },
+      {
+        "q": "Rudranag waterfall Parvati valley",
+        "alt": "Rudranag waterfall on the trail to Kheerganga, Parvati valley, Himachal Pradesh"
+      },
+      {
+        "q": "Parvati valley trek Himachal",
+        "alt": "The forested trail climbing the Parvati valley towards Kheerganga, Himachal Pradesh"
+      }
+    ]
+  }
+}

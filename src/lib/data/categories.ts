@@ -1,4 +1,3 @@
-import { photo } from "@/lib/images";
 import type { TravelCategory } from "@/lib/types";
 
 /**
@@ -10,56 +9,56 @@ export const travelCategories: TravelCategory[] = [
     slug: "honeymoon",
     name: "Honeymoon",
     description: "Private transfers, a room worth waking up in, and space to do nothing.",
-    image: photo("cat-honeymoon"),
+    imageSeed: "cat-honeymoon",
     icon: "Heart",
   },
   {
     slug: "family",
     name: "Family Holidays",
     description: "Paced for grandparents and toddlers alike, with rooms close together.",
-    image: photo("cat-family"),
+    imageSeed: "cat-family",
     icon: "Users",
   },
   {
     slug: "group",
     name: "Group Tours",
     description: "Ten to fifty travellers, one coordinator, and per-head pricing that drops.",
-    image: photo("cat-group"),
+    imageSeed: "cat-group",
     icon: "UsersRound",
   },
   {
     slug: "adventure",
     name: "Adventure Trips",
     description: "Passes, rapids, ridgelines — with guides who have done the route before.",
-    image: photo("cat-adventure"),
+    imageSeed: "cat-adventure",
     icon: "Mountain",
   },
   {
     slug: "luxury",
     name: "Luxury Holidays",
     description: "Five-star stays, private guides and the good rooms, not the leftover ones.",
-    image: photo("cat-luxury"),
+    imageSeed: "cat-luxury",
     icon: "Gem",
   },
   {
     slug: "weekend",
     name: "Weekend Getaways",
     description: "Two or three nights, close to home, planned in a single phone call.",
-    image: photo("cat-weekend"),
+    imageSeed: "cat-weekend",
     icon: "CalendarDays",
   },
   {
     slug: "pilgrimage",
     name: "Pilgrimage",
     description: "Darshan timings, temple assistance and stays within walking distance.",
-    image: photo("cat-pilgrimage"),
+    imageSeed: "cat-pilgrimage",
     icon: "Landmark",
   },
   {
     slug: "corporate",
     name: "Corporate Travel",
     description: "Offsites and incentive trips with GST invoices and a single point of contact.",
-    image: photo("cat-corporate"),
+    imageSeed: "cat-corporate",
     icon: "Briefcase",
   },
 ];

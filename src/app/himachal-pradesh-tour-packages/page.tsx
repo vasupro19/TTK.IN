@@ -17,21 +17,23 @@ import { Testimonials } from "@/components/himachal/Testimonials";
 import { HimachalFAQ } from "@/components/himachal/HimachalFAQ";
 import { EnquirySection } from "@/components/himachal/EnquirySection";
 import { MobileBottomCTA } from "@/components/himachal/MobileBottomCTA";
+import { EnquiryProvider } from "@/components/lead/EnquiryModal";
 import { Container } from "@/components/ui/Container";
 import { himachalFaqs } from "@/lib/data/himachal";
 import { searchPackages } from "@/lib/api/packages";
 import { absoluteUrl, breadcrumbJsonLd, faqJsonLd, siteConfig } from "@/lib/seo";
-import { photo } from "@/lib/images";
+import { photo, image, imageAlt } from "@/lib/images";
 
-const TITLE =
-  "Himachal Pradesh Tour Packages | Customized Himachal Holidays | TheTravelKart";
+const TITLE = "Himachal Pradesh Tour Packages";
+/** Used where the brand is not appended by the layout's title template. */
+const TITLE_WITH_BRAND = `${TITLE} | ${siteConfig.name}`;
 const DESCRIPTION =
   "Explore Himachal Pradesh with TheTravelKart. Discover customized tour packages for Shimla, Manali, Dharamshala, Dalhousie, Spiti and more with hotels, private cabs and personalized itineraries.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: "/himachal-tour-packages" },
+  alternates: { canonical: "/himachal-pradesh-tour-packages" },
   keywords: [
     "Himachal Pradesh tour packages",
     "Himachal tour packages",
@@ -46,17 +48,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: absoluteUrl("/himachal-tour-packages"),
+    url: absoluteUrl("/himachal-pradesh-tour-packages"),
     siteName: siteConfig.name,
-    title: TITLE,
+    title: TITLE_WITH_BRAND,
     description: DESCRIPTION,
-    images: [{ url: photo("hp-hero-himalaya", 1200, 630), width: 1200, height: 630, alt: "Himachal Pradesh tour packages by TheTravelKart" }],
+    images: [
+      {
+        url: photo("hp-hero-himalaya"),
+        width: image("hp-hero-himalaya").width,
+        height: image("hp-hero-himalaya").height,
+        alt: imageAlt("hp-hero-himalaya"),
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
+    title: TITLE_WITH_BRAND,
     description: DESCRIPTION,
-    images: [photo("hp-hero-himalaya", 1200, 630)],
+    images: [photo("hp-hero-himalaya")],
   },
 };
 
@@ -67,7 +76,7 @@ export default function HimachalLandingPage() {
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
       { name: "Destinations", path: "/destinations" },
-      { name: "Himachal Pradesh Tour Packages", path: "/himachal-tour-packages" },
+      { name: "Himachal Pradesh Tour Packages", path: "/himachal-pradesh-tour-packages" },
     ]),
     faqJsonLd(himachalFaqs),
     {
@@ -75,7 +84,7 @@ export default function HimachalLandingPage() {
       "@type": "TouristDestination",
       name: "Himachal Pradesh",
       description: DESCRIPTION,
-      url: absoluteUrl("/himachal-tour-packages"),
+      url: absoluteUrl("/himachal-pradesh-tour-packages"),
       touristType: ["Families", "Couples", "Adventure travellers", "Groups"],
       includesAttraction: [
         "Shimla", "Manali", "Dharamshala", "Dalhousie", "Kasol",
@@ -86,7 +95,7 @@ export default function HimachalLandingPage() {
       "@context": "https://schema.org",
       "@type": "OfferCatalog",
       name: "Himachal Pradesh Tour Packages",
-      url: absoluteUrl("/himachal-tour-packages"),
+      url: absoluteUrl("/himachal-pradesh-tour-packages"),
       provider: { "@type": "TravelAgency", name: siteConfig.name, url: siteConfig.url },
       itemListElement: packages.map((pkg, i) => ({
         "@type": "Offer",
@@ -101,7 +110,10 @@ export default function HimachalLandingPage() {
   ];
 
   return (
-    <>
+    // Every CTA on this page opens one shared enquiry dialog, and the provider
+    // also opens it once, a few seconds in, for visitors who would otherwise
+    // read and leave.
+    <EnquiryProvider destination="Himachal Pradesh">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -139,6 +151,6 @@ export default function HimachalLandingPage() {
       {/* Padding so the fixed mobile bar never covers the footer's last row. */}
       <div className="h-16 lg:hidden" aria-hidden="true" />
       <MobileBottomCTA />
-    </>
+    </EnquiryProvider>
   );
 }

@@ -1,4 +1,3 @@
-import { photo } from "@/lib/images";
 import type { BlogPost } from "@/lib/types";
 
 export const blogPosts: BlogPost[] = [
@@ -7,7 +6,7 @@ export const blogPosts: BlogPost[] = [
     title: "10 Best Places to Visit in Himachal Pradesh This Winter",
     excerpt:
       "From Manali's snow points to Kasol's riverside cafes, here's how to plan a winter trip through Himachal without freezing your budget.",
-    coverImage: photo("blog-himachal-winter"),
+    coverImageSeed: "blog-himachal-winter",
     author: "Ritika Sharma",
     publishedAt: "2026-01-12",
     readMinutes: 7,
@@ -25,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     title: "Kerala Backwaters: The Ultimate Houseboat Guide",
     excerpt:
       "Everything to know before booking an Alleppey houseboat — what's included, how much to pay, and the best time of year to go.",
-    coverImage: photo("blog-kerala-houseboat"),
+    coverImageSeed: "blog-kerala-houseboat",
     author: "Arjun Menon",
     publishedAt: "2025-11-03",
     readMinutes: 6,
@@ -43,7 +42,7 @@ export const blogPosts: BlogPost[] = [
     title: "Bali on a Budget: How to Plan Your Honeymoon Under ₹70,000",
     excerpt:
       "Bali doesn't have to mean a five-figure daily spend. Here's how couples are doing six days in Bali on a mid-range budget.",
-    coverImage: photo("blog-bali-budget"),
+    coverImageSeed: "blog-bali-budget",
     author: "Neha Kapoor",
     publishedAt: "2025-10-18",
     readMinutes: 8,
@@ -61,7 +60,7 @@ export const blogPosts: BlogPost[] = [
     title: "Andaman vs Maldives: Which Island Getaway Is Right for You?",
     excerpt:
       "Both promise turquoise water and white sand. Here's how to decide between India's own islands and the overwater-villa dream of the Maldives.",
-    coverImage: photo("blog-andaman-maldives"),
+    coverImageSeed: "blog-andaman-maldives",
     author: "Sana Iyer",
     publishedAt: "2025-09-22",
     readMinutes: 6,
@@ -79,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     title: "A First-Timer's Guide to Dubai: Visa, Best Time to Visit & Must-Dos",
     excerpt:
       "Planning your first Dubai trip? Here's what to know about visas, weather windows, and the handful of experiences worth prioritising.",
-    coverImage: photo("blog-dubai-guide"),
+    coverImageSeed: "blog-dubai-guide",
     author: "Vikram Rao",
     publishedAt: "2025-08-14",
     readMinutes: 7,
@@ -97,7 +96,7 @@ export const blogPosts: BlogPost[] = [
     title: "Rishikesh Adventure Guide: Rafting, Bungee & Everything In Between",
     excerpt:
       "A practical breakdown of Rishikesh's adventure sports scene — what's worth doing, what to skip, and when the rafting season actually runs.",
-    coverImage: photo("blog-rishikesh-adventure"),
+    coverImageSeed: "blog-rishikesh-adventure",
     author: "Karan Bhatt",
     publishedAt: "2025-06-30",
     readMinutes: 5,

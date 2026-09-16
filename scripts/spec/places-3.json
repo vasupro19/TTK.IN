@@ -1,0 +1,86 @@
+{
+  "jaipur": { "name": "Jaipur", "area": "Rajasthan", "country": "India", "landmarks": [
+    { "q": "Hawa Mahal Jaipur Rajasthan", "alt": "The honeycomb sandstone facade of Hawa Mahal in Jaipur, Rajasthan" },
+    { "q": "Amber Fort Jaipur Rajasthan", "alt": "Amber Fort on its ridge above Maota lake near Jaipur, Rajasthan" },
+    { "q": "City Palace Jaipur Rajasthan", "alt": "A painted gateway inside the City Palace complex at Jaipur, Rajasthan" },
+    { "q": "Jal Mahal Jaipur Rajasthan", "alt": "Jal Mahal standing in the water of Man Sagar lake at Jaipur, Rajasthan" }
+  ]},
+  "udaipur": { "name": "Udaipur", "area": "Rajasthan", "country": "India", "landmarks": [
+    { "q": "Lake Pichola Udaipur Rajasthan", "alt": "Palaces and ghats along the edge of Lake Pichola at Udaipur, Rajasthan" },
+    { "q": "City Palace Udaipur Rajasthan", "alt": "The long white facade of the City Palace above Lake Pichola in Udaipur, Rajasthan" },
+    { "q": "Jag Mandir Udaipur Rajasthan", "alt": "The island palace of Jag Mandir on Lake Pichola at Udaipur, Rajasthan" },
+    { "q": "Udaipur Rajasthan lake city view", "alt": "The lake city of Udaipur with the Aravalli hills behind it, Rajasthan" }
+  ]},
+  "jodhpur": { "name": "Jodhpur", "area": "Rajasthan", "country": "India", "landmarks": [
+    { "q": "Mehrangarh Fort Jodhpur Rajasthan", "alt": "Mehrangarh Fort rising on its rock escarpment above Jodhpur, Rajasthan" },
+    { "q": "Jodhpur blue city Rajasthan", "alt": "The blue-washed houses of the old city below Mehrangarh Fort in Jodhpur, Rajasthan" },
+    { "q": "Umaid Bhawan Palace Jodhpur", "alt": "The domed sandstone Umaid Bhawan Palace at Jodhpur, Rajasthan" },
+    { "q": "Jaswant Thada Jodhpur Rajasthan", "alt": "The white marble cenotaph of Jaswant Thada near Mehrangarh Fort, Jodhpur" }
+  ]},
+  "jaisalmer": { "name": "Jaisalmer", "area": "Rajasthan", "country": "India", "landmarks": [
+    { "q": "Jaisalmer Fort Rajasthan", "alt": "The sandstone bastions of Jaisalmer Fort rising from the desert, Rajasthan" },
+    { "q": "Sam Sand Dunes Jaisalmer Thar desert", "alt": "Camels crossing the Sam sand dunes of the Thar desert near Jaisalmer, Rajasthan" },
+    { "q": "Patwon Ki Haveli Jaisalmer", "alt": "The carved sandstone screens of Patwon ki Haveli in Jaisalmer, Rajasthan" },
+    { "q": "Thar desert Rajasthan dunes sunset", "alt": "Low sun raking across the dunes of the Thar desert in Rajasthan" }
+  ]},
+  "pushkar": { "name": "Pushkar", "area": "Rajasthan", "country": "India", "landmarks": [
+    { "q": "Pushkar Lake ghats Rajasthan", "alt": "The bathing ghats and temples ringing Pushkar lake in Rajasthan" },
+    { "q": "Brahma Temple Pushkar Rajasthan", "alt": "The Brahma temple at Pushkar, Rajasthan" },
+    { "q": "Pushkar Camel Fair Rajasthan", "alt": "Camels and traders gathered on the sands at the Pushkar fair, Rajasthan" },
+    { "q": "Pushkar town Rajasthan view", "alt": "White temple town of Pushkar spread below the Aravalli hills, Rajasthan" }
+  ]},
+  "north-goa": { "name": "North Goa", "area": "Goa", "country": "India", "landmarks": [
+    { "q": "Baga Beach Goa", "alt": "Surf running up the wide sand of Baga beach in North Goa" },
+    { "q": "Fort Aguada Goa", "alt": "The Portuguese ramparts of Fort Aguada above the Arabian Sea in North Goa" },
+    { "q": "Anjuna Beach Goa", "alt": "Rocky headland and palms at Anjuna beach in North Goa" },
+    { "q": "Basilica of Bom Jesus Old Goa", "alt": "The laterite facade of the Basilica of Bom Jesus at Old Goa" }
+  ]},
+  "south-goa": { "name": "South Goa", "area": "Goa", "country": "India", "landmarks": [
+    { "q": "Palolem Beach Goa", "alt": "The curving palm-backed bay of Palolem beach in South Goa" },
+    { "q": "Colva Beach Goa", "alt": "Fishing boats drawn up on the broad sand of Colva beach, South Goa" },
+    { "q": "Cabo de Rama fort Goa", "alt": "Cliffs and old fort walls at Cabo de Rama on the South Goa coast" },
+    { "q": "Goa coconut palms backwater", "alt": "Coconut palms leaning over a quiet tidal creek in South Goa" }
+  ]},
+  "munnar": { "name": "Munnar", "area": "Kerala", "country": "India", "landmarks": [
+    { "q": "Munnar tea plantation Kerala", "alt": "Clipped tea bushes covering the rolling hills of Munnar, Kerala" },
+    { "q": "Eravikulam National Park Munnar Kerala", "alt": "Grassland slopes of Eravikulam National Park above Munnar, Kerala" },
+    { "q": "Mattupetty Dam Munnar Kerala", "alt": "The reservoir at Mattupetty dam among tea hills near Munnar, Kerala" },
+    { "q": "Western Ghats Munnar Kerala mist", "alt": "Mist moving across the Western Ghats above the tea estates of Munnar, Kerala" }
+  ]},
+  "thekkady": { "name": "Thekkady", "area": "Kerala", "country": "India", "landmarks": [
+    { "q": "Periyar Lake Thekkady Kerala", "alt": "Drowned tree stumps standing in Periyar lake at Thekkady, Kerala" },
+    { "q": "Periyar Wildlife Sanctuary Kerala elephant", "alt": "Elephants at the water's edge in the Periyar sanctuary near Thekkady, Kerala" },
+    { "q": "spice plantation Thekkady Kerala", "alt": "Pepper and cardamom growing on a spice plantation near Thekkady, Kerala" },
+    { "q": "Periyar forest Kerala hills", "alt": "Evergreen forest covering the hills of the Periyar reserve in Kerala" }
+  ]},
+  "alleppey": { "name": "Alleppey", "area": "Kerala", "country": "India", "landmarks": [
+    { "q": "Alappuzha houseboat Kerala backwaters", "alt": "A thatched kettuvallam houseboat on the Alappuzha backwaters in Kerala" },
+    { "q": "Kerala backwaters canal palm Alappuzha", "alt": "A narrow palm-lined backwater canal near Alappuzha, Kerala" },
+    { "q": "Punnamada Lake Alappuzha Kerala", "alt": "Open water and paddy bunds on Punnamada lake at Alappuzha, Kerala" },
+    { "q": "snake boat race Alappuzha Kerala", "alt": "Rowers driving a long snake boat during a race at Alappuzha, Kerala" }
+  ]},
+  "kovalam": { "name": "Kovalam", "area": "Kerala", "country": "India", "landmarks": [
+    { "q": "Kovalam Beach Kerala lighthouse", "alt": "The striped lighthouse above the crescent of Kovalam beach in Kerala" },
+    { "q": "Kovalam Kerala beach palms", "alt": "Palms leaning over the sand and surf at Kovalam, Kerala" },
+    { "q": "Ayurveda massage Kerala", "alt": "An Ayurvedic treatment room prepared with oils in Kerala" },
+    { "q": "Arabian Sea coast Kerala sunset", "alt": "Sunset over the Arabian Sea from the Kerala coast" }
+  ]},
+  "port-blair": { "name": "Port Blair", "area": "Andaman Islands", "country": "India", "landmarks": [
+    { "q": "Cellular Jail Port Blair Andaman", "alt": "The radiating brick wings of the Cellular Jail at Port Blair, Andaman Islands" },
+    { "q": "Ross Island Andaman ruins", "alt": "Colonial ruins overgrown by roots on Ross Island near Port Blair, Andaman Islands" },
+    { "q": "Port Blair Andaman harbour sea", "alt": "Boats in the harbour at Port Blair in the Andaman Islands" },
+    { "q": "Corbyn Cove beach Port Blair Andaman", "alt": "Palms along the sand at Corbyn's Cove beach near Port Blair, Andaman Islands" }
+  ]},
+  "havelock": { "name": "Havelock Island", "area": "Andaman Islands", "country": "India", "landmarks": [
+    { "q": "Radhanagar Beach Havelock Andaman", "alt": "The wide white sand and clear shallows of Radhanagar beach on Havelock Island, Andaman" },
+    { "q": "Havelock Island Andaman beach", "alt": "Turquoise water over sand at Havelock Island in the Andaman Islands" },
+    { "q": "scuba diving Andaman coral reef", "alt": "A diver above coral on a reef in the Andaman Islands" },
+    { "q": "Elephant Beach Havelock Andaman", "alt": "Fallen trees and clear water at Elephant beach on Havelock Island, Andaman" }
+  ]},
+  "neil-island": { "name": "Neil Island", "area": "Andaman Islands", "country": "India", "landmarks": [
+    { "q": "Neil Island Andaman beach", "alt": "Shallow turquoise water off Neil Island in the Andaman Islands" },
+    { "q": "Bharatpur Beach Neil Island Andaman", "alt": "Boats moored off Bharatpur beach on Neil Island, Andaman Islands" },
+    { "q": "Natural Bridge Neil Island Andaman", "alt": "The natural rock bridge on the shore of Neil Island, Andaman Islands" },
+    { "q": "Andaman islands coastline sea", "alt": "Forested coastline meeting clear sea in the Andaman Islands" }
+  ]}
+}

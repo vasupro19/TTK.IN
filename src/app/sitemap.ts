@@ -40,6 +40,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // The "/<region>-tour-packages" landing pages — the main commercial entry
+  // points, and previously missing from the sitemap entirely.
+  const seoLandingRoutes: MetadataRoute.Sitemap = regions
+    .filter((region) => Boolean(region.seoPath))
+    .map((region) => ({
+      url: `${siteConfig.url}${region.seoPath}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    }));
+
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${siteConfig.url}/blog/${post.slug}`,
     changeFrequency: "monthly",
@@ -47,5 +57,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: post.publishedAt,
   }));
 
-  return [...staticRoutes, ...packageRoutes, ...regionRoutes, ...destinationRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...seoLandingRoutes,
+    ...packageRoutes,
+    ...regionRoutes,
+    ...destinationRoutes,
+    ...blogRoutes,
+  ];
 }

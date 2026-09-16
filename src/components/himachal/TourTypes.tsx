@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { tourTypes } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function TourTypes() {
   return (
@@ -25,10 +25,8 @@ export function TourTypes() {
               className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:aspect-[5/6]"
             >
               {/* REPLACE: trip-type photography */}
-              <Image
-                src={type.image}
-                alt={`${type.name} tours in Himachal Pradesh`}
-                fill
+              <SmartImage
+                seed={type.imageSeed}
                 loading="lazy"
                 sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

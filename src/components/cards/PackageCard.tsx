@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BedDouble, Utensils, Car, Camera, CalendarRange, MapPin } from "lucide-react";
 import type { Package } from "@/lib/types";
@@ -11,6 +10,7 @@ import {
   hotelLabel,
   shortDurationLabel,
 } from "@/lib/labels";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 function Feature({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
@@ -30,10 +30,8 @@ export function PackageCard({ pkg, priority = false }: { pkg: Package; priority?
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-black/10">
       <Link href={`/packages/${pkg.slug}`} className="relative block aspect-[16/10] overflow-hidden">
-        <Image
-          src={pkg.image}
-          alt={pkg.title}
-          fill
+        <SmartImage
+          seed={pkg.imageSeed}
           priority={priority}
           sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 90vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

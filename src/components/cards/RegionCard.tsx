@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Region } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function RegionCard({
   region,
@@ -19,10 +19,8 @@ export function RegionCard({
       href={`/destinations/${region.slug}`}
       className="group relative flex aspect-[4/3] overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
-      <Image
-        src={region.image}
-        alt={region.name}
-        fill
+      <SmartImage
+        seed={region.imageSeed}
         priority={priority}
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         className="object-cover transition-transform duration-500 group-hover:scale-110"

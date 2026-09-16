@@ -1,10 +1,9 @@
-import { photo } from "@/lib/images";
 import type { Region } from "@/lib/types";
 
 export const regions: Region[] = [
   {
     slug: "himachal",
-    seoPath: "/himachal-tour-packages",
+    seoPath: "/himachal-pradesh-tour-packages",
     name: "Himachal",
     area: "Himachal Pradesh",
     country: "India",
@@ -12,7 +11,7 @@ export const regions: Region[] = [
     tagline: "Deodar forests, snow points and river-side hill towns",
     description:
       "Himachal is the mountain state most Indian families start with — Shimla's colonial promenade, Manali's snow points, the monasteries above Dharamshala, and the far side of the range at Spiti. Short Volvo circuits from Delhi and Chandigarh sit alongside week-long high-altitude expeditions.",
-    image: photo("region-himachal-hero"),
+    imageSeed: "region-himachal-hero",
     startingPrice: 7815,
     popularFor: ["Snow points", "Honeymoon", "Volvo circuits", "Spiti expeditions"],
     featured: true,
@@ -27,7 +26,7 @@ export const regions: Region[] = [
     tagline: "Dal Lake shikaras, Gulmarg gondolas and alpine meadows",
     description:
       "The Kashmir valley runs on a simple loop — houseboats in Srinagar, the gondola up Apharwat in Gulmarg, the pine bowl of Pahalgam, and the glacier road to Sonmarg. It is the most scenic week of driving anywhere in India.",
-    image: photo("region-kashmir-hero"),
+    imageSeed: "region-kashmir-hero",
     startingPrice: 15999,
     popularFor: ["Houseboats", "Gondola ride", "Honeymoon", "Tulip season"],
     featured: true,
@@ -42,7 +41,7 @@ export const regions: Region[] = [
     tagline: "High passes, blue lakes and a moonscape at 11,500 feet",
     description:
       "Ladakh is the trip people plan for years — Leh's monasteries and bazaar, the dunes and double-humped camels of Nubra, and the colour-shifting water of Pangong Tso. Fly in and acclimatise, or drive up the Manali–Leh highway over five passes.",
-    image: photo("region-ladakh-hero"),
+    imageSeed: "region-ladakh-hero",
     startingPrice: 19999,
     popularFor: ["Pangong Tso", "Nubra Valley", "Monasteries", "Bike expeditions"],
     featured: true,
@@ -57,7 +56,7 @@ export const regions: Region[] = [
     tagline: "Ganga ghats, lake towns and the ski slopes of Auli",
     description:
       "Devbhoomi covers two very different holidays: the rafting-and-yoga belt around Rishikesh and Haridwar, and the hill stations — Nainital, Mussoorie and the snow bowl at Auli — a few hours further up.",
-    image: photo("region-uttarakhand-hero"),
+    imageSeed: "region-uttarakhand-hero",
     startingPrice: 7999,
     popularFor: ["River rafting", "Yoga & wellness", "Lake towns", "Skiing"],
   },
@@ -71,7 +70,7 @@ export const regions: Region[] = [
     tagline: "Forts, lake palaces and the Thar desert",
     description:
       "Rajasthan works as a chain: Jaipur's forts, Pushkar's ghats, Jodhpur's blue lanes, Jaisalmer's dunes and Udaipur's lakes. Pick two cities for a long weekend or run the full desert trail over a week.",
-    image: photo("region-rajasthan-hero"),
+    imageSeed: "region-rajasthan-hero",
     startingPrice: 9999,
     popularFor: ["Forts & palaces", "Desert camping", "Heritage stays", "Honeymoon"],
     featured: true,
@@ -86,7 +85,7 @@ export const regions: Region[] = [
     tagline: "Two coastlines — one loud, one quiet",
     description:
       "North Goa is shacks, flea markets and water sports; South Goa is long empty sand, plantations and resort pools. Most good itineraries give you a few nights of each.",
-    image: photo("region-goa-hero"),
+    imageSeed: "region-goa-hero",
     startingPrice: 11999,
     popularFor: ["Beaches", "Water sports", "Nightlife", "Portuguese heritage"],
     featured: true,
@@ -101,7 +100,7 @@ export const regions: Region[] = [
     tagline: "Tea hills, houseboats and Ayurvedic slow travel",
     description:
       "The classic Kerala week climbs from the coast to Munnar's tea estates, crosses to the spice plantations and wildlife of Thekkady, drops into an Alleppey houseboat, and finishes on the beach at Kovalam.",
-    image: photo("region-kerala-hero"),
+    imageSeed: "region-kerala-hero",
     startingPrice: 12999,
     popularFor: ["Houseboats", "Tea gardens", "Ayurveda", "Wildlife"],
     featured: true,
@@ -116,7 +115,7 @@ export const regions: Region[] = [
     tagline: "Reef diving and white sand without a visa",
     description:
       "Fly into Port Blair, ferry across to Havelock for Radhanagar Beach and the dive sites, then to Neil for a quieter pair of nights. Domestic prices, international water.",
-    image: photo("region-andaman-hero"),
+    imageSeed: "region-andaman-hero",
     startingPrice: 22999,
     popularFor: ["Scuba diving", "Island hopping", "Honeymoon", "Beaches"],
     featured: true,
@@ -131,7 +130,7 @@ export const regions: Region[] = [
     tagline: "Tea gardens, Kanchenjunga views and living-root bridges",
     description:
       "Darjeeling and Gangtok pair naturally — toy trains and tea estates on one side, monasteries and mountain passes on the other. Meghalaya runs separately, built around Shillong's waterfalls and the root bridges of Cherrapunji.",
-    image: photo("region-north-east-hero"),
+    imageSeed: "region-north-east-hero",
     startingPrice: 10800,
     popularFor: ["Tea gardens", "Sunrise points", "Monasteries", "Waterfalls"],
   },
@@ -145,7 +144,7 @@ export const regions: Region[] = [
     tagline: "Coffee estates, Nilgiri hills and palace towns",
     description:
       "Coorg's coffee plantations, the Nilgiri hill station of Ooty, and Mysore's palace make an easy five-day loop out of Bengaluru — cool weather without a flight to the Himalayas.",
-    image: photo("region-south-india-hero"),
+    imageSeed: "region-south-india-hero",
     startingPrice: 11999,
     popularFor: ["Coffee estates", "Hill stations", "Palaces", "Waterfalls"],
   },
@@ -159,7 +158,7 @@ export const regions: Region[] = [
     tagline: "The easiest first trip abroad",
     description:
       "Bangkok and Pattaya for shopping, temples and coral-island day trips; Phuket and Krabi for limestone cliffs and long-tail boats to Phi Phi. Short flights, easy visas, and prices that undercut most Indian beach holidays.",
-    image: photo("region-thailand-hero"),
+    imageSeed: "region-thailand-hero",
     startingPrice: 44999,
     popularFor: ["Island hopping", "Nightlife", "Temples", "Honeymoon"],
     featured: true,
@@ -174,7 +173,7 @@ export const regions: Region[] = [
     tagline: "Rice terraces above, surf breaks below",
     description:
       "Ubud handles the temples, rice terraces and jungle pool villas; Seminyak and the south coast handle beach clubs, sunsets and the cliff temple at Uluwatu. A week covers both comfortably.",
-    image: photo("region-bali-hero"),
+    imageSeed: "region-bali-hero",
     startingPrice: 54999,
     popularFor: ["Pool villas", "Honeymoon", "Rice terraces", "Beach clubs"],
   },
@@ -188,7 +187,7 @@ export const regions: Region[] = [
     tagline: "One island, one resort, nothing else to decide",
     description:
       "A short flight from India puts you on a speedboat or seaplane to a private island — overwater villas around Malé Atoll, and the manta and whale-shark waters of Baa Atoll a little further out.",
-    image: photo("region-maldives-hero"),
+    imageSeed: "region-maldives-hero",
     startingPrice: 89999,
     popularFor: ["Overwater villas", "Honeymoon", "Snorkelling", "Luxury"],
   },
@@ -202,7 +201,7 @@ export const regions: Region[] = [
     tagline: "Skyline, desert and theme parks in one week",
     description:
       "Dubai delivers the Burj Khalifa, dune bashing and the marina cruise; Abu Dhabi adds the Grand Mosque and Ferrari World. It remains the smoothest international trip for families travelling with children.",
-    image: photo("region-uae-hero"),
+    imageSeed: "region-uae-hero",
     startingPrice: 49999,
     popularFor: ["Desert safari", "Theme parks", "Shopping", "Skyline"],
   },
@@ -216,7 +215,7 @@ export const regions: Region[] = [
     tagline: "A compact city built for first-time travellers",
     description:
       "Gardens by the Bay, Marina Bay Sands and a hawker-centre food scene on one side of the water; Universal Studios and the beaches of Sentosa on the other. Nothing is more than forty minutes away.",
-    image: photo("region-singapore-hero"),
+    imageSeed: "region-singapore-hero",
     startingPrice: 52999,
     popularFor: ["Theme parks", "Family", "Food", "City breaks"],
   },

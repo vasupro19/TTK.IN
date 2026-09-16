@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Destination } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function DestinationCard({
   destination,
@@ -15,10 +15,8 @@ export function DestinationCard({
       href={`/destinations/${destination.slug}`}
       className="group relative flex aspect-[3/4] overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
-      <Image
-        src={destination.image}
-        alt={destination.name}
-        fill
+      <SmartImage
+        seed={destination.imageSeed}
         priority={priority}
         sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
         className="object-cover transition-transform duration-500 group-hover:scale-110"

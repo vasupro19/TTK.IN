@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Quote, Star } from "lucide-react";
 import { listPublishedReviews, catalogueStats } from "@/lib/api/catalogue";
@@ -6,7 +5,14 @@ import { getPackage } from "@/lib/api/packages";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { photo } from "@/lib/images";
+
+/** "Priya & Arjun Malhotra" -> "PM"; used in place of an invented portrait. */
+function initials(name: string): string {
+  const words = name.replace(/&/g, " ").split(/\s+/).filter(Boolean);
+  const first = words[0]?.[0] ?? "";
+  const last = words.length > 1 ? words[words.length - 1][0] : "";
+  return (first + last).toUpperCase();
+}
 
 export function CustomerStories() {
   const reviews = listPublishedReviews(6);
@@ -76,14 +82,17 @@ export function CustomerStories() {
                     </div>
 
                     <figcaption className="mt-4 flex items-center gap-3 border-t border-sand-200 pt-4">
-                      <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-sand-100">
-                        <Image
-                          src={photo(`avatar-${review.id}`, 80, 80)}
-                          alt=""
-                          fill
-                          sizes="40px"
-                          className="object-cover"
-                        />
+                      {/*
+                        Initials rather than a photograph: these are sample
+                        reviews, and inventing a face for a named traveller
+                        would misrepresent a real person. When the CRM supplies
+                        verified reviews, a real avatar can replace this.
+                      */}
+                      <span
+                        aria-hidden="true"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-semibold text-brand-700 ring-1 ring-brand-100"
+                      >
+                        {initials(review.customerName)}
                       </span>
                       <span className="min-w-0">
                         <span className="block text-sm font-semibold text-ink-900">

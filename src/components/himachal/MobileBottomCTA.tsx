@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Phone, MessageCircle, PencilLine } from "lucide-react";
 import { siteConfig, whatsappLink, telLink } from "@/lib/seo";
+import { EnquiryButton } from "@/components/lead/EnquiryModal";
 import { cn } from "@/lib/utils";
 
 const WA_MESSAGE =
@@ -57,13 +57,10 @@ export function MobileBottomCTA() {
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
           WhatsApp
         </a>
-        <Link
-          href="#enquiry"
-          className="flex flex-col items-center justify-center gap-0.5 rounded-xl bg-sunset-500 py-2.5 text-[11px] font-semibold text-white"
-        >
+        <EnquiryButton className="flex flex-col items-center justify-center gap-0.5 rounded-xl bg-sunset-500 py-2.5 text-[11px] font-semibold text-white">
           <PencilLine className="h-4 w-4" aria-hidden="true" />
           Get Quote
-        </Link>
+        </EnquiryButton>
       </div>
     </div>
   );

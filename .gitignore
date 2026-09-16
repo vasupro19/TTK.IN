@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Wikimedia API responses cached by scripts/fetch-images.py — regenerable
+/scripts/.image-cache/

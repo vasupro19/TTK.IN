@@ -1,8 +1,7 @@
-import { photo } from "@/lib/images";
 import type { FAQ } from "@/lib/types";
 
 /**
- * Content for the /himachal-tour-packages landing page.
+ * Content for the /himachal-pradesh-tour-packages landing page.
  *
  * Everything the page renders lives here so the team can edit copy, add a
  * destination or reorder sections without touching component code. Prices are
@@ -60,7 +59,8 @@ export interface TourType {
   slug: string;
   name: string;
   blurb: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   href: string;
 }
 
@@ -69,56 +69,56 @@ export const tourTypes: TourType[] = [
     slug: "honeymoon",
     name: "Honeymoon",
     blurb: "Valley-view rooms, private transfers and space to do nothing at all.",
-    image: photo("hp-type-honeymoon"),
+    imageSeed: "hp-type-honeymoon",
     href: "/packages?region=himachal&category=honeymoon",
   },
   {
     slug: "family",
     name: "Family Holidays",
     blurb: "Paced for grandparents and children alike, with rooms kept close together.",
-    image: photo("hp-type-family"),
+    imageSeed: "hp-type-family",
     href: "/packages?region=himachal&category=family",
   },
   {
     slug: "adventure",
     name: "Adventure Trips",
     blurb: "Passes, rapids and ridgelines, with guides who have done the route before.",
-    image: photo("hp-type-adventure"),
+    imageSeed: "hp-type-adventure",
     href: "/packages?region=himachal&category=adventure",
   },
   {
     slug: "group",
     name: "Friends & Group Tours",
     blurb: "Ten to fifty travellers, one coordinator, and per-head pricing that drops.",
-    image: photo("hp-type-group"),
+    imageSeed: "hp-type-group",
     href: "/packages?region=himachal&category=group",
   },
   {
     slug: "luxury",
     name: "Luxury Holidays",
     blurb: "Five-star stays, private guides and the good rooms rather than the leftover ones.",
-    image: photo("hp-type-luxury"),
+    imageSeed: "hp-type-luxury",
     href: "/packages?region=himachal&category=luxury",
   },
   {
     slug: "weekend",
     name: "Weekend Getaways",
     blurb: "Two or three nights from Delhi or Chandigarh, planned in a single phone call.",
-    image: photo("hp-type-weekend"),
+    imageSeed: "hp-type-weekend",
     href: "/packages?region=himachal&category=weekend",
   },
   {
     slug: "budget",
     name: "Budget Trips",
     blurb: "Clean, well-located stays and shared transfers that keep the cost sensible.",
-    image: photo("hp-type-budget"),
+    imageSeed: "hp-type-budget",
     href: "/packages?region=himachal&price=0-15000",
   },
   {
     slug: "custom",
     name: "Customized Tours",
     blurb: "Nothing on this page fits? We build itineraries from a blank page every week.",
-    image: photo("hp-type-custom"),
+    imageSeed: "hp-type-custom",
     href: "/plan-my-trip?destination=Himachal",
   },
 ];
@@ -133,7 +133,8 @@ export interface DestinationGuide {
   idealDuration: string;
   experiences: string[];
   whyVisit: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
 }
 
 export const destinationGuides: DestinationGuide[] = [
@@ -151,7 +152,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Shimla is the gentlest way into Himachal. The old summer capital keeps its colonial promenade, Christ Church and a walkable centre where cars mostly are not allowed. It is well connected, easy for elderly parents, and the usual first night on any circuit from Delhi or Chandigarh.",
-    image: photo("shimla-hero"),
+    imageSeed: "shimla-hero",
   },
   {
     slug: "manali",
@@ -167,7 +168,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Manali does two things at once — it is the most reliable place in the state to put your hands in snow, and it has the liveliest cafe and riverside scene. The Atal Tunnel has changed the trip completely, putting genuine high-altitude landscape within an easy morning's drive.",
-    image: photo("manali-hero"),
+    imageSeed: "manali-hero",
   },
   {
     slug: "dharamshala",
@@ -183,7 +184,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "McLeod Ganj sits above Dharamshala with Tibetan monasteries, momo kitchens and bookshops, and the Dhauladhar range rising almost vertically behind it. It is the most distinctive corner of Himachal culturally, and the easiest place in the state to combine a real trek with a comfortable bed.",
-    image: photo("dharamshala-hero"),
+    imageSeed: "dharamshala-hero",
   },
   {
     slug: "dalhousie",
@@ -199,7 +200,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Dalhousie is where a Himachal trip slows down. There is very little you must do — which is the appeal. Paired with Khajjiar twenty kilometres away, it makes an unhurried second half to a Dharamshala trip.",
-    image: photo("dalhousie-hero"),
+    imageSeed: "dalhousie-hero",
   },
   {
     slug: "kasol",
@@ -215,7 +216,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Kasol runs along a loud green river with cafes on both banks. It draws a younger crowd and a slower pace, and it is the trailhead for the Parvati valley's treks. Best paired with Jibhi or Manali rather than visited alone.",
-    image: photo("kasol-hero"),
+    imageSeed: "kasol-hero",
   },
   {
     slug: "spiti-valley",
@@ -231,7 +232,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Spiti is the serious end of Himachal — a cold desert above 12,000 feet with thousand-year-old monasteries and villages higher than most Alpine summits. It needs a week, proper acclimatisation and a driver who knows the road. It is not a weekend add-on.",
-    image: photo("spiti-hero"),
+    imageSeed: "spiti-hero",
   },
   {
     slug: "kinnaur",
@@ -247,7 +248,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Kinnaur is the stretch most people drive through on the way to Spiti and later wish they had stopped in. Slate-roofed villages, apple orchards and the Sutlej gorge below, with a fraction of Manali's traffic.",
-    image: photo("kinnaur-hero"),
+    imageSeed: "kinnaur-hero",
   },
   {
     slug: "tirthan-valley",
@@ -263,7 +264,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Tirthan and Jibhi are what the Kullu valley looked like before the hotels arrived. Riverside guesthouses, forest walks and genuinely dark skies, an easy detour off the Delhi–Manali road.",
-    image: photo("tirthan-hero"),
+    imageSeed: "tirthan-hero",
   },
   {
     slug: "kasauli",
@@ -279,7 +280,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "The shortest hill escape in Himachal — close enough to Chandigarh for a genuine weekend. Small, quiet and almost entirely about walking, reading and eating well.",
-    image: photo("kasauli-hero"),
+    imageSeed: "kasauli-hero",
   },
   {
     slug: "bir-billing",
@@ -295,7 +296,7 @@ export const destinationGuides: DestinationGuide[] = [
     ],
     whyVisit:
       "Bir is India's best-known paragliding site, and flights run in clear-weather windows in spring and autumn. Even without flying it is a pleasant slow village with good coffee and a monastery at the end of most lanes.",
-    image: photo("bir-billing-hero"),
+    imageSeed: "bir-billing-hero",
   },
 ];
 
@@ -365,7 +366,8 @@ export interface ThingToDo {
   name: string;
   where: string;
   body: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
   icon: string;
 }
 
@@ -374,70 +376,70 @@ export const thingsToDo: ThingToDo[] = [
     name: "Snow activities",
     where: "Solang Valley, Kufri, Rohtang",
     body: "Snow tubes, sledging, snow scooters and a ropeway at Solang; gentler slopes and pony rides at Kufri for families with young children.",
-    image: photo("hp-do-snow"),
+    imageSeed: "hp-do-snow",
     icon: "Snowflake",
   },
   {
     name: "Paragliding",
     where: "Bir Billing, Solang Valley",
     body: "Tandem flights from Billing at 2,400 metres, often twenty to thirty minutes in the air. Solang runs shorter joyrides suited to first-timers.",
-    image: photo("hp-do-paragliding"),
+    imageSeed: "hp-do-paragliding",
     icon: "Wind",
   },
   {
     name: "River rafting",
     where: "Beas near Kullu, Sutlej in Shimla district",
     body: "A straightforward run of grade II–III rapids on the Beas, usually seven to fourteen kilometres, with guides and full safety gear.",
-    image: photo("hp-do-rafting"),
+    imageSeed: "hp-do-rafting",
     icon: "Waves",
   },
   {
     name: "Trekking",
     where: "Triund, Kheerganga, Hampta, GHNP",
     body: "From a single day up to Triund to multi-day crossings like Hampta Pass. Most popular routes are well marked and run with local guides.",
-    image: photo("hp-do-trekking"),
+    imageSeed: "hp-do-trekking",
     icon: "Footprints",
   },
   {
     name: "Camping",
     where: "Tirthan, Kasol, Chandratal, Sangla",
     body: "Riverside camps in the lower valleys and high-altitude camps at Chandratal and Sarchu during the short summer window.",
-    image: photo("hp-do-camping"),
+    imageSeed: "hp-do-camping",
     icon: "Tent",
   },
   {
     name: "Cafe hopping",
     where: "Old Manali, Kasol, McLeod Ganj, Bir",
     body: "Himachal has a genuine cafe culture — bakeries, Israeli and Tibetan kitchens and riverside terraces built for long afternoons.",
-    image: photo("hp-do-cafes"),
+    imageSeed: "hp-do-cafes",
     icon: "Coffee",
   },
   {
     name: "Monastery visits",
     where: "McLeod Ganj, Key, Tabo, Bir",
     body: "Namgyal in McLeod Ganj, Key above the Spiti river, and Tabo — one of the oldest continuously functioning monasteries in the Himalaya.",
-    image: photo("hp-do-monastery"),
+    imageSeed: "hp-do-monastery",
     icon: "Landmark",
   },
   {
     name: "Road trips",
     where: "Manali–Spiti, Kinnaur circuit, Jalori Pass",
     body: "The circuit through Kinnaur into Spiti and out over Kunzum is among the finest drives in the country, and needs a week done properly.",
-    image: photo("hp-do-roadtrip"),
+    imageSeed: "hp-do-roadtrip",
     icon: "Route",
   },
   {
     name: "Village experiences",
     where: "Tirthan, Sangla, Jibhi, Pragpur",
     body: "Homestays in slate-roofed villages, orchard walks in season and meals cooked on wood fires — the part of Himachal that hotels cannot sell.",
-    image: photo("hp-do-village"),
+    imageSeed: "hp-do-village",
     icon: "Home",
   },
   {
     name: "Photography",
     where: "Kalpa, Chandratal, Chitkul, Dhauladhar",
     body: "Kinner Kailash at first light from Kalpa, the Dhauladhar from Naddi, and night skies over Spiti that are among the darkest in India.",
-    image: photo("hp-do-photography"),
+    imageSeed: "hp-do-photography",
     icon: "Camera",
   },
 ];
@@ -447,44 +449,45 @@ export const thingsToDo: ThingToDo[] = [
 export interface Dish {
   name: string;
   body: string;
-  image: string;
+  /** Image seed resolved through src/lib/images. */
+  imageSeed: string;
 }
 
 export const himachaliFood: Dish[] = [
   {
     name: "Dham",
     body: "A festive meal cooked by botis, traditional chefs, and served on leaf plates — rice with rajma, madra, sweet meetha bhaat and curd-based dishes. Usually made for weddings and temple occasions rather than restaurants.",
-    image: photo("hp-food-dham"),
+    imageSeed: "hp-food-dham",
   },
   {
     name: "Siddu",
     body: "A steamed wheat bread, slowly leavened and stuffed with a walnut or poppy-seed filling, eaten hot with ghee or a spoon of local dal. The dish most worth seeking out in the Kullu valley.",
-    image: photo("hp-food-siddu"),
+    imageSeed: "hp-food-siddu",
   },
   {
     name: "Madra",
     body: "Chickpeas or kidney beans simmered in a yoghurt gravy with whole spices. Rich, mild and central to the Chamba and Kangra table.",
-    image: photo("hp-food-madra"),
+    imageSeed: "hp-food-madra",
   },
   {
     name: "Chha Gosht",
     body: "Lamb cooked in a spiced yoghurt and gram-flour gravy — the signature meat dish of a Himachali dham, and a slow one to make properly.",
-    image: photo("hp-food-chhagosht"),
+    imageSeed: "hp-food-chhagosht",
   },
   {
     name: "Babru",
     body: "A Himachali take on kachori — leavened dough stuffed with soaked black gram and fried, eaten with tamarind chutney.",
-    image: photo("hp-food-babru"),
+    imageSeed: "hp-food-babru",
   },
   {
     name: "Tudkiya Bhath",
     body: "A Chamba rice dish cooked with lentils, potato, yoghurt and whole spices. Closer to a pulao than a plain rice, and usually eaten with dal.",
-    image: photo("hp-food-tudkiya"),
+    imageSeed: "hp-food-tudkiya",
   },
   {
     name: "Apples & local produce",
     body: "Himachal is India's apple state. Between roughly August and October the roadside stalls in Kinnaur, Kullu and Shimla district sell fresh fruit, plus cider, jams and dried apricots year-round.",
-    image: photo("hp-food-apples"),
+    imageSeed: "hp-food-apples",
   },
 ];
 
@@ -679,3 +682,22 @@ export const testimonialPlaceholders = [
     isPlaceholder: true,
   },
 ];
+
+/**
+ * The ten itineraries the Himachal landing page sells, in the order they are
+ * merchandised. This is a deliberate editorial list rather than a query: the
+ * region also contains Spiti and future additions, and the landing page should
+ * not start showing them without someone deciding to.
+ */
+export const himachalLandingSlugs = [
+  "manali-4d",
+  "shimla-manali-mountain-escape-6d",
+  "shimla-manali-kasol-7d",
+  "shimla-3d",
+  "dharamshala-dalhousie-4d",
+  "amritsar-dharamshala-dalhousie-5d",
+  "himachal-amritsar-grand-10d",
+  "jibhi-tirthan-kasol-5d",
+  "kasol-kheerganga-3d",
+  "chandigarh-shimla-manali-7d",
+] as const;

@@ -14,7 +14,7 @@ const curated: { packageSlug: string; validTill: string; blurb: string }[] = [
     blurb: "Both hill stations, one drive, off-season rates.",
   },
   {
-    packageSlug: "manali-kasol-jibhi-adventure-6d",
+    packageSlug: "jibhi-tirthan-kasol-5d",
     validTill: "2026-11-30",
     blurb: "Three valleys on overnight Volvo departures from Delhi.",
   },
@@ -67,7 +67,7 @@ export const deals: Deal[] = curated
       price: pkg.price,
       strikeThroughPrice: pkg.strikeThroughPrice,
       durationLabel: `${pkg.durationNights} Nights / ${pkg.durationDays} Days`,
-      image: pkg.image,
+      imageSeed: pkg.imageSeed,
       validTill,
       blurb: blurb || region?.tagline || pkg.summary,
     };

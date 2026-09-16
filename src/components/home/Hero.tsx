@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, MessageCircle, Star } from "lucide-react";
 import { HeroSearch } from "./HeroSearch";
 import { Container } from "@/components/ui/Container";
-import { photo } from "@/lib/images";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { catalogueStats } from "@/lib/api/catalogue";
 
 export function Hero() {
@@ -11,11 +10,9 @@ export function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden bg-ink-900">
-      <Image
-        src={photo("hero-himalayan-road", 2000, 1200)}
-        alt="A mountain road winding through the Indian Himalayas at sunrise"
-        fill
-        priority
+      <SmartImage
+        seed="hero-himalayan-road"
+        preload
         sizes="100vw"
         className="object-cover object-center opacity-70"
       />

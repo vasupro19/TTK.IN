@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -13,9 +12,11 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { formatINR } from "@/lib/utils";
+import { SmartImage } from "@/components/ui/SmartImage";
+import { photo } from "@/lib/images";
 
 /**
- * SEO landing pages at /himachal-tour-packages, /kashmir-tour-packages, etc.
+ * SEO landing pages at /himachal-pradesh-tour-packages, /kashmir-tour-packages, etc.
  * `dynamicParams = false` means anything not in this list 404s, so this root
  * dynamic segment never swallows unrelated URLs.
  */
@@ -27,7 +28,7 @@ function regionFromParam(regionSeo: string) {
 
 /**
  * Himachal has a dedicated, much deeper landing page at
- * /himachal-tour-packages, so it is excluded here to avoid two routes
+ * /himachal-pradesh-tour-packages, so it is excluded here to avoid two routes
  * claiming the same path.
  */
 const DEDICATED_LANDING_PAGES = new Set(["himachal"]);
@@ -55,7 +56,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: region.seoPath },
-    openGraph: { title, description, images: [{ url: region.image }] },
+    openGraph: { title, description, images: [{ url: photo(region.imageSeed) }] },
     keywords: [
       `${region.name} tour packages`,
       `${region.name} holiday packages`,
@@ -91,10 +92,8 @@ export default async function RegionLandingPage({
       />
 
       <section className="relative flex min-h-[380px] items-end overflow-hidden sm:min-h-[460px]">
-        <Image
-          src={region.image}
-          alt={region.name}
-          fill
+        <SmartImage
+          seed={region.imageSeed}
           priority
           sizes="100vw"
           className="object-cover"

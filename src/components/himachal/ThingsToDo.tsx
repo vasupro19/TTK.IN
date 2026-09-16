@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { thingsToDo } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Icon } from "./Icon";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function ThingsToDo() {
   return (
@@ -22,10 +22,8 @@ export function ThingsToDo() {
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 {/* REPLACE: activity photography */}
-                <Image
-                  src={thing.image}
-                  alt={`${thing.name} in Himachal Pradesh`}
-                  fill
+                <SmartImage
+                  seed={thing.imageSeed}
                   loading={i < 3 ? undefined : "lazy"}
                   sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

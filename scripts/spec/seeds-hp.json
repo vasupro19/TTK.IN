@@ -1,0 +1,215 @@
+{
+  "hp-do-snow": {
+    "q": "snow activities Himachal Pradesh Solang",
+    "alt": "Visitors on fresh snow at a snow point in Himachal Pradesh",
+    "fallback": [
+      "snow Himachal Pradesh",
+      "snowfall Himachal"
+    ]
+  },
+  "hp-do-trekking": {
+    "q": "trekking Himachal Pradesh Himalaya trail",
+    "alt": "Trekkers on a ridge trail in the Himalayas of Himachal Pradesh",
+    "fallback": [
+      "trekking Himachal",
+      "trekking Himalaya"
+    ]
+  },
+  "hp-do-rafting": {
+    "q": "river rafting Beas Kullu Himachal Pradesh",
+    "alt": "A raft on the Beas river in the Kullu valley, Himachal Pradesh",
+    "fallback": [
+      "rafting Beas river",
+      "rafting Ganges",
+      "white water rafting"
+    ]
+  },
+  "hp-do-paragliding": {
+    "q": "paragliding Bir Billing Himachal Pradesh",
+    "alt": "A paraglider above the Kangra valley at Bir Billing, Himachal Pradesh",
+    "fallback": [
+      "paragliding Himachal",
+      "paragliding Bir Billing",
+      "paragliding"
+    ]
+  },
+  "hp-do-camping": {
+    "q": "camping tent Himachal Pradesh mountain",
+    "alt": "Tents pitched on a meadow below Himalayan ridges in Himachal Pradesh",
+    "fallback": [
+      "camping Himachal Pradesh",
+      "camping Himalaya"
+    ]
+  },
+  "hp-do-monastery": {
+    "q": "monastery Himachal Pradesh Buddhist prayer flags",
+    "alt": "A Buddhist monastery with prayer flags in Himachal Pradesh",
+    "fallback": [
+      "monastery Himachal Pradesh",
+      "monastery Spiti",
+      "Buddhist monastery India"
+    ]
+  },
+  "hp-do-cafes": {
+    "q": "McLeod Ganj cafe",
+    "alt": "A traveller cafe in McLeod Ganj, Himachal Pradesh",
+    "fallback": [
+      "Mall Road Manali",
+      "cafe Himachal Pradesh"
+    ]
+  },
+  "hp-do-roadtrip": {
+    "q": "mountain road Himachal Pradesh hairpin",
+    "alt": "A road switchbacking up a Himachal Pradesh mountainside",
+    "fallback": [
+      "mountain road Himachal",
+      "road Spiti Himachal"
+    ]
+  },
+  "hp-do-photography": {
+    "q": "landscape photography Himalaya Himachal Pradesh",
+    "alt": "A photographer working in the Himalayan landscape of Himachal Pradesh",
+    "fallback": [
+      "photographer mountain",
+      "Himachal Pradesh landscape"
+    ]
+  },
+  "hp-do-village": {
+    "q": "traditional village Himachal Pradesh wooden house",
+    "alt": "Traditional slate-and-timber houses in a Himachal Pradesh village",
+    "fallback": [
+      "Himachal Pradesh village",
+      "village Kinnaur",
+      "village Spiti"
+    ]
+  },
+  "hp-food-siddu": {
+    "q": "Siddu Himachali food",
+    "alt": "Siddu, a steamed stuffed bread from Himachal Pradesh",
+    "fallback": [
+      "Himachali cuisine",
+      "Siddu food",
+      "Indian bread steamed"
+    ]
+  },
+  "hp-food-dham": {
+    "q": "Indian thali",
+    "alt": "A traditional Indian thali, served the way a Himachali dham is eaten — several dishes on one plate",
+    "fallback": [
+      "thali meal",
+      "Indian meal plate"
+    ]
+  },
+  "hp-food-madra": {
+    "q": "Madra Himachali chickpea curry",
+    "alt": "Madra, a yoghurt-based chickpea curry from Himachal Pradesh",
+    "fallback": [
+      "chickpea curry",
+      "Indian curry",
+      "Himachali cuisine"
+    ]
+  },
+  "hp-food-babru": {
+    "q": "Babru Himachali stuffed bread",
+    "alt": "Babru, a stuffed fried bread from Himachal Pradesh",
+    "fallback": [
+      "kachori",
+      "Indian fried bread",
+      "puri Indian food"
+    ]
+  },
+  "hp-food-chhagosht": {
+    "q": "Chha Gosht Himachali mutton curry",
+    "alt": "Chha gosht, a slow-cooked Himachali mutton curry",
+    "fallback": [
+      "mutton curry",
+      "Indian curry meat",
+      "rogan josh"
+    ]
+  },
+  "hp-food-tudkiya": {
+    "q": "Tudkiya Bhath Himachali rice",
+    "alt": "Tudkiya bhath, a spiced Himachali rice dish",
+    "fallback": [
+      "pulao rice",
+      "Indian rice dish",
+      "biryani"
+    ]
+  },
+  "hp-food-apples": {
+    "q": "apple orchard Himachal Pradesh",
+    "alt": "Apples ripening in an orchard in Himachal Pradesh",
+    "fallback": [
+      "apple orchard Himachal Pradesh",
+      "apple orchard",
+      "apples tree"
+    ]
+  },
+  "hp-type-honeymoon": {
+    "q": "shikara Dal Lake",
+    "alt": "A quiet lake setting of the kind Himachal honeymoon trips are built around",
+    "fallback": [
+      "Lake Pichola Udaipur",
+      "couple sunset"
+    ]
+  },
+  "hp-type-family": {
+    "q": "family tourists Himachal Pradesh snow",
+    "alt": "A family on a snow outing in Himachal Pradesh",
+    "fallback": [
+      "tourists Himachal Pradesh",
+      "tourists India",
+      "Himachal Pradesh landscape"
+    ]
+  },
+  "hp-type-adventure": {
+    "q": "adventure sports Himachal Pradesh mountain",
+    "alt": "Adventure activity in the mountains of Himachal Pradesh",
+    "fallback": [
+      "paragliding Himachal",
+      "trekking Himachal",
+      "Himachal Pradesh landscape"
+    ]
+  },
+  "hp-type-group": {
+    "q": "group trekking Himachal Pradesh friends",
+    "alt": "A group trekking together in the hills of Himachal Pradesh",
+    "fallback": [
+      "trekking Himachal",
+      "trekking Himalaya"
+    ]
+  },
+  "hp-type-luxury": {
+    "q": "luxury resort Himachal Pradesh mountain view",
+    "alt": "A luxury mountain resort terrace in Himachal Pradesh",
+    "fallback": [
+      "resort Himachal Pradesh",
+      "hotel Shimla",
+      "luxury hotel lobby"
+    ]
+  },
+  "hp-type-budget": {
+    "q": "hostel guesthouse Himachal Pradesh mountain",
+    "alt": "A simple mountain guesthouse in Himachal Pradesh",
+    "fallback": [
+      "guest house Himachal Pradesh",
+      "hotel Manali",
+      "Himachal Pradesh village"
+    ]
+  },
+  "hp-type-weekend": {
+    "q": "Kasauli Shimla weekend hill station Himachal",
+    "alt": "A short-break hill station in Himachal Pradesh",
+    "fallback": [
+      "Kasauli Himachal Pradesh",
+      "hill station India"
+    ]
+  },
+  "hp-type-custom": {
+    "q": "road Spiti Himachal",
+    "alt": "An open mountain road through Spiti, Himachal Pradesh — the kind of route a custom trip is built around",
+    "fallback": [
+      "mountain road Himachal"
+    ]
+  }
+}

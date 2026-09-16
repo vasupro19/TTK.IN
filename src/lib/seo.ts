@@ -1,3 +1,5 @@
+import { photo } from "@/lib/images";
+
 export const siteConfig = {
   name: "TheTravelKart",
   legalName: "TheTravelKart",
@@ -101,7 +103,7 @@ export function faqJsonLd(faqs: { question: string; answer: string }[]) {
 export function touristTripJsonLd(pkg: {
   title: string;
   summary: string;
-  image: string;
+  imageSeed: string;
   price: number;
   rating: number;
   reviewCount: number;
@@ -112,7 +114,7 @@ export function touristTripJsonLd(pkg: {
     "@type": "TouristTrip",
     name: pkg.title,
     description: pkg.summary,
-    image: pkg.image,
+    image: absoluteUrl(photo(pkg.imageSeed)),
     url: absoluteUrl(`/packages/${pkg.slug}`),
     offers: {
       "@type": "Offer",
@@ -132,7 +134,7 @@ export function touristTripJsonLd(pkg: {
 export function productOfferJsonLd(pkg: {
   title: string;
   summary: string;
-  image: string;
+  imageSeed: string;
   price: number;
   rating: number;
   reviewCount: number;
@@ -143,7 +145,7 @@ export function productOfferJsonLd(pkg: {
     "@type": "Product",
     name: pkg.title,
     description: pkg.summary,
-    image: pkg.image,
+    image: absoluteUrl(photo(pkg.imageSeed)),
     brand: { "@type": "Brand", name: siteConfig.name },
     offers: {
       "@type": "Offer",
@@ -164,7 +166,7 @@ export function productOfferJsonLd(pkg: {
 export function articleJsonLd(post: {
   title: string;
   excerpt: string;
-  coverImage: string;
+  coverImageSeed: string;
   author: string;
   publishedAt: string;
   slug: string;
@@ -174,7 +176,7 @@ export function articleJsonLd(post: {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.coverImage,
+    image: absoluteUrl(photo(post.coverImageSeed)),
     author: {
       "@type": "Person",
       name: post.author,

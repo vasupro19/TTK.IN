@@ -22,7 +22,9 @@ export async function POST(request: Request) {
     name: String(body.name ?? ""),
     phone: String(body.phone ?? ""),
     email: body.email ? String(body.email) : undefined,
-    destination: String(body.destination ?? ""),
+    // The quick form is opened from a page that already implies the
+    // destination, so it posts that context rather than asking again.
+    destination: String(body.destination || "Not specified"),
     travelDate: body.travelDate ? String(body.travelDate) : undefined,
     travellers: Number(body.travellers ?? 2),
     nights: body.nights ? Number(body.nights) : undefined,

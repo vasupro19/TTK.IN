@@ -1,0 +1,427 @@
+{
+  "region-himachal-hero": {
+    "q": "Himachal Pradesh Himalaya valley village",
+    "alt": "Terraced fields and timber villages below Himalayan ridges in Himachal Pradesh",
+    "fallback": [
+      "Himachal Pradesh landscape",
+      "Himachal Pradesh mountains"
+    ]
+  },
+  "region-kashmir-hero": {
+    "q": "Kashmir valley meadow mountains India",
+    "alt": "Green meadows below snow-capped ranges in the Kashmir valley",
+    "fallback": [
+      "Kashmir valley landscape",
+      "Kashmir meadow",
+      "Kashmir landscape"
+    ]
+  },
+  "region-ladakh-hero": {
+    "q": "Ladakh landscape barren mountains India",
+    "alt": "Bare ochre mountains and open sky in the high desert of Ladakh",
+    "fallback": [
+      "Ladakh landscape",
+      "Ladakh mountains"
+    ]
+  },
+  "region-uttarakhand-hero": {
+    "q": "Uttarakhand Himalaya valley India",
+    "alt": "Forested Himalayan ridges and river valleys in Uttarakhand",
+    "fallback": [
+      "Uttarakhand landscape",
+      "Uttarakhand Himalaya"
+    ]
+  },
+  "region-rajasthan-hero": {
+    "q": "Rajasthan fort palace architecture India",
+    "alt": "Sandstone fort walls and domes rising over a Rajasthan town",
+    "fallback": [
+      "Rajasthan fort",
+      "Rajasthan palace",
+      "Rajasthan landscape"
+    ]
+  },
+  "region-goa-hero": {
+    "q": "Goa beach palm coastline India",
+    "alt": "Palm-backed sand and surf along the Goa coastline",
+    "fallback": [
+      "Goa beach",
+      "Goa coastline"
+    ]
+  },
+  "region-kerala-hero": {
+    "q": "Kerala backwaters palm canal India",
+    "alt": "A palm-lined backwater canal threading through the Kerala countryside",
+    "fallback": [
+      "Kerala backwaters",
+      "Kerala canal"
+    ]
+  },
+  "region-andaman-hero": {
+    "q": "Andaman Islands beach turquoise sea India",
+    "alt": "Clear turquoise shallows and forested shore in the Andaman Islands",
+    "fallback": [
+      "Andaman beach",
+      "Andaman Islands"
+    ]
+  },
+  "region-north-east-hero": {
+    "q": "Northeast India Meghalaya Sikkim green hills",
+    "alt": "Green forested hills and cloud in the North East Indian states",
+    "fallback": [
+      "Meghalaya landscape",
+      "Sikkim landscape",
+      "Northeast India landscape"
+    ]
+  },
+  "region-south-india-hero": {
+    "q": "Western Ghats tea plantation South India",
+    "alt": "Tea and spice plantations across the Western Ghats of South India",
+    "fallback": [
+      "Western Ghats tea",
+      "Western Ghats landscape"
+    ]
+  },
+  "region-thailand-hero": {
+    "q": "Thailand limestone island sea",
+    "alt": "Limestone karst islands standing in calm sea in southern Thailand",
+    "fallback": [
+      "Thailand island limestone",
+      "Thailand beach"
+    ]
+  },
+  "region-bali-hero": {
+    "q": "Bali rice terrace temple Indonesia",
+    "alt": "Stepped rice terraces and palms in the highlands of Bali, Indonesia",
+    "fallback": [
+      "Bali rice terrace",
+      "Bali temple"
+    ]
+  },
+  "region-maldives-hero": {
+    "q": "Maldives water villa",
+    "alt": "Water villas standing over a turquoise Maldivian lagoon",
+    "fallback": [
+      "Maldives beach",
+      "Maldives island"
+    ]
+  },
+  "region-uae-hero": {
+    "q": "Dubai skyline United Arab Emirates",
+    "alt": "The high-rise skyline of Dubai in the United Arab Emirates",
+    "fallback": [
+      "Dubai skyline",
+      "Dubai city"
+    ]
+  },
+  "region-singapore-hero": {
+    "q": "Singapore Marina Bay skyline",
+    "alt": "The Marina Bay waterfront and skyline of Singapore",
+    "fallback": [
+      "Singapore skyline",
+      "Marina Bay Singapore"
+    ]
+  },
+  "hotel-manali-1": {
+    "q": "resort Manali Himachal Pradesh mountain view",
+    "alt": "A mountain-facing resort building among conifers near Manali, Himachal Pradesh"
+  },
+  "hotel-manali-2": {
+    "q": "hotel building Manali Himachal Pradesh",
+    "alt": "A hillside hotel in Manali, Himachal Pradesh"
+  },
+  "hotel-goa-1": {
+    "q": "beach resort Goa swimming pool",
+    "alt": "A beachfront resort pool shaded by palms in Goa",
+    "fallback": [
+      "Taj Exotica Goa",
+      "resort Goa",
+      "hotel Goa"
+    ]
+  },
+  "hotel-goa-2": {
+    "q": "cottage resort Goa palm garden",
+    "alt": "Garden cottages among palms at a resort in Goa",
+    "fallback": [
+      "resort Goa",
+      "Colva Goa",
+      "hotel Goa"
+    ]
+  },
+  "hotel-kerala-1": {
+    "q": "houseboat Alappuzha Kerala backwaters",
+    "alt": "A Kerala houseboat moored on the Alappuzha backwaters"
+  },
+  "hotel-kerala-2": {
+    "q": "resort Munnar Kerala tea plantation",
+    "alt": "A resort set among the tea slopes of Munnar, Kerala"
+  },
+  "hotel-udaipur-1": {
+    "q": "heritage haveli hotel Udaipur Lake Pichola",
+    "alt": "A heritage haveli hotel overlooking Lake Pichola in Udaipur, Rajasthan",
+    "fallback": [
+      "haveli Udaipur",
+      "Taj Lake Palace Udaipur",
+      "hotel Udaipur"
+    ]
+  },
+  "hotel-andaman-1": {
+    "q": "beach resort Havelock Island Andaman",
+    "alt": "A beachside resort among palms on Havelock Island, Andaman"
+  },
+  "hotel-kashmir-1": {
+    "q": "houseboat Dal Lake Srinagar Kashmir",
+    "alt": "A carved wooden houseboat on Dal Lake at Srinagar, Kashmir"
+  },
+  "hotel-bali-1": {
+    "q": "private pool villa Seminyak Bali",
+    "alt": "A private pool villa surrounded by tropical garden in Seminyak, Bali",
+    "fallback": [
+      "resort Bali villa",
+      "resort Bali",
+      "villa Bali"
+    ]
+  },
+  "hotel-singapore-1": {
+    "q": "hotel Marina Bay Singapore skyline",
+    "alt": "A hotel tower overlooking Marina Bay in Singapore"
+  },
+  "hotel-dubai-1": {
+    "q": "hotel Downtown Dubai Burj Khalifa view",
+    "alt": "A hotel tower with a view towards the Burj Khalifa in Dubai"
+  },
+  "act-solang": {
+    "q": "Solang Valley Manali ropeway paragliding",
+    "alt": "Paragliding and ropeway activity above Solang Valley near Manali, Himachal Pradesh",
+    "fallback": [
+      "Solang Valley",
+      "Manali Himachal Pradesh"
+    ]
+  },
+  "act-kullu-rafting": {
+    "q": "river rafting Beas river Kullu Himachal",
+    "alt": "A raft running whitewater on the Beas river in the Kullu valley, Himachal Pradesh"
+  },
+  "act-gulmarg-gondola": {
+    "q": "Gulmarg Gondola cable car Kashmir",
+    "alt": "The Gulmarg gondola carrying skiers up the Apharwat slopes in Kashmir"
+  },
+  "act-rishikesh-bungee": {
+    "q": "bungee jumping Rishikesh Uttarakhand",
+    "alt": "A bungee jumping platform above the forested gorge at Rishikesh, Uttarakhand",
+    "fallback": [
+      "Rishikesh Ganges",
+      "Rishikesh Uttarakhand"
+    ]
+  },
+  "act-munnar-tea": {
+    "q": "tea picking Munnar Kerala plantation",
+    "alt": "Workers picking leaf on a tea estate at Munnar, Kerala"
+  },
+  "act-alleppey-cruise": {
+    "q": "houseboat cruise Alappuzha Kerala backwaters",
+    "alt": "A houseboat cruising the palm-fringed backwaters at Alappuzha, Kerala"
+  },
+  "act-goa-watersports": {
+    "q": "water sports parasailing Goa beach",
+    "alt": "Parasailing and jet skis off a beach in Goa",
+    "fallback": [
+      "parasailing Calangute Goa",
+      "parasailing beach",
+      "Calangute Goa"
+    ]
+  },
+  "act-goa-cruise": {
+    "q": "sunset cruise Mandovi river Goa",
+    "alt": "A cruise boat on the Mandovi river at sunset in Goa",
+    "fallback": [
+      "boat Goa river",
+      "Mandovi river Goa",
+      "Goa river"
+    ]
+  },
+  "act-havelock-scuba": {
+    "q": "scuba diving Havelock Andaman coral",
+    "alt": "A scuba diver over coral reef off Havelock Island, Andaman",
+    "fallback": [
+      "scuba diving Andaman",
+      "snorkelling Andaman",
+      "coral reef diving"
+    ]
+  },
+  "act-udaipur-boat": {
+    "q": "boat ride Lake Pichola Udaipur",
+    "alt": "A boat crossing Lake Pichola below the palaces of Udaipur, Rajasthan"
+  },
+  "act-dubai-safari": {
+    "q": "desert safari dune bashing Dubai",
+    "alt": "Four-wheel drives crossing the red dunes on a desert safari near Dubai"
+  },
+  "act-bali-kecak": {
+    "q": "Kecak dance Uluwatu Bali performance",
+    "alt": "A Kecak fire dance performance at Uluwatu in Bali"
+  },
+  "cat-honeymoon": {
+    "q": "shikara Dal Lake",
+    "alt": "A shikara on the still water of Dal Lake, Srinagar — a classic honeymoon setting in Kashmir",
+    "fallback": [
+      "Dal Lake Srinagar",
+      "Lake Pichola Udaipur"
+    ]
+  },
+  "cat-family": {
+    "q": "beach Goa",
+    "alt": "A wide, gently shelving beach in Goa, popular with families",
+    "fallback": [
+      "Goa beach",
+      "Calangute Goa"
+    ]
+  },
+  "cat-group": {
+    "q": "trekking Himachal Pradesh",
+    "alt": "A trekking group on a Himalayan trail in Himachal Pradesh",
+    "fallback": [
+      "trekking Himachal",
+      "trekking Himalaya"
+    ]
+  },
+  "cat-adventure": {
+    "q": "trekking Himalaya India adventure",
+    "alt": "Trekkers climbing a high ridge trail in the Indian Himalayas",
+    "fallback": [
+      "paragliding Himachal",
+      "trekking Himalaya"
+    ]
+  },
+  "cat-luxury": {
+    "q": "luxury resort pool terrace India",
+    "alt": "A terrace and pool at a luxury resort",
+    "fallback": [
+      "Taj Lake Palace Udaipur",
+      "luxury hotel lobby",
+      "resort swimming pool"
+    ]
+  },
+  "cat-weekend": {
+    "q": "hill station road trip India weekend",
+    "alt": "A road winding up to a hill station on a short weekend trip",
+    "fallback": [
+      "hill station India",
+      "Mussoorie hill station"
+    ]
+  },
+  "cat-pilgrimage": {
+    "q": "Himalayan temple pilgrimage India Uttarakhand",
+    "alt": "Pilgrims at a Himalayan temple in northern India",
+    "fallback": [
+      "temple Uttarakhand",
+      "Himalayan temple",
+      "temple India mountain"
+    ]
+  },
+  "cat-corporate": {
+    "q": "conference meeting resort India business",
+    "alt": "A meeting set up at a resort for a corporate offsite",
+    "fallback": [
+      "conference hall hotel",
+      "conference hotel"
+    ]
+  },
+  "cab-hatchback": {
+    "q": "hatchback car India road",
+    "alt": "A compact hatchback car used for city transfers in India",
+    "fallback": [
+      "Maruti Suzuki Swift",
+      "hatchback car"
+    ]
+  },
+  "cab-sedan": {
+    "q": "sedan car India taxi",
+    "alt": "A sedan car of the kind used for intercity travel in India",
+    "fallback": [
+      "Maruti Suzuki Dzire",
+      "Toyota Etios taxi",
+      "sedan car"
+    ]
+  },
+  "cab-suv": {
+    "q": "SUV mountain road Himachal India",
+    "alt": "An SUV on a mountain road in the Indian Himalayas",
+    "fallback": [
+      "Toyota Innova",
+      "SUV car India"
+    ]
+  },
+  "cab-tempo": {
+    "q": "tempo traveller van India",
+    "alt": "A tempo traveller minibus used for group travel in India",
+    "fallback": [
+      "Force Motors Traveller",
+      "minibus India",
+      "tourist bus India"
+    ]
+  },
+  "cab-traveller": {
+    "q": "minibus tourist coach India mountain road",
+    "alt": "A tourist minibus on a hill road in India",
+    "fallback": [
+      "tourist bus India",
+      "minibus India",
+      "bus Himachal Pradesh"
+    ]
+  },
+  "cab-partner": {
+    "q": "taxi driver India car professional",
+    "alt": "A professional driver standing beside a taxi in India",
+    "fallback": [
+      "taxi India",
+      "taxi driver"
+    ]
+  },
+  "blog-himachal-winter": {
+    "q": "snowfall Himachal Pradesh winter village",
+    "alt": "Fresh snow over a village and deodar forest in Himachal Pradesh",
+    "fallback": [
+      "snow Himachal Pradesh",
+      "snowfall Himachal",
+      "winter Himachal Pradesh"
+    ]
+  },
+  "blog-kerala-houseboat": {
+    "q": "Kerala houseboat backwaters Alappuzha",
+    "alt": "A traditional houseboat on the Kerala backwaters near Alappuzha"
+  },
+  "blog-rishikesh-adventure": {
+    "q": "rafting Ganges Rishikesh adventure",
+    "alt": "Rafting on the Ganges through the hills at Rishikesh, Uttarakhand"
+  },
+  "blog-andaman-maldives": {
+    "q": "tropical island beach turquoise water",
+    "alt": "White sand and turquoise shallows on a tropical island beach"
+  },
+  "blog-bali-budget": {
+    "q": "Bali rice terrace Indonesia travel",
+    "alt": "Rice terraces stepping down a hillside in Bali, Indonesia"
+  },
+  "blog-dubai-guide": {
+    "q": "Dubai city skyline travel",
+    "alt": "The towers of Dubai seen across the water, United Arab Emirates"
+  },
+  "hero-himalayan-road": {
+    "q": "mountain road Himalaya Himachal Pradesh sunrise",
+    "alt": "The mountain road climbing over Khardung La pass in Ladakh, in the Indian Himalayas",
+    "fallback": [
+      "mountain road Himachal",
+      "mountain road Himalaya",
+      "Himachal Pradesh landscape"
+    ]
+  },
+  "hp-hero-himalaya": {
+    "q": "Himachal Pradesh Himalaya snow peaks valley",
+    "alt": "Snow-covered Himalayan peaks above a valley in Himachal Pradesh"
+  },
+  "about-hero": {
+    "q": "Himachal Pradesh mountain landscape India",
+    "alt": "Mountain ridges and valleys in Himachal Pradesh"
+  }
+}

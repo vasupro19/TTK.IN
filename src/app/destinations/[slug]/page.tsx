@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { regions, getRegionBySlug } from "@/lib/data/regions";
@@ -19,6 +18,8 @@ import { HotelCard } from "@/components/cards/HotelCard";
 import { ActivityCard } from "@/components/cards/ActivityCard";
 import { Button } from "@/components/ui/Button";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { SmartImage } from "@/components/ui/SmartImage";
+import { photo } from "@/lib/images";
 
 export function generateStaticParams() {
   return [
@@ -46,7 +47,7 @@ export async function generateMetadata({
     title,
     description: entity.description,
     alternates: { canonical: `/destinations/${entity.slug}` },
-    openGraph: { title, description: entity.description, images: [{ url: entity.image }] },
+    openGraph: { title, description: entity.description, images: [{ url: photo(entity.imageSeed) }] },
   };
 }
 
@@ -76,10 +77,8 @@ export default async function DestinationDetailPage({
         />
 
         <section className="relative flex h-[360px] items-end overflow-hidden sm:h-[440px]">
-          <Image
-            src={region.image}
-            alt={region.name}
-            fill
+          <SmartImage
+            seed={region.imageSeed}
             priority
             sizes="100vw"
             className="object-cover"
@@ -202,10 +201,8 @@ export default async function DestinationDetailPage({
       />
 
       <section className="relative flex h-[360px] items-end overflow-hidden sm:h-[440px]">
-        <Image
-          src={destination.image}
-          alt={destination.name}
-          fill
+        <SmartImage
+          seed={destination.imageSeed}
           priority
           sizes="100vw"
           className="object-cover"
@@ -242,15 +239,9 @@ export default async function DestinationDetailPage({
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-3">
-              {destination.gallery.map((src, i) => (
-                <div key={i} className="relative aspect-square overflow-hidden rounded-xl">
-                  <Image
-                    src={src}
-                    alt={`${destination.name} photo ${i + 1}`}
-                    fill
-                    sizes="33vw"
-                    className="object-cover"
-                  />
+              {destination.gallerySeeds.map((seed) => (
+                <div key={seed} className="relative aspect-square overflow-hidden rounded-xl">
+                  <SmartImage seed={seed} sizes="33vw" className="object-cover" />
                 </div>
               ))}
             </div>

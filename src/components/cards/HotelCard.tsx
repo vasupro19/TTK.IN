@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MapPin, BedDouble } from "lucide-react";
 import type { Hotel } from "@/lib/types";
 import { getDestination } from "@/lib/api/catalogue";
 import { formatINR } from "@/lib/utils";
 import { StarRating } from "@/components/ui/StarRating";
+import { SmartImage } from "@/components/ui/SmartImage";
 
 export function HotelCard({ hotel, priority = false }: { hotel: Hotel; priority?: boolean }) {
   const destination = getDestination(hotel.destinationSlug);
@@ -13,10 +13,8 @@ export function HotelCard({ hotel, priority = false }: { hotel: Hotel; priority?
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <Image
-          src={hotel.image}
-          alt={hotel.name}
-          fill
+        <SmartImage
+          seed={hotel.imageSeed}
           priority={priority}
           sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 90vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

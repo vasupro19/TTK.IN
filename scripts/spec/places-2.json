@@ -1,0 +1,70 @@
+{
+  "leh": { "name": "Leh", "area": "Ladakh", "country": "India", "landmarks": [
+    { "q": "Leh Palace Ladakh", "alt": "The tiered stone mass of Leh Palace above the old town in Ladakh" },
+    { "q": "Shanti Stupa Leh Ladakh", "alt": "The white dome of Shanti Stupa on the ridge above Leh, Ladakh" },
+    { "q": "Thiksey Monastery Ladakh", "alt": "Thiksey Monastery rising in white tiers over the Indus valley in Ladakh" },
+    { "q": "Indus valley Leh Ladakh landscape", "alt": "The Indus river crossing the bare high-altitude landscape near Leh, Ladakh" },
+    { "q": "Khardung La pass Ladakh", "alt": "The snow-lined road at Khardung La pass above Leh, Ladakh" },
+    { "q": "Magnetic Hill Ladakh road", "alt": "The empty highway running through barren hills near Magnetic Hill in Ladakh" }
+  ]},
+  "nubra-valley": { "name": "Nubra Valley", "area": "Ladakh", "country": "India", "landmarks": [
+    { "q": "Diskit Monastery Nubra Valley Ladakh", "alt": "The Maitreya Buddha statue and Diskit Monastery above the Nubra valley, Ladakh" },
+    { "q": "Hunder sand dunes Nubra Valley Ladakh", "alt": "Pale sand dunes on the floor of the Nubra valley at Hunder, Ladakh" },
+    { "q": "Bactrian camel Nubra Valley Ladakh", "alt": "Double-humped Bactrian camels on the dunes of the Nubra valley in Ladakh" },
+    { "q": "Nubra Valley Ladakh landscape", "alt": "The broad braided river bed of the Nubra valley between bare Ladakhi ranges" }
+  ]},
+  "pangong-tso": { "name": "Pangong Tso", "area": "Ladakh", "country": "India", "landmarks": [
+    { "q": "Pangong Tso lake Ladakh", "alt": "The deep blue water of Pangong Tso against bare brown mountains in Ladakh" },
+    { "q": "Pangong Lake Ladakh shoreline", "alt": "The stony shoreline of Pangong Tso stretching away between Ladakhi ridges" },
+    { "q": "Chang La pass Ladakh", "alt": "Prayer flags at Chang La pass on the road to Pangong Tso, Ladakh" },
+    { "q": "Tso Moriri Ladakh lake", "alt": "Tso Moriri lake on the high Changthang plateau of Ladakh" }
+  ]},
+  "srinagar": { "name": "Srinagar", "area": "Kashmir", "country": "India", "landmarks": [
+    { "q": "Dal Lake Srinagar Kashmir shikara", "alt": "Shikara boats on the still water of Dal Lake at Srinagar, Kashmir" },
+    { "q": "Dal Lake houseboat Srinagar", "alt": "Carved wooden houseboats moored along the edge of Dal Lake in Srinagar, Kashmir" },
+    { "q": "Nishat Bagh Mughal garden Srinagar", "alt": "The terraced lawns and chinar trees of the Mughal garden Nishat Bagh in Srinagar" },
+    { "q": "Srinagar Kashmir valley chinar", "alt": "Chinar trees and the Zabarwan hills above Srinagar in the Kashmir valley" }
+  ]},
+  "gulmarg": { "name": "Gulmarg", "area": "Kashmir", "country": "India", "landmarks": [
+    { "q": "Gulmarg Gondola Kashmir", "alt": "The Gulmarg gondola cable car climbing the snow slopes of Apharwat in Kashmir" },
+    { "q": "Gulmarg meadow Kashmir snow", "alt": "The open snow-covered meadow of Gulmarg ringed by fir forest in Kashmir" },
+    { "q": "Apharwat Peak Gulmarg Kashmir", "alt": "The bare snow ridge of Apharwat peak above Gulmarg, Kashmir" },
+    { "q": "Gulmarg Kashmir summer meadow", "alt": "Green summer meadows and pine forest at Gulmarg in the Pir Panjal range, Kashmir" }
+  ]},
+  "pahalgam": { "name": "Pahalgam", "area": "Kashmir", "country": "India", "landmarks": [
+    { "q": "Betaab Valley Pahalgam Kashmir", "alt": "The green floor of Betaab Valley between steep pine ridges near Pahalgam, Kashmir" },
+    { "q": "Lidder River Pahalgam Kashmir", "alt": "The Lidder river running clear over stones through the Pahalgam valley in Kashmir" },
+    { "q": "Aru Valley Pahalgam Kashmir", "alt": "Meadows and wooden huts in the Aru valley above Pahalgam, Kashmir" },
+    { "q": "Pahalgam Kashmir pine forest valley", "alt": "Pine forest and grazing meadows around Pahalgam in the Kashmir valley" }
+  ]},
+  "sonmarg": { "name": "Sonmarg", "area": "Kashmir", "country": "India", "landmarks": [
+    { "q": "Thajiwas Glacier Sonamarg Kashmir", "alt": "The Thajiwas glacier and its moraine above the meadows of Sonamarg, Kashmir" },
+    { "q": "Sonamarg Kashmir meadow river", "alt": "The Sindh river crossing the wide green meadow of Sonamarg in Kashmir" },
+    { "q": "Zoji La pass Kashmir Ladakh road", "alt": "The mountain road climbing towards Zoji La pass beyond Sonamarg, Kashmir" },
+    { "q": "Sonamarg Kashmir snow mountains", "alt": "Snow-covered peaks above the valley floor at Sonamarg, Kashmir" }
+  ]},
+  "rishikesh": { "name": "Rishikesh", "area": "Uttarakhand", "country": "India", "landmarks": [
+    { "q": "Lakshman Jhula Rishikesh Ganges", "alt": "The Lakshman Jhula suspension bridge spanning the Ganges at Rishikesh, Uttarakhand" },
+    { "q": "Ganga Aarti Triveni Ghat Rishikesh", "alt": "Evening Ganga Aarti lamps at a riverside ghat in Rishikesh, Uttarakhand" },
+    { "q": "Ganges river Rishikesh Uttarakhand", "alt": "The green Ganges emerging from the Himalayan foothills at Rishikesh, Uttarakhand" },
+    { "q": "white water rafting Rishikesh Ganges", "alt": "A raft running whitewater on the Ganges near Rishikesh, Uttarakhand" }
+  ]},
+  "nainital": { "name": "Nainital", "area": "Uttarakhand", "country": "India", "landmarks": [
+    { "q": "Naini Lake Nainital Uttarakhand", "alt": "Boats on Naini lake with the town rising on the slopes around it, Nainital, Uttarakhand" },
+    { "q": "Naina Devi Temple Nainital", "alt": "The Naina Devi temple beside the lake at Nainital, Uttarakhand" },
+    { "q": "Nainital Mall Road Uttarakhand", "alt": "The lakeside Mall Road at Nainital below forested ridges, Uttarakhand" },
+    { "q": "Nainital Uttarakhand hills view", "alt": "Forested Kumaon ridges surrounding the lake town of Nainital, Uttarakhand" }
+  ]},
+  "mussoorie": { "name": "Mussoorie", "area": "Uttarakhand", "country": "India", "landmarks": [
+    { "q": "Kempty Falls Mussoorie Uttarakhand", "alt": "Water dropping in stages at Kempty Falls near Mussoorie, Uttarakhand" },
+    { "q": "Mussoorie Uttarakhand hill station view", "alt": "Houses stacked along the ridge at Mussoorie above the Doon valley, Uttarakhand" },
+    { "q": "Gun Hill Mussoorie Uttarakhand", "alt": "The view from Gun Hill over the rooftops of Mussoorie, Uttarakhand" },
+    { "q": "Doon valley Uttarakhand view", "alt": "The Doon valley spread out below the Mussoorie ridge in Uttarakhand" }
+  ]},
+  "auli": { "name": "Auli", "area": "Uttarakhand", "country": "India", "landmarks": [
+    { "q": "Auli Uttarakhand ski slope snow", "alt": "Open snow slopes above the treeline at Auli, Uttarakhand" },
+    { "q": "Nanda Devi peak from Auli Uttarakhand", "alt": "The summit of Nanda Devi seen across the ranges from Auli, Uttarakhand" },
+    { "q": "Auli ropeway Joshimath Uttarakhand", "alt": "The cable car running from Joshimath up to the meadows of Auli, Uttarakhand" },
+    { "q": "Auli meadow Uttarakhand Himalaya", "alt": "The grassy bugyal meadows of Auli with Himalayan peaks behind, Uttarakhand" }
+  ]}
+}
