@@ -132,7 +132,7 @@ export function Header() {
             </Link>
             <Link
               href="/plan-my-trip"
-              className="rounded-full bg-sunset-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-sunset-600 active:scale-[0.98]"
+              className="inline-flex min-h-11 items-center rounded-full bg-sunset-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-sunset-600 active:scale-[0.98]"
             >
               Plan My Trip
             </Link>

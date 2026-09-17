@@ -162,13 +162,13 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
             <button
               type="button"
               onClick={() => open()}
-              className="flex items-center justify-center gap-1.5 rounded-full bg-sunset-500 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-sunset-600"
+              className="flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-sunset-500 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-sunset-600"
             >
               Book Now
             </button>
             <Link
               href={`/packages/${pkg.slug}`}
-              className="flex items-center justify-center gap-1.5 rounded-full border border-sand-200 px-4 py-2.5 text-xs font-semibold text-ink-900 transition-colors hover:border-ink-900/25"
+              className="flex min-h-11 items-center justify-center gap-1.5 rounded-full border border-sand-200 px-4 py-2.5 text-sm font-semibold text-ink-900 transition-colors hover:border-ink-900/25"
             >
               Details
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -178,7 +178,7 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
             href={pkg.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 flex items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#1da851]"
+            className="mt-2 flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1da851]"
           >
             <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
             WhatsApp about this trip
@@ -206,7 +206,7 @@ export function HimachalPackageExplorer({ packages }: { packages: PackageCardDat
   );
 
   const selectClass =
-    "rounded-full border border-sand-200 bg-white px-4 py-2 text-sm font-semibold text-ink-800 outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100";
+    "min-h-11 rounded-full border border-sand-200 bg-white px-4 py-2 text-base font-semibold text-ink-800 outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 sm:text-sm";
 
   return (
     <div>
@@ -221,7 +221,7 @@ export function HimachalPackageExplorer({ packages }: { packages: PackageCardDat
                 onClick={() => setType(option.value)}
                 aria-pressed={active}
                 className={
-                  "whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors " +
+                  "min-h-11 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors " +
                   (active
                     ? "bg-ink-900 text-white"
                     : "border border-sand-200 bg-white text-ink-800 hover:border-ink-900/25")

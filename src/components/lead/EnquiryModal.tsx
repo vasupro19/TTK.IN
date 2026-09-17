@@ -122,8 +122,19 @@ export function EnquiryProvider({
     }
 
     document.addEventListener("keydown", onKeyDown);
-    const previousOverflow = document.body.style.overflow;
+    // Locking the body with `overflow: hidden` alone lets iOS Safari jump the
+    // page to the top, so the position is captured and restored on close.
+    const scrollY = window.scrollY;
+    const previous = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+    };
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
     // Focus the first field rather than the close button.
     window.setTimeout(() => {
       dialogRef.current?.querySelector<HTMLElement>("input")?.focus();
@@ -131,7 +142,11 @@ export function EnquiryProvider({
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = previous.overflow;
+      document.body.style.position = previous.position;
+      document.body.style.top = previous.top;
+      document.body.style.width = previous.width;
+      window.scrollTo(0, scrollY);
     };
   }, [isOpen, close]);
 
@@ -141,39 +156,59 @@ export function EnquiryProvider({
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-[60] flex items-end justify-center overflow-y-auto bg-ink-900/60 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+          className="fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-ink-900/60 backdrop-blur-sm"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) close();
           }}
         >
+          {/*
+            The scroll container is this outer div and the flex lives on an
+            inner wrapper with `min-h-full`. Centring (or end-aligning) a flex
+            child taller than its container makes the overflow at the *start*
+            edge unreachable — scrollTop cannot go negative — which put the
+            close button above the top of the screen on phones with no way to
+            scroll to it. This structure keeps the whole dialog reachable.
+          */}
           <div
-            ref={dialogRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="enquiry-title"
-            className="relative w-full max-w-md rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-3xl sm:p-7"
+            className="flex min-h-full items-end justify-center p-0 sm:items-center sm:p-4"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) close();
+            }}
           >
-            <button
-              type="button"
-              onClick={close}
-              aria-label="Close enquiry form"
-              className="absolute right-4 top-4 rounded-full p-2 text-ink-600/60 transition-colors hover:bg-sand-100 hover:text-ink-900"
+            <div
+              ref={dialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="enquiry-title"
+              className="relative w-full max-w-md rounded-t-3xl bg-white shadow-2xl sm:rounded-3xl"
             >
-              <X className="h-5 w-5" aria-hidden="true" />
-            </button>
+              {/* Sticky so the close button stays on screen however far the
+                  form is scrolled, and whatever the keyboard does to the
+                  viewport. */}
+              <div className="sticky top-0 z-10 rounded-t-3xl bg-white px-6 pb-3 pt-6 sm:px-7 sm:pt-7">
+                <button
+                  type="button"
+                  onClick={close}
+                  aria-label="Close enquiry form"
+                  className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full text-ink-600/70 transition-colors hover:bg-sand-100 hover:text-ink-900"
+                >
+                  <X className="h-5 w-5" aria-hidden="true" />
+                </button>
 
-            <h2
-              id="enquiry-title"
-              className="pr-10 font-display text-2xl font-extrabold leading-tight text-ink-900"
-            >
-              Plan your {destination} trip
-            </h2>
-            <p className="mt-1.5 text-sm text-ink-600/75">
-              Four quick answers and a travel expert will call you back with an itinerary.
-            </p>
+                <h2
+                  id="enquiry-title"
+                  className="pr-12 font-display text-xl font-extrabold leading-tight text-ink-900 sm:text-2xl"
+                >
+                  Plan your {destination} trip
+                </h2>
+                <p className="mt-1 pr-12 text-sm text-ink-600/75">
+                  Four quick answers and a travel expert will call you back.
+                </p>
+              </div>
 
-            <div className="mt-5">
-              <QuickLeadForm destination={destination} onSubmitted={close} />
+              <div className="px-6 pb-6 sm:px-7 sm:pb-7">
+                <QuickLeadForm destination={destination} onSubmitted={close} />
+              </div>
             </div>
           </div>
         </div>

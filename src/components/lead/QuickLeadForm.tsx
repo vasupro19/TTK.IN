@@ -86,8 +86,10 @@ export function QuickLeadForm({
     }
   }
 
+  // min-h-12 keeps every control above the 44px minimum touch target, and
+  // text-base stops iOS Safari zooming the page when a field is focused.
   const field =
-    "w-full rounded-xl border border-sand-200 bg-white px-4 py-3 text-base text-ink-900 outline-none transition-colors placeholder:text-ink-600/40 focus:border-brand-400 focus:ring-2 focus:ring-brand-100";
+    "w-full min-h-12 rounded-xl border border-sand-200 bg-white px-4 py-3 text-base text-ink-900 outline-none transition-colors placeholder:text-ink-600/40 focus:border-brand-400 focus:ring-2 focus:ring-brand-100";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-4">
@@ -143,13 +145,13 @@ export function QuickLeadForm({
           {BUDGET_OPTIONS.map((option) => (
             <label
               key={option.value}
-              className="flex cursor-pointer items-center gap-2 rounded-xl border border-sand-200 px-3 py-2.5 text-sm font-medium text-ink-800 transition-colors hover:border-brand-300 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50 has-[:checked]:text-brand-800"
+              className="flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-sand-200 px-3 py-2.5 text-sm font-medium text-ink-800 transition-colors hover:border-brand-300 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50 has-[:checked]:text-brand-800"
             >
               <input
                 type="radio"
                 name="budget"
                 value={option.value}
-                className="h-4 w-4 accent-brand-600"
+                className="h-5 w-5 shrink-0 accent-brand-600"
               />
               {option.label}
             </label>
@@ -166,7 +168,7 @@ export function QuickLeadForm({
       <button
         type="submit"
         disabled={busy}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-sunset-500 px-6 py-3.5 text-base font-bold text-white transition-colors hover:bg-sunset-600 disabled:opacity-60"
+        className="flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-sunset-500 px-6 py-3.5 text-base font-bold text-white transition-colors hover:bg-sunset-600 disabled:opacity-60"
       >
         {busy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
         {busy ? "Sending…" : "Get My Free Itinerary"}
@@ -178,7 +180,7 @@ export function QuickLeadForm({
           href={whatsappLink(`Hi TheTravelKart, I'd like help planning a ${destination} trip.`)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-semibold text-[#128C7E] hover:underline"
+          className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-[#128C7E] hover:underline"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
           WhatsApp us on {siteConfig.phoneDisplay}

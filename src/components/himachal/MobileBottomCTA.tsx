@@ -42,7 +42,7 @@ export function MobileBottomCTA() {
       <div className="grid grid-cols-3 gap-2">
         <a
           href={telLink()}
-          className="flex flex-col items-center justify-center gap-0.5 rounded-xl border border-sand-200 py-2.5 text-[11px] font-semibold text-ink-800"
+          className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl border border-sand-200 py-2 text-[11px] font-semibold text-ink-800"
           aria-label={`Call ${siteConfig.phoneDisplay}`}
         >
           <Phone className="h-4 w-4 text-brand-700" aria-hidden="true" />
@@ -52,12 +52,12 @@ export function MobileBottomCTA() {
           href={whatsappLink(WA_MESSAGE)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center gap-0.5 rounded-xl bg-[#25D366] py-2.5 text-[11px] font-semibold text-white"
+          className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl bg-[#25D366] py-2 text-[11px] font-semibold text-white"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
           WhatsApp
         </a>
-        <EnquiryButton className="flex flex-col items-center justify-center gap-0.5 rounded-xl bg-sunset-500 py-2.5 text-[11px] font-semibold text-white">
+        <EnquiryButton className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl bg-sunset-500 py-2 text-[11px] font-semibold text-white">
           <PencilLine className="h-4 w-4" aria-hidden="true" />
           Get Quote
         </EnquiryButton>
