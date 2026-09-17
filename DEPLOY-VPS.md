@@ -52,11 +52,26 @@ Three things decide the rest:
 | What | Why it matters |
 |---|---|
 | Nginx or Apache | Which vhost syntax to use in step 5 |
-| Free loopback port | The new app must not collide with travelytics |
-| Node version | Next 16 needs **Node ≥ 20.9**. If travelytics needs an older Node, see the footnote in step 1. |
+| Free loopback port | The new app must not collide with what is already running |
+| Node version | Next 16 needs **Node ≥ 20.9** |
 
-This runbook uses **port 3001**. If `ss` shows it taken, substitute a free one
-everywhere below.
+### This box, as surveyed
+
+| | |
+|---|---|
+| OS | Ubuntu 22.04.5 LTS |
+| RAM | 7.9 GB total, ~6.7 GB available — **no swap needed** |
+| Front door | **Nginx** on 80/443; Apache inactive — leave it that way |
+| Existing Nginx site | `ttkb` |
+| Existing PM2 apps | `ttkb-api`, `lead-worker` (running as root) |
+| Node | **v24.13.0** — already above the minimum, skip step 1 |
+| Loopback in use | redis 6379, mysql 3306/33060 |
+
+Everything runs as **root** here, so `sudo` is redundant but harmless, and
+`$USER`/`$HOME` resolve to `root`/`/root`.
+
+This runbook uses **port 3001**. Confirm it is free before starting — see the
+guard at the top of step 4.
 
 ---
 
@@ -135,12 +150,21 @@ Generate the App Password at <https://myaccount.google.com/apppasswords>
 
 ## 4. Install, build, run on its own port
 
+First confirm nothing already holds the port, and see what the existing apps
+use so you can pick a different one if needed:
+
+```bash
+ss -tlnp | grep -E 'LISTEN' | awk '{print $4, $6}' | sort
+ss -tln | grep -q ':3001\b' && echo "3001 TAKEN — pick another" || echo "3001 is free"
+```
+
 ```bash
 npm ci
 npm run build
 ```
 
-**If the build is killed**, the box is out of RAM. Add swap and retry:
+**If the build is killed**, the box is out of RAM. This one has ~6.7 GB free so
+it should not happen; if it somehow does, add swap and retry:
 
 ```bash
 sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile
@@ -215,6 +239,17 @@ server {
 }
 ```
 
+Before enabling it, check the existing site is not a catch-all. If `ttkb` is
+marked `default_server`, it answers for any hostname that reaches the box —
+including this one — and the new block would never be consulted:
+
+```bash
+grep -nE 'server_name|default_server' /etc/nginx/sites-enabled/ttkb
+```
+
+A specific `server_name` (e.g. `travelytics.cloud`) is fine. If you see
+`default_server`, tell me before going further.
+
 ```bash
 sudo ln -s /etc/nginx/sites-available/thetravelkart /etc/nginx/sites-enabled/
 sudo nginx -t          # must say "syntax is ok" AND "test is successful"
@@ -280,8 +315,13 @@ dig +short thetravelkart.in
 
 ## 7. SSL for the new domain only
 
-Certbot is probably already installed for travelytics. Scope the run to the new
-domain so the existing certificate is untouched:
+Certbot is almost certainly already installed, since the existing site serves
+HTTPS. Confirm, then scope the run to the new domain so existing certificates
+are untouched:
+
+```bash
+which certbot || sudo apt-get install -y certbot python3-certbot-nginx
+```
 
 ```bash
 sudo certbot --nginx -d thetravelkart.in -d www.thetravelkart.in
