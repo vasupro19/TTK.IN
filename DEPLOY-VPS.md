@@ -1,62 +1,103 @@
-# Deploying TheTravelKart on a Hostinger VPS
+# Hosting TheTravelKart on the VPS alongside travelytics.cloud
 
-Target: **https://thetravelkart.in**, replacing the site currently served there.
+Target: **https://thetravelkart.in**, running on the same VPS that already
+serves **travelytics.cloud**, without disturbing it.
 
-Architecture: Next.js runs as a Node process on `127.0.0.1:3000`, managed by PM2.
-Nginx sits in front on 80/443, terminates SSL and proxies through. The Next server
-is never exposed directly — per the Next.js self-hosting guidance, the proxy
-absorbs malformed requests, slow-connection attacks and rate limiting.
+Both sites run as their own Node process on their own loopback port. One web
+server sits in front on 80/443 and routes by domain name. Neither app is
+exposed directly.
+
+```
+                                 ┌──────────────────────────────┐
+  travelytics.cloud  ──────────► │                              │ ──► 127.0.0.1:<existing>
+                                 │  Nginx (ports 80/443)        │
+  thetravelkart.in   ──────────► │  routes on server_name       │ ──► 127.0.0.1:3001
+                                 └──────────────────────────────┘
+```
+
+> **Read this before you start.** An earlier version of this file assumed a
+> fresh box. Three of its steps would take travelytics.cloud offline:
+> `rm /etc/nginx/sites-enabled/default`, `systemctl stop apache2`, and binding
+> the new app to port 3000. None of them appear below. If you are following an
+> older copy, stop and use this one.
 
 ---
 
-## 0. Survey what is already on the box
+## 0. Survey the box — do this first
 
-**Run this first and send me the output** — it decides the rest:
+Nothing here changes anything. **Send me the output** and I will tailor the
+rest; the commands below assume the common case (Nginx + PM2).
 
 ```bash
+# OS and resources
 cat /etc/os-release | head -2
-node -v 2>/dev/null || echo "node: not installed"
-nginx -v 2>&1 || echo "nginx: not installed"
-apache2 -v 2>/dev/null | head -1 || echo "apache: not installed"
-systemctl is-active nginx apache2 2>/dev/null
-ss -tlnp | grep -E ':(80|443|3000)\s'
-ls /etc/nginx/sites-enabled/ 2>/dev/null
 free -m | head -2
 df -h / | tail -1
+
+# Which web server is in front, and what holds the public ports
+systemctl is-active nginx apache2 2>/dev/null
+sudo ss -tlnp | grep -E ':(80|443)\s'
+
+# Which loopback ports are already taken — pick a free one for the new app
+sudo ss -tlnp | grep 127.0.0.1
+
+# How travelytics is run
+pm2 list 2>/dev/null || echo "pm2: not installed"
+ls /etc/nginx/sites-enabled/ 2>/dev/null
+node -v 2>/dev/null || echo "node: not installed"
 ```
 
-This tells us the OS, whether Apache or Nginx is serving the old site, what holds
-ports 80/443, and whether there is RAM to build on the box.
+Three things decide the rest:
+
+| What | Why it matters |
+|---|---|
+| Nginx or Apache | Which vhost syntax to use in step 5 |
+| Free loopback port | The new app must not collide with travelytics |
+| Node version | Next 16 needs **Node ≥ 20.9**. If travelytics needs an older Node, see the footnote in step 1. |
+
+This runbook uses **port 3001**. If `ss` shows it taken, substitute a free one
+everywhere below.
 
 ---
 
-## 1. Node.js 20 LTS
+## 1. Node.js
 
-Next 16.3.4 requires **Node ≥ 20.9.0**.
+Check first — travelytics may already have a suitable version:
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v          # expect v20.x
+node -v
 ```
+
+If it is below 20.9, install Node 22 LTS:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+```
+
+> **If travelytics needs an older Node**, do not replace the system version —
+> that would break it. Install `nvm` and pin per-app instead, or run
+> TheTravelKart from a Node 22 path while leaving the system Node alone. Tell
+> me if this applies and I will write that variant.
+
+---
 
 ## 2. Get the code
 
 ```bash
-sudo mkdir -p /var/www && cd /var/www
+sudo mkdir -p /var/www
+cd /var/www
 sudo git clone https://github.com/vasupro19/TTK.IN.git thetravelkart
 sudo chown -R $USER:$USER /var/www/thetravelkart
 cd /var/www/thetravelkart
 ```
 
-If you make the repo **private** (recommended), use a deploy key instead:
+The clone pulls about **110 MB of photography** under `public/img`, so give it
+a minute. That is expected — the images are committed deliberately so the
+server never has to fetch them at build time.
 
-```bash
-ssh-keygen -t ed25519 -C "vps-deploy" -f ~/.ssh/id_ed25519 -N ""
-cat ~/.ssh/id_ed25519.pub
-# paste into GitHub → repo → Settings → Deploy keys → Add (read-only)
-git clone git@github.com:vasupro19/TTK.IN.git thetravelkart
-```
+---
 
 ## 3. Environment variables
 
@@ -70,11 +111,16 @@ nano .env.local
 
 ```ini
 NEXT_PUBLIC_SITE_URL=https://thetravelkart.in
+
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
 SMTP_USER=thetravelkart@gmail.com
 SMTP_PASS=your16charapppassword
-LEADS_TO_EMAIL=thetravelkart@gmail.com
+
+# Enquiries are delivered here
+LEADS_TO_EMAIL=enquiry.thetravelkart@gmail.com
+# Gmail refuses to send as anything but the authenticated mailbox,
+# so this must stay equal to SMTP_USER
 LEADS_FROM_EMAIL=thetravelkart@gmail.com
 ```
 
@@ -82,14 +128,19 @@ LEADS_FROM_EMAIL=thetravelkart@gmail.com
 chmod 600 .env.local
 ```
 
-## 4. Install and build
+Generate the App Password at <https://myaccount.google.com/apppasswords>
+(requires 2-Step Verification on that Google account).
+
+---
+
+## 4. Install, build, run on its own port
 
 ```bash
 npm ci
 npm run build
 ```
 
-If the build is killed on a small VPS, add swap first:
+**If the build is killed**, the box is out of RAM. Add swap and retry:
 
 ```bash
 sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile
@@ -97,20 +148,31 @@ sudo mkswap /swapfile && sudo swapon /swapfile
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
-## 5. Run it under PM2
+Start it under PM2 on **port 3001**, bound to loopback only:
 
 ```bash
-sudo npm install -g pm2
-pm2 start npm --name thetravelkart -- start
+sudo npm install -g pm2   # skip if travelytics already uses pm2
+
+pm2 start npm --name thetravelkart -- start -- -p 3001 -H 127.0.0.1
 pm2 save
-pm2 startup systemd -u $USER --hp $HOME   # run the command it prints
-curl -I http://127.0.0.1:3000             # expect HTTP/1.1 200 OK
+curl -I http://127.0.0.1:3001     # expect HTTP/1.1 200 OK
+pm2 list                          # travelytics should still be online
 ```
 
-## 6. Nginx in front
+If PM2 was not already installed, enable it at boot — **run the command it
+prints**:
 
 ```bash
-sudo apt-get install -y nginx
+pm2 startup systemd -u $USER --hp $HOME
+```
+
+---
+
+## 5. Add an Nginx server block — a new file, nothing edited
+
+Do **not** touch the existing travelytics config. Add a second one beside it:
+
+```bash
 sudo nano /etc/nginx/sites-available/thetravelkart
 ```
 
@@ -120,15 +182,24 @@ server {
     listen [::]:80;
     server_name thetravelkart.in www.thetravelkart.in;
 
-    # Long-cache immutable build assets, bypassing the Node process.
+    # Immutable build output and committed photography, served by Nginx
+    # directly so they never touch the Node process.
     location /_next/static/ {
         alias /var/www/thetravelkart/.next/static/;
         expires 1y;
         add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    location /img/ {
+        alias /var/www/thetravelkart/public/img/;
+        expires 30d;
+        add_header Cache-Control "public";
+        access_log off;
     }
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:3001;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -146,62 +217,133 @@ server {
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/thetravelkart /etc/nginx/sites-enabled/
-sudo rm -f /etc/nginx/sites-enabled/default      # removes the old placeholder site
-sudo nginx -t && sudo systemctl reload nginx
+sudo nginx -t          # must say "syntax is ok" AND "test is successful"
+sudo systemctl reload nginx
 ```
 
-**If Apache currently holds port 80**, it must be stopped or moved first:
+`reload` re-reads config without dropping connections — travelytics stays up.
+**If `nginx -t` fails, do not reload.** Fix the file first; the running config
+is untouched until a successful reload.
+
+Check travelytics is still fine before going further:
 
 ```bash
-sudo systemctl stop apache2 && sudo systemctl disable apache2
+curl -I https://travelytics.cloud
 ```
 
-## 7. SSL
+<details>
+<summary>If the box runs <b>Apache</b>, not Nginx</summary>
 
-DNS must already point at this VPS (it does, if the old site is live here).
+Do not install Nginx alongside it — they will fight over port 80. Use an Apache
+vhost instead:
+
+```apache
+<VirtualHost *:80>
+    ServerName thetravelkart.in
+    ServerAlias www.thetravelkart.in
+
+    ProxyPreserveHost On
+    ProxyPass        / http://127.0.0.1:3001/
+    ProxyPassReverse / http://127.0.0.1:3001/
+    RequestHeader set X-Forwarded-Proto "http"
+</VirtualHost>
+```
 
 ```bash
-sudo apt-get install -y certbot python3-certbot-nginx
+sudo a2enmod proxy proxy_http headers
+sudo a2ensite thetravelkart
+sudo apache2ctl configtest && sudo systemctl reload apache2
+```
+</details>
+
+---
+
+## 6. Point the domain at the VPS
+
+At your DNS host for **thetravelkart.in**:
+
+| Type | Name | Value |
+|---|---|---|
+| A | `@` | *your VPS IP* |
+| A (or CNAME) | `www` | *your VPS IP* (or `thetravelkart.in`) |
+
+Find the IP with `curl -4 ifconfig.me` on the server. Remove any A record
+pointing at the old host, and any Vercel records if the domain was there.
+
+Wait until this resolves before the next step — certbot verifies over HTTP:
+
+```bash
+dig +short thetravelkart.in
+```
+
+---
+
+## 7. SSL for the new domain only
+
+Certbot is probably already installed for travelytics. Scope the run to the new
+domain so the existing certificate is untouched:
+
+```bash
 sudo certbot --nginx -d thetravelkart.in -d www.thetravelkart.in
-sudo systemctl status certbot.timer    # auto-renewal
 ```
 
-Certbot rewrites the Nginx block for 443 and sets up the HTTP→HTTPS redirect.
+Choose **redirect** when it offers to. It edits only the server block matching
+those names.
+
+```bash
+sudo certbot certificates          # both domains listed
+sudo systemctl status certbot.timer   # auto-renewal active
+curl -I https://travelytics.cloud     # still fine
+```
+
+---
 
 ## 8. Verify
 
 ```bash
 curl -I https://thetravelkart.in
-curl -s https://thetravelkart.in/packages | grep -o "<title>[^<]*"
+curl -s https://thetravelkart.in/himachal-pradesh-tour-packages | grep -o "<title>[^<]*"
+curl -s -o /dev/null -w "%{http_code}\n" https://thetravelkart.in/himachal-tour-packages   # 308
 ```
 
-Then in a browser:
+In a browser:
 
-- [ ] Home, `/packages`, a package page, `/plan-my-trip` all load over HTTPS
-- [ ] Submit Plan My Trip — the email arrives at thetravelkart@gmail.com
-- [ ] Filters work: `/packages?region=himachal`
-- [ ] Favicon and logo render
+- [ ] `https://thetravelkart.in` loads with a valid padlock
+- [ ] `https://www.thetravelkart.in` redirects to it
+- [ ] `https://travelytics.cloud` **still works**
+- [ ] `/himachal-pradesh-tour-packages` renders, images and all
+- [ ] The enquiry dialog opens by itself after a few seconds
+- [ ] Submit it — lands on `/thank-you` **and** mail arrives at
+      `enquiry.thetravelkart@gmail.com`
+- [ ] Landing-page filters narrow the ten itineraries
+- [ ] WhatsApp buttons open a chat to **9816100105**
+- [ ] On a phone: the dialog can be closed, and buttons respond
+- [ ] Submit the sitemap at <https://search.google.com/search-console>:
+      `https://thetravelkart.in/sitemap.xml`
+
+If mail does not arrive, `pm2 logs thetravelkart` and look for `[mailer]`. It
+names the recipient, or the reason it failed. A lead is never lost to a mail
+failure — it is written to the log either way.
 
 ---
 
 ## Redeploying after a code change
 
 ```bash
-cd /var/www/thetravelkart
-git pull
-npm ci
-npm run build
-pm2 reload thetravelkart
+cd /var/www/thetravelkart && ./deploy.sh
 ```
 
-Save as `deploy.sh` and `chmod +x deploy.sh` to make it one command.
+That script is in the repo. It pulls, installs, builds and reloads, and stops
+on the first failure so a broken build never replaces a working one.
 
-## Useful commands
+---
+
+## Day-to-day
 
 ```bash
-pm2 logs thetravelkart        # application logs, incl. [mailer] lines
+pm2 logs thetravelkart        # app logs, including [mailer] lines
 pm2 restart thetravelkart
-pm2 monit                     # live CPU/memory
+pm2 monit                     # live CPU and memory for both apps
 sudo tail -f /var/log/nginx/error.log
 ```
 
@@ -213,3 +355,18 @@ git log --oneline -5
 git checkout <previous-commit>
 npm ci && npm run build && pm2 reload thetravelkart
 ```
+
+Return to the tip with `git checkout main`.
+
+## If something breaks travelytics
+
+Nothing in this runbook edits its config, so the likely culprits are a port
+collision or a bad Nginx file. To back out completely:
+
+```bash
+sudo rm /etc/nginx/sites-enabled/thetravelkart
+sudo nginx -t && sudo systemctl reload nginx
+pm2 delete thetravelkart && pm2 save
+```
+
+That returns the box to exactly its previous state.
