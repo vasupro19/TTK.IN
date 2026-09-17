@@ -36,7 +36,7 @@ Without these the enquiry form silently stops emailing.
 | `SMTP_PORT` | `465` |
 | `SMTP_USER` | `thetravelkart@gmail.com` |
 | `SMTP_PASS` | *Gmail App Password — 16 characters, no spaces* |
-| `LEADS_TO_EMAIL` | `thetravelkart@gmail.com` |
+| `LEADS_TO_EMAIL` | `enquiry.thetravelkart@gmail.com` |
 | `LEADS_FROM_EMAIL` | `thetravelkart@gmail.com` |
 | `NEXT_PUBLIC_SITE_URL` | `https://thetravelkart.in` |
 
@@ -46,19 +46,27 @@ Generate a **fresh** App Password for production at
 Then **Deployments → ⋯ → Redeploy**. Environment variables are read at build
 time, so the first deploy will not have them.
 
-### Two different addresses
+### Which address does what
 
-The address **shown on the site** and the mailbox that **sends and receives**
-enquiries are deliberately separate:
+Three roles, two mailboxes. Keep them straight or leads go to the wrong place:
 
-| | Address | Set in |
+| Role | Address | Set by |
 |---|---|---|
 | Published on the site | `enquiry.thetravelkart@gmail.com` | `siteConfig.email` |
-| Sends and receives enquiries | `thetravelkart@gmail.com` | `SMTP_USER` / `LEADS_TO_EMAIL` |
+| Enquiries delivered to | `enquiry.thetravelkart@gmail.com` | `LEADS_TO_EMAIL` |
+| Sends the mail | `thetravelkart@gmail.com` | `SMTP_USER` / `LEADS_FROM_EMAIL` |
 
-The published one can change without touching the SMTP account. Gmail only
-lets you send as the authenticated mailbox, so `LEADS_FROM_EMAIL` must stay
-equal to `SMTP_USER` — do not set it to the published address.
+Enquiries arrive at the enquiry mailbox but are **sent through** the account
+that owns the App Password, because Gmail refuses to send as any address other
+than the authenticated one. So `LEADS_FROM_EMAIL` must stay equal to
+`SMTP_USER`; setting it to the enquiry address will make Gmail reject the send.
+
+`LEADS_TO_EMAIL` **overrides** the built-in default. If it is still set to the
+old address in Vercel, leads keep going there whatever the code says — check it
+before assuming the routing is wrong.
+
+Replies are not affected: each notification sets Reply-To to the traveller, so
+hitting reply goes to the customer, not to either mailbox.
 
 ### If enquiry emails are not arriving
 

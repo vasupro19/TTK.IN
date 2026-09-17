@@ -21,16 +21,16 @@ export const siteConfig = {
   whatsappDisplay: "9816100105",
   whatsappMessage: "Hi TheTravelKart, I want help planning my trip.",
   /**
-   * The address published on the site. Deliberately separate from the mailbox
-   * enquiries are delivered to: this one can change on the site without
-   * touching the SMTP account that actually sends and receives.
+   * The address published on the site, and where enquiries are delivered.
    */
   email: "enquiry.thetravelkart@gmail.com",
   /**
-   * Where enquiry notifications land when LEADS_TO_EMAIL is not set. This is
-   * the mailbox with SMTP credentials — not the public address above.
+   * The mailbox that holds the SMTP credentials and therefore sends the mail.
+   * Gmail refuses to send as any address other than the authenticated one, so
+   * this stays the account the App Password belongs to — it is the envelope
+   * sender, not where enquiries arrive.
    */
-  leadsInbox: "thetravelkart@gmail.com",
+  sendingMailbox: "thetravelkart@gmail.com",
   address: "Himachal Pradesh, India",
   foundingYear: 2018,
   socials: {

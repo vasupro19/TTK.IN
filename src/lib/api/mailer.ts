@@ -16,14 +16,27 @@ import { siteConfig } from "@/lib/seo";
 
 const SMTP_HOST = process.env.SMTP_HOST ?? "smtp.gmail.com";
 const SMTP_PORT = Number(process.env.SMTP_PORT ?? 465);
-const SMTP_USER = process.env.SMTP_USER;
-const SMTP_PASS = process.env.SMTP_PASS;
+const SMTP_USER = process.env.SMTP_USER?.trim() || undefined;
+const SMTP_PASS = process.env.SMTP_PASS?.trim() || undefined;
 
-/** Where enquiry notifications land. */
-export const LEADS_INBOX = process.env.LEADS_TO_EMAIL ?? siteConfig.leadsInbox;
+/**
+ * Reads an environment variable, treating blank as absent.
+ *
+ * `??` only falls back on null/undefined, so a variable that exists but is
+ * empty — easy to do in a hosting dashboard — would otherwise be taken as a
+ * real value and address the mail to nobody.
+ */
+function env(name: string): string | undefined {
+  const value = process.env[name]?.trim();
+  return value ? value : undefined;
+}
+
+/** Where enquiry notifications are delivered. */
+export const LEADS_INBOX = env("LEADS_TO_EMAIL") ?? siteConfig.email;
 
 /** Gmail rejects a From address that isn't the authenticated mailbox. */
-const FROM_ADDRESS = process.env.LEADS_FROM_EMAIL ?? SMTP_USER ?? siteConfig.leadsInbox;
+const FROM_ADDRESS =
+  env("LEADS_FROM_EMAIL") ?? SMTP_USER ?? siteConfig.sendingMailbox;
 
 export function isMailConfigured(): boolean {
   return Boolean(SMTP_USER && SMTP_PASS);
@@ -63,9 +76,11 @@ async function send(options: {
   const transporter = getTransporter();
 
   if (!transporter) {
+    // Naming the intended recipient makes a misrouted inbox obvious in the
+    // production logs, rather than something you infer from mail not arriving.
     console.warn(
-      "[mailer] SMTP_USER/SMTP_PASS not set — email skipped. Subject:",
-      options.subject
+      "[mailer] SMTP_USER/SMTP_PASS not set — email skipped.",
+      { to: options.to, subject: options.subject }
     );
     return { sent: false, skipped: true };
   }
