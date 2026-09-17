@@ -210,7 +210,11 @@ export default async function DestinationDetailPage({
         <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/40 to-transparent" />
         <Container className="relative pb-8 text-white">
           <p className="text-sm font-medium uppercase tracking-wider text-white/70">
-            {parentRegion ? (
+            {/* A gateway states where it really is — Amritsar is in Punjab,
+                not in the Himachal region it is merchandised under. */}
+            {destination.area ? (
+              destination.area
+            ) : parentRegion ? (
               <Link href={`/destinations/${parentRegion.slug}`} className="hover:text-white">
                 {parentRegion.name}
               </Link>

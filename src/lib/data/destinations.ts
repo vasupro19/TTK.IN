@@ -178,6 +178,8 @@ export const destinations: Destination[] = [
   // itself, and several packages start or finish here.
   {
     slug: "amritsar",
+    isGateway: true,
+    area: "Punjab",
     name: "Amritsar",
     regionSlug: "himachal",
     country: "India",
@@ -192,6 +194,8 @@ export const destinations: Destination[] = [
   },
   {
     slug: "chandigarh",
+    isGateway: true,
+    area: "Chandigarh",
     name: "Chandigarh",
     regionSlug: "himachal",
     country: "India",
@@ -839,5 +843,6 @@ export function getDestinationBySlug(slug: string): Destination | undefined {
 }
 
 export function getDestinationsByRegion(regionSlug: string): Destination[] {
-  return destinations.filter((d) => d.regionSlug === regionSlug);
+  // Gateways excluded: see `isGateway` on the Destination type.
+  return destinations.filter((d) => d.regionSlug === regionSlug && !d.isGateway);
 }

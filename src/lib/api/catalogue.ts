@@ -26,8 +26,23 @@ export function listFeaturedRegions(limit = 9): Region[] {
     .slice(0, limit);
 }
 
-export function listDestinations(regionSlug?: string): Destination[] {
-  return regionSlug ? destinations.filter((d) => d.regionSlug === regionSlug) : destinations;
+/**
+ * Destinations, optionally narrowed to one region.
+ *
+ * Gateway cities — Amritsar and Chandigarh on the Himachal circuits — are left
+ * out by default. They are filed under the region so their packages group
+ * correctly, but listing them under "Explore Himachal Pradesh" states something
+ * untrue: Amritsar is in Punjab and Chandigarh is a union territory.
+ */
+export function listDestinations(
+  regionSlug?: string,
+  { includeGateways = false }: { includeGateways?: boolean } = {},
+): Destination[] {
+  return destinations.filter(
+    (d) =>
+      (!regionSlug || d.regionSlug === regionSlug) &&
+      (includeGateways || !d.isGateway),
+  );
 }
 
 export function getDestination(slug: string): Destination | undefined {

@@ -100,6 +100,19 @@ export interface Destination {
   name: string;
   /** Region (state / country group) this destination belongs to. */
   regionSlug: string;
+  /**
+   * True for places that sit on a region's circuits without being *in* it —
+   * Amritsar and Chandigarh on the Himachal routes, for example. They are
+   * grouped under the region so their packages and breadcrumbs work, but they
+   * are excluded from "places in <region>" listings, where they would read as
+   * a factual error.
+   */
+  isGateway?: boolean;
+  /**
+   * State or union territory, where it differs from the region the destination
+   * is filed under. Set on gateways so the page shows the true place.
+   */
+  area?: string;
   country: string;
   type: PackageType;
   tagline: string;
