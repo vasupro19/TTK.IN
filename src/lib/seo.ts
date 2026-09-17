@@ -8,17 +8,29 @@ export const siteConfig = {
     "TheTravelKart plans custom holidays across Himachal, Kashmir, Ladakh, Spiti, Uttarakhand, Rajasthan, Kerala, Goa, the North East and beyond — with verified stays, transparent pricing and a travel expert on WhatsApp from enquiry to homecoming.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://thetravelkart.in",
   domain: "thetravelkart.in",
-  /** Primary line, also used for WhatsApp. */
+  /** Primary line for calls. */
   phone: "+91 98827 02527",
   phoneRaw: "919882702527",
   phoneDisplay: "9882702527",
-  /** Secondary line. */
+  /** Secondary line for calls, and the number WhatsApp goes to. */
   altPhone: "+91 98161 00105",
   altPhoneRaw: "919816100105",
   altPhoneDisplay: "9816100105",
-  whatsapp: "919882702527",
+  whatsapp: "919816100105",
+  /** Shown wherever a WhatsApp number is printed as text. */
+  whatsappDisplay: "9816100105",
   whatsappMessage: "Hi TheTravelKart, I want help planning my trip.",
-  email: "thetravelkart@gmail.com",
+  /**
+   * The address published on the site. Deliberately separate from the mailbox
+   * enquiries are delivered to: this one can change on the site without
+   * touching the SMTP account that actually sends and receives.
+   */
+  email: "enquiry.thetravelkart@gmail.com",
+  /**
+   * Where enquiry notifications land when LEADS_TO_EMAIL is not set. This is
+   * the mailbox with SMTP credentials — not the public address above.
+   */
+  leadsInbox: "thetravelkart@gmail.com",
   address: "Himachal Pradesh, India",
   foundingYear: 2018,
   socials: {

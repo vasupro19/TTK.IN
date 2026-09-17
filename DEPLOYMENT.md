@@ -46,6 +46,33 @@ Generate a **fresh** App Password for production at
 Then **Deployments → ⋯ → Redeploy**. Environment variables are read at build
 time, so the first deploy will not have them.
 
+### Two different addresses
+
+The address **shown on the site** and the mailbox that **sends and receives**
+enquiries are deliberately separate:
+
+| | Address | Set in |
+|---|---|---|
+| Published on the site | `enquiry.thetravelkart@gmail.com` | `siteConfig.email` |
+| Sends and receives enquiries | `thetravelkart@gmail.com` | `SMTP_USER` / `LEADS_TO_EMAIL` |
+
+The published one can change without touching the SMTP account. Gmail only
+lets you send as the authenticated mailbox, so `LEADS_FROM_EMAIL` must stay
+equal to `SMTP_USER` — do not set it to the published address.
+
+### If enquiry emails are not arriving
+
+Leads are never lost on a mail failure: the API still returns success and the
+lead is written to the server log. To find out why mail is not sending, open
+**Vercel → your project → Logs**, submit a test enquiry, and look for a line
+beginning `[mailer]`:
+
+- `SMTP_USER/SMTP_PASS not set — email skipped` — the variables are missing
+  from this environment, or were added after the last build. Add them and
+  **redeploy**; they are read at build time.
+- an authentication error — the App Password is wrong, has been revoked, or
+  2-Step Verification is off on that Google account. Generate a new one.
+
 ## 3. Add the domain in Vercel
 
 **Project → Settings → Domains → Add** → `thetravelkart.in`.

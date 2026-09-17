@@ -20,10 +20,10 @@ const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
 
 /** Where enquiry notifications land. */
-export const LEADS_INBOX = process.env.LEADS_TO_EMAIL ?? siteConfig.email;
+export const LEADS_INBOX = process.env.LEADS_TO_EMAIL ?? siteConfig.leadsInbox;
 
 /** Gmail rejects a From address that isn't the authenticated mailbox. */
-const FROM_ADDRESS = process.env.LEADS_FROM_EMAIL ?? SMTP_USER ?? siteConfig.email;
+const FROM_ADDRESS = process.env.LEADS_FROM_EMAIL ?? SMTP_USER ?? siteConfig.leadsInbox;
 
 export function isMailConfigured(): boolean {
   return Boolean(SMTP_USER && SMTP_PASS);

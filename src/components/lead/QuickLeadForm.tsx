@@ -183,7 +183,7 @@ export function QuickLeadForm({
           className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-[#128C7E] hover:underline"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
-          WhatsApp us on {siteConfig.phoneDisplay}
+          WhatsApp us on {siteConfig.whatsappDisplay}
         </a>
       </div>
 
