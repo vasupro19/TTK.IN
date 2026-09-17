@@ -175,12 +175,29 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 Start it under PM2 on **port 3001**, bound to loopback only:
 
 ```bash
-sudo npm install -g pm2   # skip if travelytics already uses pm2
+sudo npm install -g pm2   # skip if pm2 is already installed
 
-pm2 start npm --name thetravelkart -- start -- -p 3001 -H 127.0.0.1
+pm2 start ecosystem.config.js
 pm2 save
+
+sleep 5                           # Next needs a moment to bind
 curl -I http://127.0.0.1:3001     # expect HTTP/1.1 200 OK
-pm2 list                          # travelytics should still be online
+pm2 list                          # the existing apps should still be online
+```
+
+The port and host live in `ecosystem.config.js`, committed to the repo. Do not
+start this with `pm2 start npm -- start -- -p 3001`: passing flags through npm
+needs a nested `--` that PM2 does not reliably forward, and the app silently
+falls back to port 3000 while Nginx proxies to nothing.
+
+To use a different port: `PORT=3002 pm2 start ecosystem.config.js`.
+
+If `curl` refuses, it is almost always one of two things — give it a few more
+seconds, then:
+
+```bash
+pm2 logs thetravelkart --lines 40 --nostream   # did it crash on boot?
+ss -tlnp | grep -E ':(3000|3001)\b'            # is it on the wrong port?
 ```
 
 If PM2 was not already installed, enable it at boot — **run the command it

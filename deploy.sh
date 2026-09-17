@@ -41,7 +41,7 @@ if pm2 describe "$APP_NAME" > /dev/null 2>&1; then
   pm2 reload "$APP_NAME" --update-env
 else
   echo "    '$APP_NAME' is not running under pm2 — start it first:"
-  echo "    pm2 start npm --name $APP_NAME -- start -- -p 3001 -H 127.0.0.1"
+  echo "    pm2 start ecosystem.config.js && pm2 save"
   exit 1
 fi
 
