@@ -169,3 +169,43 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+/* ---------------------------------------------------------------------------
+   Minimum touch targets.
+
+   On a touch screen a control smaller than ~44px is genuinely hard to hit —
+   taps land beside it and the control reads as broken. Travellers reported
+   exactly that. Rather than chase every button's padding, this sets a floor
+   for real controls on coarse pointers only, so mouse layouts are untouched
+   and any component added later inherits the same guarantee.
+
+   Scoped to elements that are unambiguously controls. Inline prose links are
+   deliberately excluded: WCAG exempts text inline in a sentence, and forcing a
+   height on them would wreck paragraph rhythm.
+   --------------------------------------------------------------------------- */
+@media (pointer: coarse) {
+  button,
+  summary,
+  [role="button"],
+  [role="tab"],
+  select,
+  input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  /* Anchors styled as buttons — a pill radius on a link means a CTA. */
+  a[class*="rounded-full"],
+  a[class*="rounded-xl"] {
+    min-height: 44px;
+  }
+
+  /* Boxes stay visually small; their label carries the touch area. */
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+  }
+
+  label:has(> input[type="checkbox"]),
+  label:has(> input[type="radio"]) {
+    min-height: 44px;
+  }
+}
