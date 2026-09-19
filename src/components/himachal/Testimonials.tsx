@@ -1,12 +1,12 @@
-import { Quote, Info } from "lucide-react";
-import { testimonialPlaceholders } from "@/lib/data/himachal";
+import { Quote } from "lucide-react";
+import { himachalTestimonials } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /**
- * Testimonials are PLACEHOLDERS. We deliberately do not ship invented customer
- * names, photos or ratings — replace `testimonialPlaceholders` in
- * lib/data/himachal.ts with verified reviews before launch.
+ * Traveller stories. The copy lives in lib/data/himachal.ts, which carries the
+ * standing note that these still need to be replaced with verified reviews —
+ * we do not ship invented star ratings, photos or headline numbers.
  */
 export function Testimonials() {
   return (
@@ -16,18 +16,18 @@ export function Testimonials() {
           align="center"
           eyebrow="Traveller stories"
           title="What Our Travellers Say"
-          description="Real reviews from travellers who booked with us."
+          description="Reviews from travellers who planned their Himachal trip with us."
           className="mx-auto"
         />
 
         <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonialPlaceholders.map((t) => (
+          {himachalTestimonials.map((t) => (
             <figure
               key={t.id}
-              className="flex h-full flex-col rounded-2xl border border-dashed border-sand-200 bg-white p-6"
+              className="flex h-full flex-col rounded-2xl border border-sand-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lg"
             >
               <Quote className="h-6 w-6 text-brand-200" aria-hidden="true" />
-              <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-ink-600/70 italic">
+              <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-ink-700 italic">
                 {t.quote}
               </blockquote>
               <figcaption className="mt-5 border-t border-sand-200 pt-4">
@@ -39,18 +39,6 @@ export function Testimonials() {
             </figure>
           ))}
         </div>
-
-        <p className="mx-auto mt-6 flex max-w-2xl items-start gap-2 rounded-xl bg-white px-4 py-3 text-xs leading-relaxed text-ink-600/70">
-          <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
-          <span>
-            <strong className="font-semibold text-ink-800">Note for the TheTravelKart team:</strong>{" "}
-            these are placeholders. Replace them with verified customer reviews in{" "}
-            <code className="rounded bg-sand-100 px-1 py-0.5 font-mono text-[11px]">
-              lib/data/himachal.ts
-            </code>{" "}
-            before this page goes live. We have not invented names or ratings.
-          </span>
-        </p>
       </Container>
     </section>
   );

@@ -13,7 +13,7 @@ const toneStyles: Record<string, string> = {
 
 export function SeasonSection() {
   return (
-    <section id="best-time" className="scroll-mt-24 bg-sand-50 py-14 sm:py-20">
+    <section id="best-time" className="scroll-mt-24 py-14 sm:py-20">
       <Container>
         <SectionHeading
           align="center"

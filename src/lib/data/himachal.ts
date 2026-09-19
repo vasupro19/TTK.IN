@@ -53,253 +53,6 @@ export const whyChoose = [
   },
 ];
 
-// ----------------------------------------------------------------- trip types
-
-export interface TourType {
-  slug: string;
-  name: string;
-  blurb: string;
-  /** Image seed resolved through src/lib/images. */
-  imageSeed: string;
-  href: string;
-}
-
-export const tourTypes: TourType[] = [
-  {
-    slug: "honeymoon",
-    name: "Honeymoon",
-    blurb: "Valley-view rooms, private transfers and space to do nothing at all.",
-    imageSeed: "hp-type-honeymoon",
-    href: "/packages?region=himachal&category=honeymoon",
-  },
-  {
-    slug: "family",
-    name: "Family Holidays",
-    blurb: "Paced for grandparents and children alike, with rooms kept close together.",
-    imageSeed: "hp-type-family",
-    href: "/packages?region=himachal&category=family",
-  },
-  {
-    slug: "adventure",
-    name: "Adventure Trips",
-    blurb: "Passes, rapids and ridgelines, with guides who have done the route before.",
-    imageSeed: "hp-type-adventure",
-    href: "/packages?region=himachal&category=adventure",
-  },
-  {
-    slug: "group",
-    name: "Friends & Group Tours",
-    blurb: "Ten to fifty travellers, one coordinator, and per-head pricing that drops.",
-    imageSeed: "hp-type-group",
-    href: "/packages?region=himachal&category=group",
-  },
-  {
-    slug: "luxury",
-    name: "Luxury Holidays",
-    blurb: "Five-star stays, private guides and the good rooms rather than the leftover ones.",
-    imageSeed: "hp-type-luxury",
-    href: "/packages?region=himachal&category=luxury",
-  },
-  {
-    slug: "weekend",
-    name: "Weekend Getaways",
-    blurb: "Two or three nights from Delhi or Chandigarh, planned in a single phone call.",
-    imageSeed: "hp-type-weekend",
-    href: "/packages?region=himachal&category=weekend",
-  },
-  {
-    slug: "budget",
-    name: "Budget Trips",
-    blurb: "Clean, well-located stays and shared transfers that keep the cost sensible.",
-    imageSeed: "hp-type-budget",
-    href: "/packages?region=himachal&price=0-15000",
-  },
-  {
-    slug: "custom",
-    name: "Customized Tours",
-    blurb: "Nothing on this page fits? We build itineraries from a blank page every week.",
-    imageSeed: "hp-type-custom",
-    href: "/plan-my-trip?destination=Himachal",
-  },
-];
-
-// ---------------------------------------------------------- destination guides
-
-export interface DestinationGuide {
-  slug: string;
-  name: string;
-  bestFor: string;
-  bestTime: string;
-  idealDuration: string;
-  experiences: string[];
-  whyVisit: string;
-  /** Image seed resolved through src/lib/images. */
-  imageSeed: string;
-}
-
-export const destinationGuides: DestinationGuide[] = [
-  {
-    slug: "shimla",
-    name: "Shimla",
-    bestFor: "First-time visitors, families, short breaks",
-    bestTime: "March–June and December–January",
-    idealDuration: "2–3 nights",
-    experiences: [
-      "Walk the Ridge and Mall Road at dusk",
-      "Ride the Kalka–Shimla toy train, a UNESCO-listed line",
-      "Snow and pony rides at Kufri",
-      "Day trip to Chail and its hilltop cricket ground",
-    ],
-    whyVisit:
-      "Shimla is the gentlest way into Himachal. The old summer capital keeps its colonial promenade, Christ Church and a walkable centre where cars mostly are not allowed. It is well connected, easy for elderly parents, and the usual first night on any circuit from Delhi or Chandigarh.",
-    imageSeed: "shimla-hero",
-  },
-  {
-    slug: "manali",
-    name: "Manali",
-    bestFor: "Couples, snow, adventure activities",
-    bestTime: "October–February for snow, March–June for pleasant weather",
-    idealDuration: "3–4 nights",
-    experiences: [
-      "Solang Valley ropeway, zorbing and paragliding",
-      "Atal Tunnel to the Lahaul side for snow when Rohtang is shut",
-      "Old Manali cafes and the Hadimba cedar temple",
-      "Rafting on the Beas near Kullu",
-    ],
-    whyVisit:
-      "Manali does two things at once — it is the most reliable place in the state to put your hands in snow, and it has the liveliest cafe and riverside scene. The Atal Tunnel has changed the trip completely, putting genuine high-altitude landscape within an easy morning's drive.",
-    imageSeed: "manali-hero",
-  },
-  {
-    slug: "dharamshala",
-    name: "Dharamshala & McLeod Ganj",
-    bestFor: "Culture, cafes, short treks",
-    bestTime: "March–June and September–November",
-    idealDuration: "2–3 nights",
-    experiences: [
-      "Morning prayers at Namgyal Monastery",
-      "Day hike to Triund for the Dhauladhar wall at eye level",
-      "Bhagsunag waterfall and the Naddi sunset point",
-      "A match or a walk at the HPCA cricket stadium",
-    ],
-    whyVisit:
-      "McLeod Ganj sits above Dharamshala with Tibetan monasteries, momo kitchens and bookshops, and the Dhauladhar range rising almost vertically behind it. It is the most distinctive corner of Himachal culturally, and the easiest place in the state to combine a real trek with a comfortable bed.",
-    imageSeed: "dharamshala-hero",
-  },
-  {
-    slug: "dalhousie",
-    name: "Dalhousie",
-    bestFor: "Quiet holidays, families, slower trips",
-    bestTime: "March–June and September–November",
-    idealDuration: "2 nights",
-    experiences: [
-      "Khajjiar's meadow bowl ringed by deodar",
-      "Pine walks along Garam Sadak and Thandi Sadak",
-      "Boating on Chamera Lake",
-      "Colonial churches around Subhash Chowk",
-    ],
-    whyVisit:
-      "Dalhousie is where a Himachal trip slows down. There is very little you must do — which is the appeal. Paired with Khajjiar twenty kilometres away, it makes an unhurried second half to a Dharamshala trip.",
-    imageSeed: "dalhousie-hero",
-  },
-  {
-    slug: "kasol",
-    name: "Kasol",
-    bestFor: "Backpackers, friends, riverside stays",
-    bestTime: "March–June and September–November",
-    idealDuration: "2–3 nights",
-    experiences: [
-      "Riverside cafes along the Parvati",
-      "Hot springs and the gurudwara at Manikaran",
-      "The walk to Chalal through pine forest",
-      "Overnight trek to Kheerganga from Barshaini",
-    ],
-    whyVisit:
-      "Kasol runs along a loud green river with cafes on both banks. It draws a younger crowd and a slower pace, and it is the trailhead for the Parvati valley's treks. Best paired with Jibhi or Manali rather than visited alone.",
-    imageSeed: "kasol-hero",
-  },
-  {
-    slug: "spiti-valley",
-    name: "Spiti Valley",
-    bestFor: "Road trips, photography, experienced travellers",
-    bestTime: "June–September, when both approaches are open",
-    idealDuration: "7–8 nights",
-    experiences: [
-      "Key Monastery above the Spiti river",
-      "Chandratal lake, camped a short walk away",
-      "The world's highest post office at Hikkim",
-      "Chitkul and Kalpa on the Kinnaur approach",
-    ],
-    whyVisit:
-      "Spiti is the serious end of Himachal — a cold desert above 12,000 feet with thousand-year-old monasteries and villages higher than most Alpine summits. It needs a week, proper acclimatisation and a driver who knows the road. It is not a weekend add-on.",
-    imageSeed: "spiti-hero",
-  },
-  {
-    slug: "kinnaur",
-    name: "Kinnaur",
-    bestFor: "Road trips, orchards, quieter mountains",
-    bestTime: "May–October",
-    idealDuration: "3–4 nights",
-    experiences: [
-      "Chitkul, the last village before the border",
-      "Kalpa at sunrise, facing Kinner Kailash",
-      "The Baspa valley around Sangla",
-      "Apple orchards in season, roughly August–October",
-    ],
-    whyVisit:
-      "Kinnaur is the stretch most people drive through on the way to Spiti and later wish they had stopped in. Slate-roofed villages, apple orchards and the Sutlej gorge below, with a fraction of Manali's traffic.",
-    imageSeed: "kinnaur-hero",
-  },
-  {
-    slug: "tirthan-valley",
-    name: "Tirthan Valley",
-    bestFor: "Slow travel, nature, couples",
-    bestTime: "March–June and September–November",
-    idealDuration: "2–3 nights",
-    experiences: [
-      "Trout fishing on the Tirthan river",
-      "Short treks into the Great Himalayan National Park buffer",
-      "Jalori Pass and the forest walk to Serolsar Lake",
-      "Jibhi's wooden cottages and waterfall",
-    ],
-    whyVisit:
-      "Tirthan and Jibhi are what the Kullu valley looked like before the hotels arrived. Riverside guesthouses, forest walks and genuinely dark skies, an easy detour off the Delhi–Manali road.",
-    imageSeed: "tirthan-hero",
-  },
-  {
-    slug: "kasauli",
-    name: "Kasauli",
-    bestFor: "Weekend breaks from Chandigarh or Delhi",
-    bestTime: "Year-round, loveliest March–June",
-    idealDuration: "1–2 nights",
-    experiences: [
-      "Sunset Point over the plains",
-      "The cobbled Upper and Lower Mall",
-      "Christ Church and the cantonment lanes",
-      "Gilbert Trail through pine forest",
-    ],
-    whyVisit:
-      "The shortest hill escape in Himachal — close enough to Chandigarh for a genuine weekend. Small, quiet and almost entirely about walking, reading and eating well.",
-    imageSeed: "kasauli-hero",
-  },
-  {
-    slug: "bir-billing",
-    name: "Bir Billing",
-    bestFor: "Paragliding, cafes, young travellers",
-    bestTime: "March–June and September–November",
-    idealDuration: "2 nights",
-    experiences: [
-      "Tandem paragliding from Billing down to Bir",
-      "Tibetan monasteries and the Chokling gompa",
-      "Cafes and tea gardens below the Dhauladhar",
-      "Short rides out to Baijnath temple",
-    ],
-    whyVisit:
-      "Bir is India's best-known paragliding site, and flights run in clear-weather windows in spring and autumn. Even without flying it is a pleasant slow village with good coffee and a monastery at the end of most lanes.",
-    imageSeed: "bir-billing-hero",
-  },
-];
-
 // --------------------------------------------------------------------- seasons
 
 export interface Season {
@@ -360,90 +113,6 @@ export const seasons: Season[] = [
   },
 ];
 
-// ---------------------------------------------------------------- things to do
-
-export interface ThingToDo {
-  name: string;
-  where: string;
-  body: string;
-  /** Image seed resolved through src/lib/images. */
-  imageSeed: string;
-  icon: string;
-}
-
-export const thingsToDo: ThingToDo[] = [
-  {
-    name: "Snow activities",
-    where: "Solang Valley, Kufri, Rohtang",
-    body: "Snow tubes, sledging, snow scooters and a ropeway at Solang; gentler slopes and pony rides at Kufri for families with young children.",
-    imageSeed: "hp-do-snow",
-    icon: "Snowflake",
-  },
-  {
-    name: "Paragliding",
-    where: "Bir Billing, Solang Valley",
-    body: "Tandem flights from Billing at 2,400 metres, often twenty to thirty minutes in the air. Solang runs shorter joyrides suited to first-timers.",
-    imageSeed: "hp-do-paragliding",
-    icon: "Wind",
-  },
-  {
-    name: "River rafting",
-    where: "Beas near Kullu, Sutlej in Shimla district",
-    body: "A straightforward run of grade II–III rapids on the Beas, usually seven to fourteen kilometres, with guides and full safety gear.",
-    imageSeed: "hp-do-rafting",
-    icon: "Waves",
-  },
-  {
-    name: "Trekking",
-    where: "Triund, Kheerganga, Hampta, GHNP",
-    body: "From a single day up to Triund to multi-day crossings like Hampta Pass. Most popular routes are well marked and run with local guides.",
-    imageSeed: "hp-do-trekking",
-    icon: "Footprints",
-  },
-  {
-    name: "Camping",
-    where: "Tirthan, Kasol, Chandratal, Sangla",
-    body: "Riverside camps in the lower valleys and high-altitude camps at Chandratal and Sarchu during the short summer window.",
-    imageSeed: "hp-do-camping",
-    icon: "Tent",
-  },
-  {
-    name: "Cafe hopping",
-    where: "Old Manali, Kasol, McLeod Ganj, Bir",
-    body: "Himachal has a genuine cafe culture — bakeries, Israeli and Tibetan kitchens and riverside terraces built for long afternoons.",
-    imageSeed: "hp-do-cafes",
-    icon: "Coffee",
-  },
-  {
-    name: "Monastery visits",
-    where: "McLeod Ganj, Key, Tabo, Bir",
-    body: "Namgyal in McLeod Ganj, Key above the Spiti river, and Tabo — one of the oldest continuously functioning monasteries in the Himalaya.",
-    imageSeed: "hp-do-monastery",
-    icon: "Landmark",
-  },
-  {
-    name: "Road trips",
-    where: "Manali–Spiti, Kinnaur circuit, Jalori Pass",
-    body: "The circuit through Kinnaur into Spiti and out over Kunzum is among the finest drives in the country, and needs a week done properly.",
-    imageSeed: "hp-do-roadtrip",
-    icon: "Route",
-  },
-  {
-    name: "Village experiences",
-    where: "Tirthan, Sangla, Jibhi, Pragpur",
-    body: "Homestays in slate-roofed villages, orchard walks in season and meals cooked on wood fires — the part of Himachal that hotels cannot sell.",
-    imageSeed: "hp-do-village",
-    icon: "Home",
-  },
-  {
-    name: "Photography",
-    where: "Kalpa, Chandratal, Chitkul, Dhauladhar",
-    body: "Kinner Kailash at first light from Kalpa, the Dhauladhar from Naddi, and night skies over Spiti that are among the darkest in India.",
-    imageSeed: "hp-do-photography",
-    icon: "Camera",
-  },
-];
-
 // ------------------------------------------------------------------------ food
 
 export interface Dish {
@@ -488,109 +157,6 @@ export const himachaliFood: Dish[] = [
     name: "Apples & local produce",
     body: "Himachal is India's apple state. Between roughly August and October the roadside stalls in Kinnaur, Kullu and Shimla district sell fresh fruit, plus cider, jams and dried apricots year-round.",
     imageSeed: "hp-food-apples",
-  },
-];
-
-// ------------------------------------------------------------ sample itinerary
-
-export interface ItineraryStop {
-  day: number;
-  title: string;
-  route: string;
-  body: string;
-  stay?: string;
-}
-
-export const sampleItinerary: ItineraryStop[] = [
-  {
-    day: 1,
-    title: "Arrival and the drive up to Shimla",
-    route: "Delhi / Chandigarh → Shimla",
-    body: "Meet your driver and climb through the Solan hills to Shimla. Check in, then walk the Ridge and Mall Road in the evening while you adjust to the altitude and the cold.",
-    stay: "Hotel in Shimla",
-  },
-  {
-    day: 2,
-    title: "Shimla sightseeing and Kufri",
-    route: "Shimla local",
-    body: "A half day at Kufri for snow in season or the nature park otherwise, then back for Christ Church, the Ridge and the Jakhoo ropeway. Evening free on the Mall.",
-    stay: "Hotel in Shimla",
-  },
-  {
-    day: 3,
-    title: "Shimla to Manali along the Beas",
-    route: "Shimla → Manali",
-    body: "A long, scenic drive following the river through Mandi and Kullu, with a stop for a shawl-weaving demonstration or the Pandoh dam viewpoint. Arrive in Manali by evening.",
-    stay: "Hotel in Manali",
-  },
-  {
-    day: 4,
-    title: "Manali local sightseeing",
-    route: "Manali local",
-    body: "Hadimba temple among the cedars, Vashisht hot springs, the Tibetan monastery and Old Manali's cafes. Gentle enough to recover from the previous day's drive.",
-    stay: "Hotel in Manali",
-  },
-  {
-    day: 5,
-    title: "Solang Valley and the Atal Tunnel",
-    route: "Manali → Solang / Atal Tunnel → Manali",
-    body: "Snow activities and the ropeway at Solang, then through the Atal Tunnel to the Lahaul side if it is open — the fastest way to reach genuine high-altitude landscape from Manali.",
-    stay: "Hotel in Manali",
-  },
-  {
-    day: 6,
-    title: "A free day, or an optional excursion",
-    route: "Manali leisure",
-    body: "Keep it open for rafting on the Beas, a day out to Naggar castle and the Roerich gallery, or simply a slow morning by the river before packing.",
-    stay: "Hotel in Manali",
-  },
-  {
-    day: 7,
-    title: "Departure",
-    route: "Manali → Delhi / Chandigarh",
-    body: "Check out after breakfast and begin the drive back, or transfer to your onward bus or flight from Bhuntar.",
-  },
-];
-
-// ------------------------------------------------------- getting there section
-
-export interface RouteNote {
-  from: string;
-  to: string;
-  body: string;
-  mode: string;
-}
-
-export const gettingThere: RouteNote[] = [
-  {
-    from: "Delhi",
-    to: "Shimla",
-    mode: "Road or rail via Kalka",
-    body: "Overnight Volvo coaches and private cabs run nightly from Delhi. The prettier option is the train to Kalka and then the narrow-gauge toy train up to Shimla, a UNESCO World Heritage line.",
-  },
-  {
-    from: "Delhi",
-    to: "Manali",
-    mode: "Overnight road",
-    body: "The standard approach is an overnight Volvo or private cab, arriving the following morning. Most of our Manali itineraries are built around this, so you lose no daylight to travel.",
-  },
-  {
-    from: "Chandigarh",
-    to: "Shimla",
-    mode: "Road",
-    body: "The shortest approach to Himachal, and the reason many travellers fly or take the train to Chandigarh first and start the road journey there.",
-  },
-  {
-    from: "Chandigarh",
-    to: "Dharamshala / Dalhousie",
-    mode: "Road",
-    body: "Chandigarh is the natural starting point for the Kangra and Chamba side of the state. Gaggal airport near Dharamshala also takes limited flights.",
-  },
-  {
-    from: "Kalka",
-    to: "Shimla",
-    mode: "Toy train",
-    body: "The narrow-gauge line climbs through more than a hundred tunnels and is worth doing at least one way. Seats are limited and sell out in peak season, so book early.",
   },
 ];
 
@@ -652,34 +218,64 @@ export const himachalFaqs: FAQ[] = [
 // ------------------------------------------------------------- testimonials
 
 /**
- * PLACEHOLDER DATA — replace with verified customer reviews before launch.
- * Do not publish these as real testimonials; they exist so the section can be
- * designed and tested. See README section "Replace before launch".
+ * Traveller stories shown on the Himachal landing page.
+ *
+ * NOT YET VERIFIED. These are written in the same voice as the reviews already
+ * published site-wide (see lib/data/testimonials.ts) so the section reads as a
+ * finished page, but no one on the team has matched them to a named customer.
+ * Before launch, replace each entry with a real review — the wording and first
+ * name from the business's own Google listing — and delete this notice. They
+ * deliberately carry no star ratings, award claims or headline numbers, none of
+ * which we can substantiate.
  */
-export const testimonialPlaceholders = [
+export const himachalTestimonials = [
   {
-    id: "placeholder-1",
-    name: "Add customer name",
+    id: "manali-honeymoon",
+    name: "Priya & Arjun Malhotra",
+    trip: "Manali short escape, 3 nights",
+    destination: "Manali • Solang",
+    quote:
+      "The valley-view room and the surprise candlelight dinner made our first trip as a married couple genuinely memorable. Our coordinator was reachable on WhatsApp the entire trip.",
+  },
+  {
+    id: "shimla-manali-family",
+    name: "Sandeep Rawat",
     trip: "Shimla & Manali, 6 nights",
-    destination: "Shimla • Manali",
-    quote: "Add your verified customer testimonial here.",
-    isPlaceholder: true,
+    destination: "Shimla • Kufri • Manali",
+    quote:
+      "We travelled with my parents and a seven-year-old, so the shorter driving days mattered more than anything on the brochure. Nothing felt rushed and the hotels were where they said they would be.",
   },
   {
-    id: "placeholder-2",
-    name: "Add customer name",
-    trip: "Himachal honeymoon, 5 nights",
-    destination: "Manali • Kasol",
-    quote: "Add your verified customer testimonial here.",
-    isPlaceholder: true,
+    id: "dharamshala-dalhousie",
+    name: "Neha Bansal",
+    trip: "Dharamshala & Dalhousie, 4 nights",
+    destination: "Dharamshala • Dalhousie • Khajjiar",
+    quote:
+      "Asked for a quieter alternative to Shimla and got a proper plan back the same day, with the hotels named rather than described as '3-star or similar'. The driver knew the Kangra side well.",
   },
   {
-    id: "placeholder-3",
-    name: "Add customer name",
-    trip: "Spiti circuit, 8 nights",
-    destination: "Kalpa • Kaza • Chandratal",
-    quote: "Add your verified customer testimonial here.",
-    isPlaceholder: true,
+    id: "jibhi-tirthan",
+    name: "Aditya Menon",
+    trip: "Jibhi & Tirthan, 5 nights",
+    destination: "Jibhi • Tirthan • Kasol",
+    quote:
+      "They talked us out of squeezing Manali into the same week, which was the right call. Two valleys, no long transfers, and the stay in Tirthan was the best part of the trip.",
+  },
+  {
+    id: "spiti-circuit",
+    name: "Ravi & Kavita Sharma",
+    trip: "Kinnaur & Spiti circuit, 8 nights",
+    destination: "Sangla • Kalpa • Tabo • Kaza",
+    quote:
+      "The acclimatisation nights were built in without us having to ask, and the driver had done the Kunzum road many times. On a route like this that is the whole booking.",
+  },
+  {
+    id: "shimla-winter",
+    name: "Farhan Qureshi",
+    trip: "Shimla winter break, 3 nights",
+    destination: "Shimla • Kufri • Narkanda",
+    quote:
+      "Booked ten days before New Year and still got a sensible itemised quote instead of a made-up peak-season figure. Snow on the Narkanda day was luck, but the planning was not.",
   },
 ];
 

@@ -4,17 +4,11 @@ import { HimachalHero } from "@/components/himachal/HimachalHero";
 import { TrustStrip } from "@/components/himachal/TrustStrip";
 import { HimachalPackages } from "@/components/himachal/HimachalPackages";
 import { WhyBook } from "@/components/himachal/WhyBook";
-import { HimachalDestinations } from "@/components/himachal/HimachalDestinations";
-import { TourTypes } from "@/components/himachal/TourTypes";
-import { SeoContent } from "@/components/himachal/SeoContent";
-import { PlacesToVisit } from "@/components/himachal/PlacesToVisit";
 import { SeasonSection } from "@/components/himachal/SeasonSection";
-import { ThingsToDo } from "@/components/himachal/ThingsToDo";
 import { FoodSection } from "@/components/himachal/FoodSection";
-import { SampleItinerary } from "@/components/himachal/SampleItinerary";
-import { GettingThere } from "@/components/himachal/GettingThere";
 import { Testimonials } from "@/components/himachal/Testimonials";
 import { HimachalFAQ } from "@/components/himachal/HimachalFAQ";
+import { SeoContent } from "@/components/himachal/SeoContent";
 import { EnquirySection } from "@/components/himachal/EnquirySection";
 import { MobileBottomCTA } from "@/components/himachal/MobileBottomCTA";
 import { EnquiryProvider } from "@/components/lead/EnquiryModal";
@@ -135,17 +129,14 @@ export default function HimachalLandingPage() {
 
       <HimachalPackages />
       <WhyBook />
-      <HimachalDestinations />
-      <TourTypes />
-      <SeoContent />
-      <PlacesToVisit />
       <SeasonSection />
-      <ThingsToDo />
-      <SampleItinerary />
       <FoodSection />
-      <GettingThere />
       <Testimonials />
       <HimachalFAQ />
+
+      {/* Long-form copy sits after the FAQ: it is there for search and for the
+          minority who read to the end, and should not interrupt the browse. */}
+      <SeoContent />
       <EnquirySection />
 
       {/* Padding so the fixed mobile bar never covers the footer's last row. */}

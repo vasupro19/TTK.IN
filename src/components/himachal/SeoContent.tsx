@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 /** Long-form landing copy. Original writing — no scraped or spun content. */
 export function SeoContent() {
   return (
-    <section className="py-14 sm:py-20">
+    <section className="bg-sand-50 py-14 sm:py-20">
       <Container className="max-w-3xl">
         <article className="prose-himachal">
           <h2 className="font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
@@ -118,7 +118,7 @@ export function SeoContent() {
             the Kalka to Shimla toy train is worth doing at least one way.
           </p>
 
-          <p className="mt-9 rounded-2xl bg-sand-50 p-5 text-base leading-relaxed text-ink-700">
+          <p className="mt-9 rounded-2xl border border-sand-200 bg-white p-5 text-base leading-relaxed text-ink-700">
             We are based in Himachal and drive these routes ourselves, so if a plan will not work in
             your window, we will say so before you book rather than after.{" "}
             <Link href="#enquiry" className="font-semibold text-brand-700 hover:underline">
