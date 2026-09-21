@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { HimachalHero } from "@/components/himachal/HimachalHero";
 import { TrustStrip } from "@/components/himachal/TrustStrip";
 import { HimachalPackages } from "@/components/himachal/HimachalPackages";
 import { WhyBook } from "@/components/himachal/WhyBook";
-import { SeasonSection } from "@/components/himachal/SeasonSection";
-import { FoodSection } from "@/components/himachal/FoodSection";
 import { Testimonials } from "@/components/himachal/Testimonials";
-import { HimachalFAQ } from "@/components/himachal/HimachalFAQ";
-import { SeoContent } from "@/components/himachal/SeoContent";
 import { EnquirySection } from "@/components/himachal/EnquirySection";
 import { MobileBottomCTA } from "@/components/himachal/MobileBottomCTA";
 import { EnquiryProvider } from "@/components/lead/EnquiryModal";
 import { Container } from "@/components/ui/Container";
-import { himachalFaqs } from "@/lib/data/himachal";
 import { searchPackages } from "@/lib/api/packages";
-import { absoluteUrl, breadcrumbJsonLd, faqJsonLd, siteConfig } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, siteConfig } from "@/lib/seo";
 import { photo, image, imageAlt } from "@/lib/images";
 
 const TITLE = "Himachal Pradesh Tour Packages";
@@ -72,7 +68,6 @@ export default function HimachalLandingPage() {
       { name: "Destinations", path: "/destinations" },
       { name: "Himachal Pradesh Tour Packages", path: "/himachal-pradesh-tour-packages" },
     ]),
-    faqJsonLd(himachalFaqs),
     {
       "@context": "https://schema.org",
       "@type": "TouristDestination",
@@ -108,6 +103,8 @@ export default function HimachalLandingPage() {
     // also opens it once, a few seconds in, for visitors who would otherwise
     // read and leave.
     <EnquiryProvider destination="Himachal Pradesh">
+      <MetaPixel />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -127,20 +124,17 @@ export default function HimachalLandingPage() {
         </nav>
       </Container>
 
+      {/* Deliberately short. This is an ad landing page: packages, proof,
+          then the enquiry. The seasons, food, FAQ and long-form SEO blocks
+          were removed so nothing sits between a visitor and the quote. */}
       <HimachalPackages />
       <WhyBook />
-      <SeasonSection />
-      <FoodSection />
       <Testimonials />
-      <HimachalFAQ />
-
-      {/* Long-form copy sits after the FAQ: it is there for search and for the
-          minority who read to the end, and should not interrupt the browse. */}
-      <SeoContent />
       <EnquirySection />
 
-      {/* Padding so the fixed mobile bar never covers the footer's last row. */}
-      <div className="h-16 lg:hidden" aria-hidden="true" />
+      {/* The room the fixed bar needs is added to the footer itself, in
+          globals.css under `body[data-bottom-bar]` — a spacer here would sit
+          above the footer and leave the footer's last row covered. */}
       <MobileBottomCTA />
     </EnquiryProvider>
   );

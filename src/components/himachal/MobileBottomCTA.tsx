@@ -17,6 +17,18 @@ const WA_MESSAGE =
 export function MobileBottomCTA() {
   const [visible, setVisible] = useState(false);
 
+  // Tell the rest of the layout that this page reserves the bottom of the
+  // viewport, so the floating Call/WhatsApp stack lifts above the bar instead
+  // of landing on top of Get Quote. Set while the bar is mounted rather than
+  // while it is on screen: the buttons keep one position through the whole
+  // scroll instead of hopping as the bar comes and goes.
+  useEffect(() => {
+    document.body.dataset.bottomBar = "himachal";
+    return () => {
+      delete document.body.dataset.bottomBar;
+    };
+  }, []);
+
   useEffect(() => {
     const onScroll = () => {
       const form = document.getElementById("enquiry");
@@ -35,7 +47,9 @@ export function MobileBottomCTA() {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 bottom-0 z-30 border-t border-sand-200 bg-white/95 px-3 py-2.5 backdrop-blur-md transition-transform duration-300 lg:hidden",
+        "fixed inset-x-0 bottom-0 z-30 border-t border-sand-200 bg-white/95 px-3 pt-2.5 backdrop-blur-md transition-transform duration-300 lg:hidden",
+        // Clears the home indicator on handsets that reserve space for it.
+        "pb-[calc(0.625rem+env(safe-area-inset-bottom))]",
         visible ? "translate-y-0" : "translate-y-full"
       )}
     >

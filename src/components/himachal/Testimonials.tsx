@@ -10,7 +10,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
  */
 export function Testimonials() {
   return (
-    <section className="bg-sand-50 py-14 sm:py-20">
+    // Why Us sits directly above and shares this background, so a hairline
+    // keeps the two bands from reading as one very tall section.
+    <section className="border-t border-sand-200 bg-sand-50 py-14 sm:py-20">
       <Container>
         <SectionHeading
           align="center"

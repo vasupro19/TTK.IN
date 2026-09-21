@@ -209,3 +209,30 @@ body {
     min-height: 44px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Floating contact stack on pages with a fixed bottom action bar.
+
+   Landing pages (Himachal) pin a Call / WhatsApp / Get Quote bar to the bottom
+   of the viewport. The floating Call and WhatsApp buttons default to sitting
+   20px from the bottom, which drops them straight on top of that bar's Get
+   Quote button. MobileBottomCTA sets `data-bottom-bar` on <body> while it is
+   mounted, and this lifts the stack clear of it.
+
+   The floor (bar height + safe area + a gap) is what guarantees no overlap on
+   a short screen; the `svh` term is what makes the lift read as deliberate on
+   a tall one, placing the stack roughly a sixth of the way up the viewport.
+   The unprefixed declaration comes first so a browser without `svh` still
+   gets the clearance rather than falling back to the overlapping default.
+   Desktop keeps the original position: the bar is hidden there.
+   --------------------------------------------------------------------------- */
+body[data-bottom-bar] [data-floating-actions] {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 5.75rem);
+  bottom: max(calc(env(safe-area-inset-bottom, 0px) + 5.75rem), 15svh);
+}
+
+@media (min-width: 1024px) {
+  body[data-bottom-bar] [data-floating-actions] {
+    bottom: 1.5rem;
+  }
+}

@@ -5,10 +5,18 @@ import { siteConfig, whatsappLink, telLink } from "@/lib/seo";
  * Persistent contact affordances. WhatsApp shows everywhere; the call button
  * is mobile-only, where tapping a number actually dials. Both sit above the
  * sticky booking bar on package pages (which uses z-30).
+ *
+ * `data-floating-actions` is the hook globals.css uses to lift the stack clear
+ * of a page that also has a fixed bottom action bar — see the rule under
+ * `body[data-bottom-bar]`. The default offsets below stay as they are for
+ * every other page.
  */
 export function FloatingActions() {
   return (
-    <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div
+      data-floating-actions
+      className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6"
+    >
       <a
         href={telLink()}
         aria-label={`Call TheTravelKart on ${siteConfig.phoneDisplay}`}

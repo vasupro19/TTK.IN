@@ -1,8 +1,24 @@
+"use client";
+
 import Link from "next/link";
-import { Phone, Mail, Globe, Camera, Users } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Phone, Mail, Globe, Camera, Users, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
+import { TrustMarks } from "./TrustMarks";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { siteConfig, telLink } from "@/lib/seo";
+import { siteConfig, telLink, whatsappLink } from "@/lib/seo";
+import { cn } from "@/lib/utils";
+
+/**
+ * Routes that get the stripped-back footer.
+ *
+ * These are paid-traffic landing pages: the job of the page is one enquiry, so
+ * the footer carries contact details and accreditation rather than the site's
+ * full link map, which only offers ways to leave. Every other page keeps the
+ * complete footer — the destination, service, company and policy links still
+ * exist and are still crawlable from everywhere else on the site.
+ */
+const LANDING_ROUTES = new Set(["/himachal-pradesh-tour-packages"]);
 
 const destinationLinks = [
   { label: "Himachal", href: "/himachal-pradesh-tour-packages" },
@@ -68,87 +84,158 @@ function FooterColumn({
   );
 }
 
-export function Footer() {
+const contactRow =
+  "flex items-center gap-2.5 text-white/75 transition-colors hover:text-white";
+const socialPill =
+  "flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/20 hover:text-white";
+
+/** Logo, what we do, how to reach us — identical in both footers. */
+function BrandBlock({
+  className,
+  /** Landing pages name the WhatsApp line as such; it is the CTA they run on. */
+  labelWhatsApp = false,
+}: {
+  className?: string;
+  labelWhatsApp?: boolean;
+}) {
   return (
-    <footer className="mt-24 bg-ink-900 text-white">
-      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
-          <div className="max-w-sm">
-            <Logo tone="light" />
-            <p className="mt-5 text-sm leading-relaxed text-white/60">
-              TheTravelKart is a travel company run by people who have driven these roads
-              themselves. We plan custom holidays across the Himalayas, the coasts and beyond —
-              verified stays, honest pricing, and a real person on WhatsApp the whole way.
-            </p>
+    <div className={cn("max-w-sm", className)}>
+      <Logo tone="light" />
+      <p className="mt-5 text-sm leading-relaxed text-white/60">
+        TheTravelKart is a travel company run by people who have driven these roads
+        themselves. We plan custom holidays across the Himalayas, the coasts and beyond —
+        verified stays, honest pricing, and a real person on WhatsApp the whole way.
+      </p>
 
-            <div className="mt-6 space-y-2.5 text-sm">
-              <a
-                href={telLink()}
-                className="flex items-center gap-2.5 text-white/75 transition-colors hover:text-white"
-              >
-                <Phone className="h-4 w-4 text-brand-300" aria-hidden="true" />
-                {siteConfig.phoneDisplay}
-              </a>
-              <a
-                href={telLink(siteConfig.altPhoneRaw)}
-                className="flex items-center gap-2.5 text-white/75 transition-colors hover:text-white"
-              >
-                <Phone className="h-4 w-4 text-brand-300" aria-hidden="true" />
-                {siteConfig.altPhoneDisplay}
-              </a>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2.5 text-white/75 transition-colors hover:text-white"
-              >
-                <Mail className="h-4 w-4 text-brand-300" aria-hidden="true" />
-                {siteConfig.email}
-              </a>
-              <p className="flex items-center gap-2.5 text-white/75">
-                <Globe className="h-4 w-4 text-brand-300" aria-hidden="true" />
-                {siteConfig.domain}
-              </p>
-            </div>
+      <div className="mt-6 space-y-2.5 text-sm">
+        <a href={telLink()} className={contactRow}>
+          <Phone className="h-4 w-4 text-brand-300" aria-hidden="true" />
+          {siteConfig.phoneDisplay}
+        </a>
+        {labelWhatsApp ? (
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={contactRow}
+          >
+            <MessageCircle className="h-4 w-4 text-brand-300" aria-hidden="true" />
+            WhatsApp {siteConfig.whatsappDisplay}
+          </a>
+        ) : (
+          <a href={telLink(siteConfig.altPhoneRaw)} className={contactRow}>
+            <Phone className="h-4 w-4 text-brand-300" aria-hidden="true" />
+            {siteConfig.altPhoneDisplay}
+          </a>
+        )}
+        <a href={`mailto:${siteConfig.email}`} className={contactRow}>
+          <Mail className="h-4 w-4 text-brand-300" aria-hidden="true" />
+          {siteConfig.email}
+        </a>
+        <p className="flex items-center gap-2.5 text-white/75">
+          <Globe className="h-4 w-4 text-brand-300" aria-hidden="true" />
+          {siteConfig.domain}
+        </p>
+      </div>
 
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              <a
-                href={siteConfig.socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/20 hover:text-white"
-              >
-                <Camera className="h-4 w-4" aria-hidden="true" />
-                Instagram
-                <span className="sr-only"> — {siteConfig.socialHandles.instagram}</span>
-              </a>
-              <a
-                href={siteConfig.socials.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/20 hover:text-white"
-              >
-                <Users className="h-4 w-4" aria-hidden="true" />
-                Facebook
-              </a>
-            </div>
-          </div>
+      <div className="mt-6 flex flex-wrap gap-2.5">
+        <a
+          href={siteConfig.socials.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={socialPill}
+        >
+          <Camera className="h-4 w-4" aria-hidden="true" />
+          Instagram
+          <span className="sr-only"> — {siteConfig.socialHandles.instagram}</span>
+        </a>
+        <a
+          href={siteConfig.socials.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={socialPill}
+        >
+          <Users className="h-4 w-4" aria-hidden="true" />
+          Facebook
+        </a>
+      </div>
+    </div>
+  );
+}
 
-          <FooterColumn title="Destinations" links={destinationLinks} />
-          <FooterColumn title="Services" links={serviceLinks} />
-          <FooterColumn title="Company" links={companyLinks} />
+function NewsletterBlock() {
+  return (
+    <div>
+      <h3 className="text-sm font-bold text-white">Trip ideas, once a month</h3>
+      <p className="mt-2 text-xs text-white/55">
+        Seasonal routes and honest advice. No spam.
+      </p>
+      <div className="mt-3">
+        <NewsletterForm />
+      </div>
+    </div>
+  );
+}
 
-          <div>
-            <FooterColumn title="Policies" links={policyLinks} />
-            <div className="mt-8">
-              <h3 className="text-sm font-bold text-white">Trip ideas, once a month</h3>
-              <p className="mt-2 text-xs text-white/55">
-                Seasonal routes and honest advice. No spam.
-              </p>
-              <div className="mt-3">
-                <NewsletterForm />
-              </div>
-            </div>
-          </div>
+/** The full site footer: brand block plus the four link columns. */
+function SiteFooterBody() {
+  return (
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+      <BrandBlock />
+
+      <FooterColumn title="Destinations" links={destinationLinks} />
+      <FooterColumn title="Services" links={serviceLinks} />
+      <FooterColumn title="Company" links={companyLinks} />
+
+      <div>
+        <FooterColumn title="Policies" links={policyLinks} />
+        <div className="mt-8">
+          <NewsletterBlock />
         </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Landing-page footer: who we are, how to reach us, what we are registered
+ * with. Two columns instead of five so the space the link columns used to fill
+ * closes up rather than sitting empty.
+ */
+function LandingFooterBody() {
+  return (
+    <>
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
+        <BrandBlock className="max-w-xl" labelWhatsApp />
+        <div className="lg:justify-self-end lg:max-w-xs">
+          <NewsletterBlock />
+        </div>
+      </div>
+
+      <TrustMarks className="mt-12 border-t border-white/10 pt-8" />
+    </>
+  );
+}
+
+export function Footer() {
+  const pathname = usePathname();
+  const isLanding = LANDING_ROUTES.has(pathname);
+
+  return (
+    <footer
+      className={cn(
+        "bg-ink-900 text-white",
+        // `cn` is a plain join, not tailwind-merge, so the margin is chosen
+        // here rather than layered: the landing page ends on a dark CTA, and
+        // the usual gap above the footer reads as a seam between two dark
+        // bands. Its fixed bottom bar would also cover the copyright line.
+        isLanding
+          ? "pb-[calc(5.25rem+env(safe-area-inset-bottom,0px))] lg:pb-0"
+          : "mt-24"
+      )}
+    >
+      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        {isLanding ? <LandingFooterBody /> : <SiteFooterBody />}
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
