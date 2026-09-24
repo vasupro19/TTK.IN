@@ -7,7 +7,7 @@ import { HimachalPackages } from "@/components/himachal/HimachalPackages";
 import { WhyBook } from "@/components/himachal/WhyBook";
 import { Testimonials } from "@/components/himachal/Testimonials";
 import { EnquirySection } from "@/components/himachal/EnquirySection";
-import { MobileBottomCTA } from "@/components/himachal/MobileBottomCTA";
+import { MobileBottomCTA } from "@/components/landing/MobileBottomCTA";
 import { EnquiryProvider } from "@/components/lead/EnquiryModal";
 import { Container } from "@/components/ui/Container";
 import { searchPackages } from "@/lib/api/packages";

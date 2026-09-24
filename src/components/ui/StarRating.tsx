@@ -9,6 +9,10 @@ export function StarRating({
   reviewCount?: number;
   className?: string;
 }) {
+  // Unrated (a new itinerary nobody has reviewed yet): show nothing rather
+  // than a "0.0" that reads as a bad score.
+  if (rating <= 0) return null;
+
   return (
     <div className={cn("flex items-center gap-1.5", className)}>
       <div className="flex items-center gap-0.5 rounded-md bg-brand-700 px-1.5 py-0.5 text-xs font-bold text-white">

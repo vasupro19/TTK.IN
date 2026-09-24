@@ -112,6 +112,21 @@ export function faqJsonLd(faqs: { question: string; answer: string }[]) {
   };
 }
 
+/**
+ * Only packages that have actually been reviewed carry a rating. A zero-review
+ * AggregateRating is invalid structured data and would misstate the trip.
+ */
+function aggregateRating(pkg: { rating: number; reviewCount: number }) {
+  if (pkg.reviewCount <= 0 || pkg.rating <= 0) return {};
+  return {
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: pkg.rating,
+      reviewCount: pkg.reviewCount,
+    },
+  };
+}
+
 export function touristTripJsonLd(pkg: {
   title: string;
   summary: string;
@@ -135,11 +150,7 @@ export function touristTripJsonLd(pkg: {
       availability: "https://schema.org/InStock",
       url: absoluteUrl(`/packages/${pkg.slug}`),
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: pkg.rating,
-      reviewCount: pkg.reviewCount,
-    },
+    ...aggregateRating(pkg),
   };
 }
 
@@ -167,11 +178,7 @@ export function productOfferJsonLd(pkg: {
       url: absoluteUrl(`/packages/${pkg.slug}`),
       seller: { "@type": "TravelAgency", name: siteConfig.name },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: pkg.rating,
-      reviewCount: pkg.reviewCount,
-    },
+    ...aggregateRating(pkg),
   };
 }
 

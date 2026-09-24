@@ -27,11 +27,11 @@ function regionFromParam(regionSeo: string) {
 }
 
 /**
- * Himachal has a dedicated, much deeper landing page at
- * /himachal-pradesh-tour-packages, so it is excluded here to avoid two routes
- * claiming the same path.
+ * Himachal and Rajasthan have dedicated, much deeper landing pages at
+ * /himachal-pradesh-tour-packages and /rajasthan-tour-packages, so they are
+ * excluded here to avoid two routes claiming the same path.
  */
-const DEDICATED_LANDING_PAGES = new Set(["himachal"]);
+const DEDICATED_LANDING_PAGES = new Set(["himachal", "rajasthan"]);
 
 export function generateStaticParams() {
   return regions

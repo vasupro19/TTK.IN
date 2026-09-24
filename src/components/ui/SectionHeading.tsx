@@ -5,12 +5,15 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  tone = "brand",
   className,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
+  /** Eyebrow colouring. "desert" is the Rajasthan landing page's terracotta. */
+  tone?: "brand" | "desert";
   className?: string;
 }) {
   return (
@@ -22,7 +25,14 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-700">
+        <span
+          className={cn(
+            "inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider",
+            tone === "desert"
+              ? "bg-sandstone-100 text-terracotta-700"
+              : "bg-brand-50 text-brand-700"
+          )}
+        >
           {eyebrow}
         </span>
       )}

@@ -7,11 +7,14 @@ import { MapPin, CalendarRange, BedDouble, MessageCircle, ArrowRight } from "luc
 import { useEnquiry } from "@/components/lead/EnquiryModal";
 
 /**
- * Filterable package grid.
+ * Filterable package grid, shared by the destination landing pages.
  *
  * Images are resolved on the server and handed over as plain strings — this
  * component never imports the image manifest, which would otherwise ship a few
  * hundred kilobytes of lookup table to the browser for no benefit.
+ *
+ * Every option defaults to what the Himachal page has always shown, so a page
+ * only passes what is different about its own destination.
  */
 export interface PackageCardData {
   slug: string;
@@ -28,9 +31,21 @@ export interface PackageCardData {
   imageSrc: string;
   imageAlt: string;
   whatsappHref: string;
+  /**
+   * The card's one badge. Leave undefined to derive it from the package; pass
+   * null for a deliberately unbadged card.
+   */
+  badge?: string | null;
+  /** Stay / meals / transport line. Defaults to "<n>★ hotels · breakfast & dinner · private cab". */
+  stayLine?: string;
 }
 
-const TRIP_TYPES = [
+export interface FilterOption {
+  value: string;
+  label: string;
+}
+
+const TRIP_TYPES: readonly FilterOption[] = [
   { value: "all", label: "All" },
   { value: "family", label: "Family" },
   { value: "honeymoon", label: "Honeymoon" },
@@ -38,7 +53,7 @@ const TRIP_TYPES = [
   { value: "group", label: "Group" },
 ] as const;
 
-const DURATIONS = [
+const DURATIONS: readonly FilterOption[] = [
   { value: "all", label: "Any length" },
   { value: "3-4", label: "3–4 days" },
   { value: "5-6", label: "5–6 days" },
@@ -46,7 +61,7 @@ const DURATIONS = [
   { value: "9+", label: "9+ days" },
 ] as const;
 
-const BUDGETS = [
+const BUDGETS: readonly FilterOption[] = [
   { value: "all", label: "Any budget" },
   { value: "under-15", label: "Under ₹15,000" },
   { value: "15-25", label: "₹15,000 – ₹25,000" },
@@ -98,7 +113,7 @@ const inr = new Intl.NumberFormat("en-IN", {
 
 function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
   const { open } = useEnquiry();
-  const badge = badgeFor(pkg);
+  const badge = pkg.badge !== undefined ? pkg.badge : badgeFor(pkg);
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-sand-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
@@ -140,7 +155,7 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
 
         <p className="mt-2 flex items-center gap-1.5 text-xs text-ink-600/75">
           <BedDouble className="h-3.5 w-3.5 shrink-0 text-brand-600" aria-hidden="true" />
-          {pkg.hotelCategory}★ hotels · breakfast &amp; dinner · private cab
+          {pkg.stayLine ?? `${pkg.hotelCategory}★ hotels · breakfast & dinner · private cab`}
         </p>
 
         <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-ink-600/80">{pkg.summary}</p>
@@ -189,7 +204,25 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
   );
 }
 
-export function HimachalPackageExplorer({ packages }: { packages: PackageCardData[] }) {
+export function PackageExplorer({
+  packages,
+  tripTypes = TRIP_TYPES,
+  durations = DURATIONS,
+  budgets = BUDGETS,
+  placeName = "Himachal",
+  idPrefix = "hp",
+  emptyMessage = "Most of our Himachal trips are built from scratch anyway — tell us your dates and budget and we will put an itinerary together.",
+}: {
+  packages: PackageCardData[];
+  tripTypes?: readonly FilterOption[];
+  durations?: readonly FilterOption[];
+  budgets?: readonly FilterOption[];
+  /** Used in "Showing 4 of 8 <placeName> itineraries". */
+  placeName?: string;
+  /** Keeps the filter controls' ids unique to the page. */
+  idPrefix?: string;
+  emptyMessage?: string;
+}) {
   const [type, setType] = useState<string>("all");
   const [duration, setDuration] = useState<string>("all");
   const [budget, setBudget] = useState<string>("all");
@@ -206,13 +239,15 @@ export function HimachalPackageExplorer({ packages }: { packages: PackageCardDat
   );
 
   const selectClass =
-    "min-h-11 rounded-full border border-sand-200 bg-white px-4 py-2 text-base font-semibold text-ink-800 outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 sm:text-sm";
+    // min-w-0 + flex-1 below sm lets the pair share a 360px phone's width
+    // instead of pushing the page sideways; from sm up they size to content.
+    "min-h-11 min-w-0 flex-1 rounded-full border border-sand-200 bg-white px-4 py-2 text-base font-semibold text-ink-800 outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 sm:flex-none sm:text-sm";
 
   return (
     <div>
       <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
         <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1" role="group" aria-label="Filter by trip type">
-          {TRIP_TYPES.map((option) => {
+          {tripTypes.map((option) => {
             const active = type === option.value;
             return (
               <button
@@ -234,32 +269,32 @@ export function HimachalPackageExplorer({ packages }: { packages: PackageCardDat
         </div>
 
         <div className="flex gap-2">
-          <label className="sr-only" htmlFor="hp-duration">
+          <label className="sr-only" htmlFor={`${idPrefix}-duration`}>
             Trip length
           </label>
           <select
-            id="hp-duration"
+            id={`${idPrefix}-duration`}
             value={duration}
             onChange={(event) => setDuration(event.target.value)}
             className={selectClass}
           >
-            {DURATIONS.map((option) => (
+            {durations.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
           </select>
 
-          <label className="sr-only" htmlFor="hp-budget">
+          <label className="sr-only" htmlFor={`${idPrefix}-budget`}>
             Budget per person
           </label>
           <select
-            id="hp-budget"
+            id={`${idPrefix}-budget`}
             value={budget}
             onChange={(event) => setBudget(event.target.value)}
             className={selectClass}
           >
-            {BUDGETS.map((option) => (
+            {budgets.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -269,7 +304,7 @@ export function HimachalPackageExplorer({ packages }: { packages: PackageCardDat
       </div>
 
       <p aria-live="polite" className="mt-4 text-sm text-ink-600/70">
-        Showing {visible.length} of {packages.length} Himachal itineraries
+        Showing {visible.length} of {packages.length} {placeName} itineraries
       </p>
 
       {visible.length > 0 ? (
@@ -283,10 +318,7 @@ export function HimachalPackageExplorer({ packages }: { packages: PackageCardDat
           <p className="font-display text-lg font-bold text-ink-900">
             Nothing matches those filters
           </p>
-          <p className="mx-auto mt-1.5 max-w-md text-sm text-ink-600/75">
-            Most of our Himachal trips are built from scratch anyway — tell us your dates and
-            budget and we will put an itinerary together.
-          </p>
+          <p className="mx-auto mt-1.5 max-w-md text-sm text-ink-600/75">{emptyMessage}</p>
           <button
             type="button"
             onClick={() => {

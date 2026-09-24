@@ -38,6 +38,19 @@
   --color-sand-50: #fdfcfb;
   --color-sand-100: #f7f3ee;
   --color-sand-200: #efe7db;
+
+  /* Rajasthan landing page: sandstone grounds, terracotta accents and the
+     deep blue of Jodhpur's old city. Accents only — CTAs stay sunset. */
+  --color-sandstone-50: #fbf7f1;
+  --color-sandstone-100: #f5ecdf;
+  --color-sandstone-200: #eadbc4;
+  --color-sandstone-300: #d9c09c;
+  --color-terracotta-500: #c0643f;
+  --color-terracotta-600: #a8522f;
+  --color-terracotta-700: #8a4226;
+  --color-jodhpur-700: #2b4168;
+  --color-jodhpur-800: #1f3050;
+  --color-jodhpur-900: #16223a;
 }
 
 @theme inline {
@@ -75,6 +88,17 @@
   --color-sand-50: var(--color-sand-50);
   --color-sand-100: var(--color-sand-100);
   --color-sand-200: var(--color-sand-200);
+
+  --color-sandstone-50: var(--color-sandstone-50);
+  --color-sandstone-100: var(--color-sandstone-100);
+  --color-sandstone-200: var(--color-sandstone-200);
+  --color-sandstone-300: var(--color-sandstone-300);
+  --color-terracotta-500: var(--color-terracotta-500);
+  --color-terracotta-600: var(--color-terracotta-600);
+  --color-terracotta-700: var(--color-terracotta-700);
+  --color-jodhpur-700: var(--color-jodhpur-700);
+  --color-jodhpur-800: var(--color-jodhpur-800);
+  --color-jodhpur-900: var(--color-jodhpur-900);
 
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
@@ -234,5 +258,14 @@ body[data-bottom-bar] [data-floating-actions] {
 @media (min-width: 1024px) {
   body[data-bottom-bar] [data-floating-actions] {
     bottom: 1.5rem;
+  }
+}
+
+/* A landing page whose bottom bar already offers Call and WhatsApp can opt out
+   of the floating pair on mobile (MobileBottomCTA `hideFloatingActions`), so
+   nothing floats over card prices and buttons. */
+@media (max-width: 1023px) {
+  body[data-hide-floating-actions] [data-floating-actions] {
+    display: none;
   }
 }

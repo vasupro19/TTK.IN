@@ -1,10 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { EnquiryButton } from "@/components/lead/EnquiryModal";
-import {
-  HimachalPackageExplorer,
-  type PackageCardData,
-} from "./HimachalPackageExplorer";
+import { PackageExplorer, type PackageCardData } from "@/components/landing/PackageExplorer";
 import { himachalLandingSlugs } from "@/lib/data/himachal";
 import { packages as allPackages } from "@/lib/data/packages";
 import { image } from "@/lib/images";
@@ -52,7 +49,7 @@ export function HimachalPackages() {
           description="Choose a ready-made itinerary or customise any of them around your dates, budget and pace."
         />
 
-        <HimachalPackageExplorer packages={cards} />
+        <PackageExplorer packages={cards} />
 
         <div className="mt-10 rounded-2xl border border-dashed border-sand-200 bg-sand-50 p-6 text-center">
           <p className="font-display text-lg font-bold text-ink-900">

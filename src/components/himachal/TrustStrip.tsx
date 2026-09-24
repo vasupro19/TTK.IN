@@ -1,6 +1,6 @@
 import { trustPoints } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
-import { Icon } from "./Icon";
+import { Icon } from "@/components/landing/Icon";
 
 export function TrustStrip() {
   return (

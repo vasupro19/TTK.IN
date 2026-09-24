@@ -1,7 +1,7 @@
 import { whyChoose } from "@/lib/data/himachal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Icon } from "./Icon";
+import { Icon } from "@/components/landing/Icon";
 
 export function WhyBook() {
   return (

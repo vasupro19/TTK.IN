@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
  * complete footer — the destination, service, company and policy links still
  * exist and are still crawlable from everywhere else on the site.
  */
-const LANDING_ROUTES = new Set(["/himachal-pradesh-tour-packages"]);
+const LANDING_ROUTES = new Set(["/himachal-pradesh-tour-packages", "/rajasthan-tour-packages"]);
 
 const destinationLinks = [
   { label: "Himachal", href: "/himachal-pradesh-tour-packages" },

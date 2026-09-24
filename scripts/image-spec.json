@@ -2759,6 +2759,198 @@
     ],
     "alt": "Low sun raking across the dunes of the Thar desert in Rajasthan"
   },
+  "pkg-rj-classic": {
+    "queries": [
+      "Amber Fort Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Amber Fort on its ridge above Maota lake near Jaipur, Rajasthan"
+  },
+  "pkg-rj-classic-1": {
+    "queries": [
+      "Jodhpur blue city Rajasthan",
+      "Jodhpur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The blue-washed houses of the old city below Mehrangarh Fort in Jodhpur, Rajasthan"
+  },
+  "pkg-rj-classic-2": {
+    "queries": [
+      "City Palace Udaipur Rajasthan",
+      "Udaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The long white facade of the City Palace above Lake Pichola in Udaipur, Rajasthan"
+  },
+  "pkg-rj-heritage": {
+    "queries": [
+      "Amber Fort Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Amber Fort on its ridge above Maota lake near Jaipur, Rajasthan"
+  },
+  "pkg-rj-heritage-1": {
+    "queries": [
+      "Brahma Temple Pushkar Rajasthan",
+      "Pushkar Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The Brahma temple at Pushkar, Rajasthan"
+  },
+  "pkg-rj-heritage-2": {
+    "queries": [
+      "City Palace Udaipur Rajasthan",
+      "Udaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The long white facade of the City Palace above Lake Pichola in Udaipur, Rajasthan"
+  },
+  "pkg-rj-desert": {
+    "queries": [
+      "Jodhpur blue city Rajasthan",
+      "Jodhpur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The blue-washed houses of the old city below Mehrangarh Fort in Jodhpur, Rajasthan"
+  },
+  "pkg-rj-desert-1": {
+    "queries": [
+      "Sam Sand Dunes Jaisalmer Thar desert",
+      "Jaisalmer Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Camels crossing the Sam sand dunes of the Thar desert near Jaisalmer, Rajasthan"
+  },
+  "pkg-rj-desert-2": {
+    "queries": [
+      "Umaid Bhawan Palace Jodhpur",
+      "Jodhpur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The domed sandstone Umaid Bhawan Palace at Jodhpur, Rajasthan"
+  },
+  "pkg-rj-jaipur": {
+    "queries": [
+      "City Palace Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "A painted gateway inside the City Palace complex at Jaipur, Rajasthan"
+  },
+  "pkg-rj-jaipur-1": {
+    "queries": [
+      "Jal Mahal Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Jal Mahal standing in the water of Man Sagar lake at Jaipur, Rajasthan"
+  },
+  "pkg-rj-jaipur-2": {
+    "queries": [
+      "Hawa Mahal Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The honeycomb sandstone facade of Hawa Mahal in Jaipur, Rajasthan"
+  },
+  "pkg-rj-romantic": {
+    "queries": [
+      "City Palace Udaipur Rajasthan",
+      "Udaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The long white facade of the City Palace above Lake Pichola in Udaipur, Rajasthan"
+  },
+  "pkg-rj-romantic-1": {
+    "queries": [
+      "Sam Sand Dunes Jaisalmer Thar desert",
+      "Jaisalmer Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Camels crossing the Sam sand dunes of the Thar desert near Jaisalmer, Rajasthan"
+  },
+  "pkg-rj-romantic-2": {
+    "queries": [
+      "Jag Mandir Udaipur Rajasthan",
+      "Udaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The island palace of Jag Mandir on Lake Pichola at Udaipur, Rajasthan"
+  },
+  "pkg-rj-family-1": {
+    "queries": [
+      "Hawa Mahal Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The honeycomb sandstone facade of Hawa Mahal in Jaipur, Rajasthan"
+  },
+  "pkg-rj-family": {
+    "queries": [
+      "Lake Pichola Udaipur Rajasthan",
+      "Udaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Palaces and ghats along the edge of Lake Pichola at Udaipur, Rajasthan"
+  },
+  "pkg-rj-family-2": {
+    "queries": [
+      "Mehrangarh Fort Jodhpur Rajasthan",
+      "Jodhpur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Mehrangarh Fort rising on its rock escarpment above Jodhpur, Rajasthan"
+  },
+  "pkg-rj-golden": {
+    "queries": [
+      "Jal Mahal Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Jal Mahal standing in the water of Man Sagar lake at Jaipur, Rajasthan"
+  },
+  "pkg-rj-golden-1": {
+    "queries": [
+      "Jaswant Thada Jodhpur Rajasthan",
+      "Jodhpur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The white marble cenotaph of Jaswant Thada near Mehrangarh Fort, Jodhpur"
+  },
+  "pkg-rj-golden-2": {
+    "queries": [
+      "Thar desert Rajasthan dunes sunset",
+      "Jaisalmer Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Low sun raking across the dunes of the Thar desert in Rajasthan"
+  },
+  "pkg-rj-luxury-1": {
+    "queries": [
+      "Jal Mahal Jaipur Rajasthan",
+      "Jaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "Jal Mahal standing in the water of Man Sagar lake at Jaipur, Rajasthan"
+  },
+  "pkg-rj-luxury": {
+    "queries": [
+      "Jaswant Thada Jodhpur Rajasthan",
+      "Jodhpur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The white marble cenotaph of Jaswant Thada near Mehrangarh Fort, Jodhpur"
+  },
+  "pkg-rj-luxury-2": {
+    "queries": [
+      "Udaipur Rajasthan lake city view",
+      "Udaipur Rajasthan India",
+      "Rajasthan India landscape"
+    ],
+    "alt": "The lake city of Udaipur with the Aravalli hills behind it, Rajasthan"
+  },
   "pkg-goa-explorer": {
     "queries": [
       "Anjuna Beach Goa",

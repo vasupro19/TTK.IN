@@ -6,7 +6,7 @@ import { siteConfig, whatsappLink, telLink } from "@/lib/seo";
 import { EnquiryButton } from "@/components/lead/EnquiryModal";
 import { cn } from "@/lib/utils";
 
-const WA_MESSAGE =
+const DEFAULT_WA_MESSAGE =
   "Hi TheTravelKart, I want to enquire about a Himachal Pradesh tour package.";
 
 /**
@@ -14,7 +14,20 @@ const WA_MESSAGE =
  * covers the hero's own CTAs, and hides again over the enquiry form so it does
  * not sit on top of the fields.
  */
-export function MobileBottomCTA() {
+export function MobileBottomCTA({
+  whatsappMessage = DEFAULT_WA_MESSAGE,
+  hideFloatingActions = false,
+}: {
+  whatsappMessage?: string;
+  /**
+   * Hide the site-wide floating Call / WhatsApp buttons on mobile while this
+   * bar is mounted. The bar already carries both, and the floating pair
+   * otherwise sits over card prices and buttons as the page scrolls. The hero
+   * and the closing section have their own WhatsApp buttons, so there is never
+   * a screen without one. Desktop is unaffected (the bar is hidden there).
+   */
+  hideFloatingActions?: boolean;
+}) {
   const [visible, setVisible] = useState(false);
 
   // Tell the rest of the layout that this page reserves the bottom of the
@@ -23,11 +36,13 @@ export function MobileBottomCTA() {
   // while it is on screen: the buttons keep one position through the whole
   // scroll instead of hopping as the bar comes and goes.
   useEffect(() => {
-    document.body.dataset.bottomBar = "himachal";
+    document.body.dataset.bottomBar = "landing";
+    if (hideFloatingActions) document.body.dataset.hideFloatingActions = "";
     return () => {
       delete document.body.dataset.bottomBar;
+      delete document.body.dataset.hideFloatingActions;
     };
-  }, []);
+  }, [hideFloatingActions]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -63,7 +78,7 @@ export function MobileBottomCTA() {
           Call
         </a>
         <a
-          href={whatsappLink(WA_MESSAGE)}
+          href={whatsappLink(whatsappMessage)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl bg-[#25D366] py-2 text-[11px] font-semibold text-white"
