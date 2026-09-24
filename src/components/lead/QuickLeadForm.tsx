@@ -25,17 +25,42 @@ const BUDGET_OPTIONS = [
 
 const INDIAN_MOBILE = /^(?:\+?91[-\s]?)?[6-9]\d{9}$/;
 
+/**
+ * Opt-in trip questions for pages where the route itself decides the quote
+ * (Spiti: which side you enter from matters more than the budget band). Left
+ * out, the form is the original four questions.
+ */
+export interface TripFields {
+  startingCities: string[];
+  routes: string[];
+}
+
+export interface QuickLeadFormOptions {
+  /** Ask for email. On by default. */
+  showEmail?: boolean;
+  tripFields?: TripFields;
+  submitLabel?: string;
+}
+
+const TRAVELLER_OPTIONS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+
 export function QuickLeadForm({
   destination = "Himachal Pradesh",
   packageSlug,
   onSubmitted,
+  idPrefix = "ql",
+  options = {},
 }: {
   /** Page context, sent with the lead since the form does not ask. */
   destination?: string;
   packageSlug?: string;
   /** Lets a modal close itself before the redirect. */
   onSubmitted?: () => void;
+  /** Keeps field ids unique when the dialog and an in-page form coexist. */
+  idPrefix?: string;
+  options?: QuickLeadFormOptions;
 }) {
+  const { showEmail = true, tripFields, submitLabel = "Get My Free Itinerary" } = options;
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,6 +82,23 @@ export function QuickLeadForm({
       return setError("Please enter a valid email address, or leave it blank.");
     if (!budget) return setError("Please pick a budget range so we can plan properly.");
 
+    // The leads API has no columns for starting city or route, so they travel
+    // in the message, one labelled line each, above whatever the traveller wrote.
+    const trip = tripFields
+      ? {
+          travelDate: String(data.get("travelDate") ?? "") || undefined,
+          travellers: Number(data.get("travellers") ?? 2),
+          message:
+            [
+              data.get("startingCity") && `Starting from: ${data.get("startingCity")}`,
+              data.get("route") && `Preferred route: ${data.get("route")}`,
+              String(data.get("message") ?? "").trim(),
+            ]
+              .filter(Boolean)
+              .join("\n") || undefined,
+        }
+      : {};
+
     setError(null);
     setBusy(true);
     try {
@@ -70,6 +112,7 @@ export function QuickLeadForm({
           budget: BUDGET_OPTIONS.find((o) => o.value === budget)?.label ?? budget,
           destination,
           packageSlug,
+          ...trip,
         }),
       });
       const payload = (await response.json()) as { error?: string };
@@ -96,11 +139,11 @@ export function QuickLeadForm({
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-4">
       <div>
-        <label htmlFor="ql-name" className="mb-1.5 block text-sm font-semibold text-ink-800">
+        <label htmlFor={`${idPrefix}-name`} className="mb-1.5 block text-sm font-semibold text-ink-800">
           Name
         </label>
         <input
-          id="ql-name"
+          id={`${idPrefix}-name`}
           name="name"
           required
           autoComplete="name"
@@ -110,11 +153,11 @@ export function QuickLeadForm({
       </div>
 
       <div>
-        <label htmlFor="ql-phone" className="mb-1.5 block text-sm font-semibold text-ink-800">
-          Mobile number
+        <label htmlFor={`${idPrefix}-phone`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+          {tripFields ? "Phone / WhatsApp" : "Mobile number"}
         </label>
         <input
-          id="ql-phone"
+          id={`${idPrefix}-phone`}
           name="phone"
           required
           type="tel"
@@ -125,19 +168,75 @@ export function QuickLeadForm({
         />
       </div>
 
-      <div>
-        <label htmlFor="ql-email" className="mb-1.5 block text-sm font-semibold text-ink-800">
-          Email <span className="font-normal text-ink-600/55">(optional)</span>
-        </label>
-        <input
-          id="ql-email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          placeholder="you@example.com"
-          className={field}
-        />
-      </div>
+      {showEmail && (
+        <div>
+          <label htmlFor={`${idPrefix}-email`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+            Email <span className="font-normal text-ink-600/55">(optional)</span>
+          </label>
+          <input
+            id={`${idPrefix}-email`}
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="you@example.com"
+            className={field}
+          />
+        </div>
+      )}
+
+      {tripFields && (
+        <>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label htmlFor={`${idPrefix}-date`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+                Travel date
+              </label>
+              <input id={`${idPrefix}-date`} name="travelDate" type="date" className={field} />
+            </div>
+            <div>
+              <label htmlFor={`${idPrefix}-travellers`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+                Travellers
+              </label>
+              <select id={`${idPrefix}-travellers`} name="travellers" defaultValue="2" className={field}>
+                {TRAVELLER_OPTIONS.map((n) => (
+                  <option key={n} value={n}>
+                    {n === "12" ? "12 or more" : n}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor={`${idPrefix}-start`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+              Starting city
+            </label>
+            <select id={`${idPrefix}-start`} name="startingCity" defaultValue="" className={field}>
+              <option value="">Choose one</option>
+              {tripFields.startingCities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <fieldset>
+            <legend className="mb-2 block text-sm font-semibold text-ink-800">Preferred route</legend>
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {tripFields.routes.map((route) => (
+                <label
+                  key={route}
+                  className="flex min-h-12 cursor-pointer items-center gap-2 rounded-xl border border-sand-200 px-3 py-2.5 text-sm font-medium text-ink-800 transition-colors hover:border-brand-300 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50 has-[:checked]:text-brand-800"
+                >
+                  <input type="radio" name="route" value={route} className="h-5 w-5 shrink-0 accent-brand-600" />
+                  {route}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </>
+      )}
 
       <fieldset>
         <legend className="mb-2 block text-sm font-semibold text-ink-800">
@@ -161,6 +260,21 @@ export function QuickLeadForm({
         </div>
       </fieldset>
 
+      {tripFields && (
+        <div>
+          <label htmlFor={`${idPrefix}-message`} className="mb-1.5 block text-sm font-semibold text-ink-800">
+            Anything we should know? <span className="font-normal text-ink-600/55">(optional)</span>
+          </label>
+          <textarea
+            id={`${idPrefix}-message`}
+            name="message"
+            rows={3}
+            placeholder="Places you want to include, pace, who is travelling…"
+            className={field + " resize-y"}
+          />
+        </div>
+      )}
+
       {error && (
         <p role="alert" className="rounded-xl bg-sunset-50 px-3 py-2 text-sm font-medium text-sunset-700">
           {error}
@@ -173,7 +287,7 @@ export function QuickLeadForm({
         className="flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-sunset-500 px-6 py-3.5 text-base font-bold text-white transition-colors hover:bg-sunset-600 disabled:opacity-60"
       >
         {busy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-        {busy ? "Sending…" : "Get My Free Itinerary"}
+        {busy ? "Sending…" : submitLabel}
       </button>
 
       <div className="flex items-center justify-center gap-3 text-sm">

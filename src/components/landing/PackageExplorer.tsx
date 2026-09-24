@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, CalendarRange, BedDouble, MessageCircle, ArrowRight } from "lucide-react";
+import { MapPin, CalendarRange, BedDouble, MessageCircle, ArrowRight, Info } from "lucide-react";
 import { useEnquiry } from "@/components/lead/EnquiryModal";
 
 /**
@@ -38,11 +38,34 @@ export interface PackageCardData {
   badge?: string | null;
   /** Stay / meals / transport line. Defaults to "<n>★ hotels · breakfast & dinner · private cab". */
   stayLine?: string;
+  /** One short practical line under the stay line, e.g. a seasonal caveat. */
+  note?: string;
 }
 
 export interface FilterOption {
   value: string;
   label: string;
+  /**
+   * Inclusive range for a duration (days) or budget (₹) option. Options
+   * without one fall back to the fixed bands below, keyed by `value`.
+   */
+  min?: number;
+  max?: number;
+}
+
+/** The last card in the grid: no package behind it, just an enquiry. */
+export interface CustomCardData {
+  title: string;
+  summary: string;
+  badge?: string;
+  durationLabel: string;
+  routeLabel: string;
+  stayLine: string;
+  priceLabel: string;
+  ctaLabel: string;
+  imageSrc: string;
+  imageAlt: string;
+  whatsappHref: string;
 }
 
 const TRIP_TYPES: readonly FilterOption[] = [
@@ -111,9 +134,25 @@ const inr = new Intl.NumberFormat("en-IN", {
   maximumFractionDigits: 0,
 });
 
-function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
+function inRange(value: number, option: FilterOption | undefined): boolean | null {
+  if (!option || (option.min === undefined && option.max === undefined)) return null;
+  return value >= (option.min ?? -Infinity) && value <= (option.max ?? Infinity);
+}
+
+function Card({
+  pkg,
+  priority,
+  detailsLabel,
+  priceNote,
+}: {
+  pkg: PackageCardData;
+  priority: boolean;
+  detailsLabel: string;
+  priceNote: string;
+}) {
   const { open } = useEnquiry();
   const badge = pkg.badge !== undefined ? pkg.badge : badgeFor(pkg);
+  const longDetailsLabel = detailsLabel.length > 8;
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-sand-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
@@ -158,6 +197,13 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
           {pkg.stayLine ?? `${pkg.hotelCategory}★ hotels · breakfast & dinner · private cab`}
         </p>
 
+        {pkg.note && (
+          <p className="mt-2 flex items-start gap-1.5 text-xs text-ink-600/75">
+            <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-600" aria-hidden="true" />
+            {pkg.note}
+          </p>
+        )}
+
         <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-ink-600/80">{pkg.summary}</p>
 
         <div className="mt-auto pt-5">
@@ -171,7 +217,7 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
               </span>
             )}
           </div>
-          <p className="text-[11px] text-ink-600/55">per person, on twin sharing</p>
+          <p className="text-[11px] text-ink-600/55">{priceNote}</p>
 
           <div className="mt-4 grid grid-cols-2 gap-2">
             <button
@@ -183,10 +229,19 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
             </button>
             <Link
               href={`/packages/${pkg.slug}`}
-              className="flex min-h-11 items-center justify-center gap-1.5 rounded-full border border-sand-200 px-4 py-2.5 text-sm font-semibold text-ink-900 transition-colors hover:border-ink-900/25"
+              className={
+                "flex min-h-11 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-sand-200 py-2.5 text-sm font-semibold text-ink-900 transition-colors hover:border-ink-900/25 " +
+                // A longer label ("View Package") has to stay on one line in
+                // half a 360px card, so it gets tighter padding and drops the
+                // arrow on the narrowest phones.
+                (longDetailsLabel ? "px-3" : "px-4")
+              }
             >
-              Details
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              {detailsLabel}
+              <ArrowRight
+                className={"h-3.5 w-3.5 " + (longDetailsLabel ? "hidden min-[400px]:block" : "")}
+                aria-hidden="true"
+              />
             </Link>
           </div>
           <a
@@ -204,6 +259,67 @@ function Card({ pkg, priority }: { pkg: PackageCardData; priority: boolean }) {
   );
 }
 
+function CustomCard({ card }: { card: CustomCardData }) {
+  const { open } = useEnquiry();
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-dashed border-ink-900/20 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={card.imageSrc}
+          alt={card.imageAlt}
+          fill
+          sizes="(min-width:1280px) 30vw, (min-width:640px) 45vw, 88vw"
+          loading="lazy"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {card.badge && (
+          <span className="absolute left-3 top-3 rounded-full bg-ink-900 px-2.5 py-1 text-[11px] font-bold text-white shadow-sm">
+            {card.badge}
+          </span>
+        )}
+        <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-white/92 px-2.5 py-1 text-xs font-semibold text-ink-900 backdrop-blur-sm">
+          <CalendarRange className="h-3 w-3" aria-hidden="true" />
+          {card.durationLabel}
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="font-display text-lg font-bold leading-snug text-ink-900">{card.title}</h3>
+        <p className="mt-2 flex items-start gap-1.5 text-xs font-medium text-ink-700">
+          <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-600" aria-hidden="true" />
+          <span>{card.routeLabel}</span>
+        </p>
+        <p className="mt-2 flex items-center gap-1.5 text-xs text-ink-600/75">
+          <BedDouble className="h-3.5 w-3.5 shrink-0 text-brand-600" aria-hidden="true" />
+          {card.stayLine}
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-ink-600/80">{card.summary}</p>
+
+        <div className="mt-auto pt-5">
+          <p className="font-display text-2xl font-extrabold text-ink-900">{card.priceLabel}</p>
+          <p className="text-[11px] text-ink-600/55">priced on your route, dates and group size</p>
+          <button
+            type="button"
+            onClick={() => open()}
+            className="mt-4 flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-sunset-500 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-sunset-600"
+          >
+            {card.ctaLabel}
+          </button>
+          <a
+            href={card.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1da851]"
+          >
+            <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+            WhatsApp us your route
+          </a>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export function PackageExplorer({
   packages,
   tripTypes = TRIP_TYPES,
@@ -212,6 +328,9 @@ export function PackageExplorer({
   placeName = "Himachal",
   idPrefix = "hp",
   emptyMessage = "Most of our Himachal trips are built from scratch anyway — tell us your dates and budget and we will put an itinerary together.",
+  detailsLabel = "Details",
+  priceNote = "per person, on twin sharing",
+  customCard,
 }: {
   packages: PackageCardData[];
   tripTypes?: readonly FilterOption[];
@@ -222,6 +341,12 @@ export function PackageExplorer({
   /** Keeps the filter controls' ids unique to the page. */
   idPrefix?: string;
   emptyMessage?: string;
+  /** Label of each card's link to its package page. */
+  detailsLabel?: string;
+  /** The line under each price. */
+  priceNote?: string;
+  /** Appended after the filtered cards, whatever the filters, when any match. */
+  customCard?: CustomCardData;
 }) {
   const [type, setType] = useState<string>("all");
   const [duration, setDuration] = useState<string>("all");
@@ -232,10 +357,12 @@ export function PackageExplorer({
       packages.filter(
         (pkg) =>
           (type === "all" || pkg.categories.includes(type)) &&
-          inDuration(pkg.days, duration) &&
-          inBudget(pkg.price, budget),
+          (inRange(pkg.days, durations.find((o) => o.value === duration)) ??
+            inDuration(pkg.days, duration)) &&
+          (inRange(pkg.price, budgets.find((o) => o.value === budget)) ??
+            inBudget(pkg.price, budget)),
       ),
-    [packages, type, duration, budget],
+    [packages, type, duration, budget, durations, budgets],
   );
 
   const selectClass =
@@ -310,8 +437,15 @@ export function PackageExplorer({
       {visible.length > 0 ? (
         <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((pkg, i) => (
-            <Card key={pkg.slug} pkg={pkg} priority={i < 3} />
+            <Card
+              key={pkg.slug}
+              pkg={pkg}
+              priority={i < 3}
+              detailsLabel={detailsLabel}
+              priceNote={priceNote}
+            />
           ))}
+          {customCard && <CustomCard card={customCard} />}
         </div>
       ) : (
         <div className="mt-6 rounded-2xl border border-dashed border-sand-200 bg-sand-50 p-8 text-center">

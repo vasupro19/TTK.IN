@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { X } from "lucide-react";
-import { QuickLeadForm } from "./QuickLeadForm";
+import { QuickLeadForm, type QuickLeadFormOptions } from "./QuickLeadForm";
 
 /**
  * One enquiry dialog for the whole page.
@@ -48,10 +48,16 @@ export function EnquiryProvider({
   children,
   destination = "Himachal Pradesh",
   autoOpen = true,
+  formOptions,
+  intro = "Four quick answers and a travel expert will call you back.",
 }: {
   children: ReactNode;
   destination?: string;
   autoOpen?: boolean;
+  /** Passed to the dialog's form — see QuickLeadForm's opt-in trip fields. */
+  formOptions?: QuickLeadFormOptions;
+  /** The line under the dialog title. */
+  intro?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -202,12 +208,12 @@ export function EnquiryProvider({
                   Plan your {destination} trip
                 </h2>
                 <p className="mt-1 pr-12 text-sm text-ink-600/75">
-                  Four quick answers and a travel expert will call you back.
+                  {intro}
                 </p>
               </div>
 
               <div className="px-6 pb-6 sm:px-7 sm:pb-7">
-                <QuickLeadForm destination={destination} onSubmitted={close} />
+                <QuickLeadForm destination={destination} onSubmitted={close} options={formOptions} />
               </div>
             </div>
           </div>

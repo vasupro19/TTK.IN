@@ -10,6 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteConfig.url, changeFrequency: "daily", priority: 1 },
     { url: `${siteConfig.url}/packages`, changeFrequency: "daily", priority: 0.9 },
     { url: `${siteConfig.url}/destinations`, changeFrequency: "weekly", priority: 0.8 },
+    // Spiti is a destination inside the Himachal region rather than a region
+    // of its own, so its landing page is not covered by seoLandingRoutes below.
+    { url: `${siteConfig.url}/spiti-valley-tour-packages`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/hotels`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteConfig.url}/cabs`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteConfig.url}/activities`, changeFrequency: "weekly", priority: 0.7 },

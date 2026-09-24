@@ -2951,6 +2951,174 @@
     ],
     "alt": "The lake city of Udaipur with the Aravalli hills behind it, Rajasthan"
   },
+  "pkg-sp-explorer": {
+    "queries": [
+      "The Ridge Shimla Himachal Pradesh",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The open promenade of The Ridge in Shimla with colonial buildings along its edge"
+  },
+  "pkg-sp-explorer-1": {
+    "queries": [
+      "Christ Church Shimla",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The yellow neo-Gothic facade of Christ Church on the Ridge in Shimla, Himachal Pradesh"
+  },
+  "pkg-sp-explorer-2": {
+    "queries": [
+      "Kalka Shimla Railway toy train",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The narrow-gauge Kalka–Shimla toy train curving through a forested hillside in Himachal Pradesh"
+  },
+  "pkg-sp-circuit": {
+    "queries": [
+      "Christ Church Shimla",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The yellow neo-Gothic facade of Christ Church on the Ridge in Shimla, Himachal Pradesh"
+  },
+  "pkg-sp-circuit-1": {
+    "queries": [
+      "Hadimba Devi Temple Manali",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The wooden pagoda roof of Hadimba Devi Temple among deodar cedars in Manali, Himachal Pradesh"
+  },
+  "pkg-sp-circuit-2": {
+    "queries": [
+      "Kalka Shimla Railway toy train",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The narrow-gauge Kalka–Shimla toy train curving through a forested hillside in Himachal Pradesh"
+  },
+  "pkg-sp-manali": {
+    "queries": [
+      "Hadimba Devi Temple Manali",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The wooden pagoda roof of Hadimba Devi Temple among deodar cedars in Manali, Himachal Pradesh"
+  },
+  "pkg-sp-manali-1": {
+    "queries": [
+      "Beas River Manali Himachal Pradesh",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The Beas river running over boulders through the Kullu valley at Manali, Himachal Pradesh"
+  },
+  "pkg-sp-manali-2": {
+    "queries": [
+      "Old Manali village Himachal Pradesh",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "Slate-roofed houses and orchards of Old Manali on the hillside above the Kullu valley"
+  },
+  "pkg-sp-shimla": {
+    "queries": [
+      "Kalka Shimla Railway toy train",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The narrow-gauge Kalka–Shimla toy train curving through a forested hillside in Himachal Pradesh"
+  },
+  "pkg-sp-shimla-1": {
+    "queries": [
+      "Kufri Shimla Himachal Pradesh snow",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "Snow-covered slopes and pine forest at Kufri above Shimla, Himachal Pradesh"
+  },
+  "pkg-sp-shimla-2": {
+    "queries": [
+      "The Ridge Shimla Himachal Pradesh",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The open promenade of The Ridge in Shimla with colonial buildings along its edge"
+  },
+  "pkg-sp-chandratal": {
+    "queries": [
+      "Solang Valley Manali Himachal Pradesh",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The green bowl of Solang Valley below snow-streaked ridges near Manali, Himachal Pradesh"
+  },
+  "pkg-sp-chandratal-1": {
+    "queries": [
+      "Hadimba Devi Temple Manali",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The wooden pagoda roof of Hadimba Devi Temple among deodar cedars in Manali, Himachal Pradesh"
+  },
+  "pkg-sp-chandratal-2": {
+    "queries": [
+      "Beas River Manali Himachal Pradesh",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The Beas river running over boulders through the Kullu valley at Manali, Himachal Pradesh"
+  },
+  "pkg-sp-group": {
+    "queries": [
+      "Kalka Shimla Railway toy train",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The narrow-gauge Kalka–Shimla toy train curving through a forested hillside in Himachal Pradesh"
+  },
+  "pkg-sp-group-1": {
+    "queries": [
+      "Sangla Valley Kinnaur Himachal Pradesh",
+      "Kinnaur Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "Apple orchards and terraced fields along the Baspa river in the Sangla valley, Kinnaur"
+  },
+  "pkg-sp-group-2": {
+    "queries": [
+      "Beas River Manali Himachal Pradesh",
+      "Manali Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The Beas river running over boulders through the Kullu valley at Manali, Himachal Pradesh"
+  },
+  "pkg-sp-kinnaur": {
+    "queries": [
+      "Kalka Shimla Railway toy train",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The narrow-gauge Kalka–Shimla toy train curving through a forested hillside in Himachal Pradesh"
+  },
+  "pkg-sp-kinnaur-1": {
+    "queries": [
+      "Kufri Shimla Himachal Pradesh snow",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "Snow-covered slopes and pine forest at Kufri above Shimla, Himachal Pradesh"
+  },
+  "pkg-sp-kinnaur-2": {
+    "queries": [
+      "The Ridge Shimla Himachal Pradesh",
+      "Shimla Himachal Pradesh India",
+      "Himachal Pradesh India landscape"
+    ],
+    "alt": "The open promenade of The Ridge in Shimla with colonial buildings along its edge"
+  },
   "pkg-goa-explorer": {
     "queries": [
       "Anjuna Beach Goa",

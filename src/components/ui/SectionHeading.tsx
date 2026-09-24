@@ -12,8 +12,11 @@ export function SectionHeading({
   title: string;
   description?: string;
   align?: "left" | "center";
-  /** Eyebrow colouring. "desert" is the Rajasthan landing page's terracotta. */
-  tone?: "brand" | "desert";
+  /**
+   * Eyebrow colouring. "desert" is the Rajasthan page's terracotta, "slate"
+   * the Spiti page's stone grey.
+   */
+  tone?: "brand" | "desert" | "slate";
   className?: string;
 }) {
   return (
@@ -30,7 +33,9 @@ export function SectionHeading({
             "inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider",
             tone === "desert"
               ? "bg-sandstone-100 text-terracotta-700"
-              : "bg-brand-50 text-brand-700"
+              : tone === "slate"
+                ? "bg-slate-100 text-slate-700"
+                : "bg-brand-50 text-brand-700"
           )}
         >
           {eyebrow}

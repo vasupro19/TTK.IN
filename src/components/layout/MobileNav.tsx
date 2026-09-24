@@ -90,16 +90,20 @@ export function MobileNav() {
                     </Link>
                     {link.children && (
                       <div className="-mt-1 mb-2 flex flex-wrap gap-2">
-                        {link.children.slice(0, 6).map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={close}
-                            className="rounded-full bg-sand-100 px-3 py-1.5 text-xs font-medium text-ink-700"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
+                        {/* Every child but the one repeating the parent link, so
+                            adding a destination never pushes another off. */}
+                        {link.children
+                          .filter((child) => child.href !== link.href)
+                          .map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={close}
+                              className="rounded-full bg-sand-100 px-3 py-1.5 text-xs font-medium text-ink-700"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
                       </div>
                     )}
                   </div>
