@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
+import { GoogleTag } from "@/components/analytics/GoogleTag";
 import { MetaPixel, MetaPixelNoscript } from "@/components/analytics/MetaPixel";
 import { siteConfig, organizationJsonLd } from "@/lib/seo";
 
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bodyFont.variable} ${displayFont.variable} h-full scroll-smooth antialiased`}
     >
       <head>
+        <GoogleTag />
         <MetaPixel />
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
