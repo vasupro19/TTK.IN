@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { EnquiryProvider } from "@/components/lead/EnquiryModal";
 import { MobileBottomCTA } from "@/components/landing/MobileBottomCTA";
 import { Container } from "@/components/ui/Container";
@@ -118,8 +117,6 @@ export default function RajasthanLandingPage() {
 
   return (
     <EnquiryProvider destination="Rajasthan">
-      <MetaPixel />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

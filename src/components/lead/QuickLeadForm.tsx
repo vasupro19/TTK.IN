@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2, MessageCircle } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/seo";
+import { trackLead } from "@/lib/metaPixel";
 
 /**
  * The only enquiry form the landing page uses.
@@ -77,6 +78,7 @@ export function QuickLeadForm({
         setBusy(false);
         return;
       }
+      trackLead(destination);
       onSubmitted?.();
       // A dedicated page, so the conversion is a pageview the team can track.
       router.push("/thank-you");

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { HimachalHero } from "@/components/himachal/HimachalHero";
 import { TrustStrip } from "@/components/himachal/TrustStrip";
 import { HimachalPackages } from "@/components/himachal/HimachalPackages";
@@ -103,8 +102,6 @@ export default function HimachalLandingPage() {
     // also opens it once, a few seconds in, for visitors who would otherwise
     // read and leave.
     <EnquiryProvider destination="Himachal Pradesh">
-      <MetaPixel />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

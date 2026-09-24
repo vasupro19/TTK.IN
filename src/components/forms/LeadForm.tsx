@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { trackLead } from "@/lib/metaPixel";
 
 const budgets = [
   "Under ₹15,000 per person",
@@ -62,6 +63,7 @@ export function LeadForm({
         setStatus("error");
         return;
       }
+      trackLead(typeof data.destination === "string" ? data.destination : defaultDestination);
       setStatus("success");
       form.reset();
     } catch {

@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
+import { MetaPixel, MetaPixelNoscript } from "@/components/analytics/MetaPixel";
 import { siteConfig, organizationJsonLd } from "@/lib/seo";
 
 const bodyFont = Inter({
@@ -85,10 +86,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${bodyFont.variable} ${displayFont.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        <MetaPixel />
+      </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Script id="js-reveal-enabled" strategy="beforeInteractive">
           {"document.documentElement.classList.add('js-reveal-enabled')"}
         </Script>
+        <MetaPixelNoscript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
