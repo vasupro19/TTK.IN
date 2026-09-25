@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GOOGLE_ADS_ID } from "@/components/analytics/GoogleTag";
+import { GOOGLE_ADS_ID } from "@/components/analytics/GoogleAdsTag";
 
 declare global {
   interface Window {

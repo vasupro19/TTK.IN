@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
+import { GoogleAdsTag } from "@/components/analytics/GoogleAdsTag";
 import { GoogleTag } from "@/components/analytics/GoogleTag";
 import { MetaPixel, MetaPixelNoscript } from "@/components/analytics/MetaPixel";
 import { siteConfig, organizationJsonLd } from "@/lib/seo";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <GoogleTag />
+        <GoogleAdsTag />
         <MetaPixel />
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
