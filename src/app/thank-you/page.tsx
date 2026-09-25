@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, MessageCircle, Phone } from "lucide-react";
+import { GoogleAdsConversion } from "@/components/analytics/GoogleAdsConversion";
 import { Container } from "@/components/ui/Container";
 import { siteConfig, telLink, whatsappLink } from "@/lib/seo";
 
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <Container className="max-w-2xl py-20 text-center sm:py-28">
+      <GoogleAdsConversion />
       <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand-50 text-brand-700">
         <CheckCircle2 className="h-9 w-9" aria-hidden="true" />
       </span>
